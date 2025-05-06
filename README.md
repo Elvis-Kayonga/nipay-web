@@ -1,73 +1,113 @@
-# Welcome to your Lovable project
 
-## Project info
+# NiPay: SME Overdraft Platform
 
-**URL**: https://lovable.dev/projects/baab621d-2710-4fc9-b905-03bd59639c63
+A modern, responsive website for NiPay, a fintech platform providing overdraft facilities to SMEs in Rwanda based on their mobile money transaction history.
 
-## How can I edit this code?
+## Getting Started
 
-There are several ways of editing your application.
+### Prerequisites
 
-**Use Lovable**
+- Node.js v16+ and npm
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/baab621d-2710-4fc9-b905-03bd59639c63) and start prompting.
+### Installation
 
-Changes made via Lovable will be committed automatically to this repo.
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/nipay-website.git
+cd nipay-website
+```
 
-**Use your preferred IDE**
+2. Install dependencies:
+```bash
+npm install
+```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+3. Run development server:
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Open your browser and visit `http://localhost:8080` to view the application.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Project Structure
 
-**Use GitHub Codespaces**
+```
+├── public/                 # Static assets
+├── src/
+│   ├── components/         # Reusable UI components
+│   │   ├── forms/          # Form components
+│   │   ├── layout/         # Layout components (Header, Footer)
+│   │   ├── modals/         # Modal components
+│   │   ├── sections/       # Page section components
+│   │   ├── shared/         # Shared utility components
+│   │   └── ui/             # UI components from shadcn/ui
+│   ├── data/               # JSON data files
+│   ├── pages/              # Page components
+│   ├── services/           # API and other services
+│   ├── App.tsx             # Main App component
+│   ├── index.css           # Global styles
+│   └── main.tsx            # Application entry point
+└── tailwind.config.ts      # Tailwind CSS configuration
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Features
 
-## What technologies are used for this project?
+- **Responsive Design**: Mobile-first approach ensuring usability across all devices
+- **Dark/Light Mode**: Toggle between themes with persistent preference
+- **Interactive Forms**: Waitlist and investor forms with client and server validation
+- **Dynamic Data**: Stats fetched from API endpoints
+- **Accessibility**: ARIA attributes, keyboard navigation, and proper focus management
+- **SEO Optimization**: Meta tags, structured data, and optimized content
 
-This project is built with:
+## Updating Content
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Modifying Stats
 
-## How can I deploy this project?
+Update the statistics displayed on the site by editing `src/data/stats.json`. This file contains key metrics used throughout the website.
 
-Simply open [Lovable](https://lovable.dev/projects/baab621d-2710-4fc9-b905-03bd59639c63) and click on Share -> Publish.
+### Updating FAQs
 
-## Can I connect a custom domain to my Lovable project?
+Manage frequently asked questions in `src/data/faq.json`. Each FAQ item should have a question and answer field.
 
-Yes, you can!
+### Changing Testimonials
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Edit customer testimonials in `src/data/testimonials.json`. Each testimonial should include the customer's name, title, quote, and image path.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+### Adding Partners
+
+Update partner organizations in `src/data/partners.json`. Partners are divided into banks and organizations, each with a name and logo path.
+
+## API Endpoints
+
+The application currently uses simulated API endpoints in `src/services/api.ts`. In a production environment, these would be replaced with actual API calls to your backend.
+
+### Available Endpoints
+
+- `/api/waitlist` - For SMEs to join the waitlist
+- `/api/investor` - For capital providers to express interest
+- `/api/stats` - Fetches latest statistics for display
+
+## Deployment
+
+This project can be deployed to Vercel with zero configuration using the following steps:
+
+1. Push your code to a GitHub repository
+2. Connect the repository to Vercel
+3. Deploy
+
+## Built With
+
+- [React](https://reactjs.org/) - Frontend framework
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
+- [shadcn/ui](https://ui.shadcn.com/) - UI component system
+- [React Hook Form](https://react-hook-form.com/) - Form handling
+- [Zod](https://github.com/colinhacks/zod) - Schema validation
+- [Recharts](https://recharts.org/) - Charting library
+
+## License
+
+This project is proprietary and confidential.
+
+## Support
+
+For support or inquiries, please email [support@nipay.rw](mailto:support@nipay.rw).

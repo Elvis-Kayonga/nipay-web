@@ -1,0 +1,81 @@
+
+import { Button } from '@/components/ui/button';
+import { useState } from 'react';
+import WaitlistModal from '../modals/WaitlistModal';
+import InvestorModal from '../modals/InvestorModal';
+
+const HeroSection = () => {
+  const [showWaitlistModal, setShowWaitlistModal] = useState(false);
+  const [showInvestorModal, setShowInvestorModal] = useState(false);
+  
+  return (
+    <section className="relative h-screen min-h-[600px] flex items-center justify-center text-white">
+      {/* Background image with overlay */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0" 
+        style={{ 
+          backgroundImage: "url('https://images.unsplash.com/photo-1472396961693-142e6e269027?ixlib=rb-4.0.3')",
+          backgroundAttachment: "fixed"
+        }}
+        aria-hidden="true"
+      >
+        <div className="absolute inset-0 hero-gradient"></div>
+      </div>
+      
+      {/* Content */}
+      <div className="container mx-auto px-4 relative z-10 text-center">
+        <div className="max-w-3xl mx-auto">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in">
+            Revolutionizing SME Finance in Rwanda
+          </h1>
+          
+          <p className="text-lg md:text-xl mb-8 animate-slide-up">
+            Instant overdrafts against mobile-money inflows—no paperwork, no delays.
+          </p>
+          
+          <p className="text-sm italic mb-10 opacity-80 max-w-2xl mx-auto">
+            79% of Rwandan SMEs remain credit-constrained, despite 5.3 million active mobile-money users—and a $1.2 billion finance gap⁺.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
+            <Button 
+              className="btn-primary"
+              onClick={() => setShowWaitlistModal(true)}
+            >
+              Join Waitlist
+            </Button>
+            <Button
+              variant="outline"
+              className="btn-secondary"
+              onClick={() => setShowInvestorModal(true)}
+            >
+              Talk to Us
+            </Button>
+          </div>
+          
+          <div className="text-xs text-gray-300 max-w-2xl mx-auto">
+            <p className="mb-1">
+              ⁺ "79% of SMEs in Rwanda lack sufficient access to finance, leading to an estimated $1.2 billion gap." 
+              <span className="font-semibold ml-1">I&M Group</span>
+            </p>
+            <p>
+              "Active MoMo users rose to 5.3 million in Q1 2025."
+              <span className="font-semibold ml-1">TechAfrica News, The Fast Mode</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <WaitlistModal 
+        isOpen={showWaitlistModal} 
+        onClose={() => setShowWaitlistModal(false)} 
+      />
+      <InvestorModal
+        isOpen={showInvestorModal}
+        onClose={() => setShowInvestorModal(false)}
+      />
+    </section>
+  );
+};
+
+export default HeroSection;

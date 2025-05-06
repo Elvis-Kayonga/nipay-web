@@ -1,0 +1,24 @@
+
+[
+  {
+    "id": 1,
+    "name": "Alice N.",
+    "title": "Café Owner, Kigali",
+    "quote": "NiPay's credit line kept us stocked through the high season.",
+    "image": "/placeholder.svg"
+  },
+  {
+    "id": 2,
+    "name": "Jean P.",
+    "title": "Grocery Retailer, Huye",
+    "quote": "Seamless digital underwriting—no more bank queues.",
+    "image": "/placeholder.svg"
+  },
+  {
+    "id": 3,
+    "name": "Emmanuel K.",
+    "title": "Electronics Shop, Musanze",
+    "quote": "The automatic repayment system fits perfectly with my cash flow.",
+    "image": "/placeholder.svg"
+  }
+]
