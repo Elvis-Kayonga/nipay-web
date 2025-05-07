@@ -14,9 +14,9 @@ const HowItWorksSection = () => {
           <div className="w-16 h-16 rounded-full bg-nipay-green flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6">
             1
           </div>
-          <h3 className="text-xl font-bold mb-3">Connect Your Mobile Money</h3>
+          <h3 className="text-xl font-bold mb-3">Use the NiPay Wallet</h3>
           <p className="text-muted-foreground">
-            Just link your existing mobile-money wallet through our simple USSD code or app - takes less than 2 minutes.
+            Sign up for our NiPay wallet through our simple USSD code or app - takes less than 2 minutes to set up.
           </p>
           
           {/* Arrow (visible only on desktop) */}
@@ -37,7 +37,7 @@ const HowItWorksSection = () => {
           </div>
           <h3 className="text-xl font-bold mb-3">Get Your Credit Line</h3>
           <p className="text-muted-foreground">
-            We analyze your mobile money flow and instantly approve you for up to 2x your monthly transactions.
+            We analyze your NiPay wallet activity and instantly approve you for up to 2x your monthly transactions.
           </p>
           
           {/* Arrow (visible only on desktop) */}
@@ -58,7 +58,7 @@ const HowItWorksSection = () => {
           </div>
           <h3 className="text-xl font-bold mb-3">Use & Repay Flexibly</h3>
           <p className="text-muted-foreground">
-            Draw credit when you need it and our flexible system collects small payments from your incoming transactions.
+            Draw credit when you need it and our flexible system collects small payments from your incoming NiPay transactions.
           </p>
         </div>
       </div>
@@ -67,7 +67,7 @@ const HowItWorksSection = () => {
       <div className="mt-12 max-w-2xl mx-auto bg-muted/50 p-6 rounded-lg">
         <h3 className="text-xl font-semibold mb-3">What is Revolving Credit?</h3>
         <p className="text-base">
-          Think of it like a credit card for your mobile money account. You get a credit limit 
+          Think of it like a credit card for your NiPay wallet. You get a credit limit 
           based on your business cash flow. Use what you need when you need it, and only pay for what you use.
           Unlike traditional loans, there's no fixed monthly payment - we collect small amounts from your incoming 
           transactions, so repayment matches your business rhythm.
@@ -100,7 +100,7 @@ const HowItWorksSection = () => {
           </div>
         </div>
         <p className="text-sm text-muted-foreground mt-4">
-          Simple interface available via USSD code *123# or our mobile app.
+          Simple interface available via USSD code *123# or our NiPay mobile app.
         </p>
       </div>
     </SectionWrapper>
