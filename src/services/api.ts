@@ -1,4 +1,3 @@
-
 import statsData from '../data/stats.json';
 import faqData from '../data/faq.json';
 import testimonialsData from '../data/testimonials.json';
@@ -23,7 +22,6 @@ export interface Partner {
 }
 
 export interface Partners {
-  banks: Partner[];
   organizations: Partner[];
 }
 
