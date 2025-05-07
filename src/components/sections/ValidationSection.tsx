@@ -5,7 +5,6 @@ import { api, Partners } from '@/services/api';
 
 const ValidationSection = () => {
   const [partners, setPartners] = useState<Partners>({
-    banks: [],
     organizations: []
   });
   
@@ -69,41 +68,22 @@ const ValidationSection = () => {
       </div>
       
       {/* Partners logos */}
-      <div className="space-y-10">
-        <div>
-          <h3 className="text-xl font-bold mb-6 text-center">Banking Partners</h3>
-          <div className="flex flex-wrap justify-center gap-8 items-center">
-            {partners.banks.map((bank, index) => (
-              <div 
-                key={`bank-${index}`} 
-                className="bg-white p-4 rounded-lg shadow-sm w-32 h-32 flex items-center justify-center"
-              >
-                <img 
-                  src={bank.logo} 
-                  alt={bank.name} 
-                  className="max-w-full max-h-full"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-        
-        <div>
-          <h3 className="text-xl font-bold mb-6 text-center">Industry Organizations</h3>
-          <div className="flex flex-wrap justify-center gap-8 items-center">
-            {partners.organizations.map((org, index) => (
-              <div 
-                key={`org-${index}`} 
-                className="bg-white p-4 rounded-lg shadow-sm w-32 h-32 flex items-center justify-center"
-              >
-                <img 
-                  src={org.logo} 
-                  alt={org.name} 
-                  className="max-w-full max-h-full"
-                />
-              </div>
-            ))}
-          </div>
+      <div>
+        <h3 className="text-xl font-bold mb-6 text-center">Industry Partners</h3>
+        <div className="flex flex-wrap justify-center gap-12 items-center">
+          {partners.organizations.map((org, index) => (
+            <div 
+              key={`org-${index}`} 
+              className="bg-white p-6 rounded-lg shadow-md w-48 h-48 flex flex-col items-center justify-center"
+            >
+              <img 
+                src={org.logo} 
+                alt={org.name} 
+                className="max-w-full max-h-24 mb-4"
+              />
+              <p className="text-center font-medium text-sm">{org.name}</p>
+            </div>
+          ))}
         </div>
       </div>
     </SectionWrapper>

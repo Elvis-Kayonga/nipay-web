@@ -1,13 +1,7 @@
 
 {
-  "banks": [
-    {"name": "Bank of Kigali", "logo": "/placeholder.svg"},
-    {"name": "I&M Bank Rwanda", "logo": "/placeholder.svg"},
-    {"name": "Equity Bank Rwanda", "logo": "/placeholder.svg"}
-  ],
   "organizations": [
-    {"name": "GSMA", "logo": "/placeholder.svg"},
-    {"name": "IFC", "logo": "/placeholder.svg"},
-    {"name": "Rwanda Development Board", "logo": "/placeholder.svg"}
+    {"name": "Jasiri4africa", "logo": "/placeholder.svg"},
+    {"name": "Allan&gill grey philanthropy(AGGP)", "logo": "/placeholder.svg"}
   ]
 }
