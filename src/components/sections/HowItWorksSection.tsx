@@ -14,9 +14,9 @@ const HowItWorksSection = () => {
           <div className="w-16 h-16 rounded-full bg-nipay-green flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6">
             1
           </div>
-          <h3 className="text-xl font-bold mb-3">Onboard via USSD/App</h3>
+          <h3 className="text-xl font-bold mb-3">Connect Your Mobile Money</h3>
           <p className="text-muted-foreground">
-            Link your mobile-money wallet & grant data access.
+            Just link your existing mobile-money wallet through our simple USSD code or app - takes less than 2 minutes.
           </p>
           
           {/* Arrow (visible only on desktop) */}
@@ -35,9 +35,9 @@ const HowItWorksSection = () => {
           <div className="w-16 h-16 rounded-full bg-nipay-green flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6">
             2
           </div>
-          <h3 className="text-xl font-bold mb-3">Get Instant Limit</h3>
+          <h3 className="text-xl font-bold mb-3">Get Your Credit Line</h3>
           <p className="text-muted-foreground">
-            Up to 100% of your average monthly inflows.
+            We analyze your mobile money flow and instantly approve you for up to 2x your monthly transactions.
           </p>
           
           {/* Arrow (visible only on desktop) */}
@@ -56,11 +56,22 @@ const HowItWorksSection = () => {
           <div className="w-16 h-16 rounded-full bg-nipay-green flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6">
             3
           </div>
-          <h3 className="text-xl font-bold mb-3">Repay Automatically</h3>
+          <h3 className="text-xl font-bold mb-3">Use & Repay Flexibly</h3>
           <p className="text-muted-foreground">
-            We deduct 2–4% per transaction until your overdraft clears.
+            Draw credit when you need it and our flexible system collects small payments from your incoming transactions.
           </p>
         </div>
+      </div>
+      
+      {/* Additional explanation */}
+      <div className="mt-12 max-w-2xl mx-auto bg-muted/50 p-6 rounded-lg">
+        <h3 className="text-xl font-semibold mb-3">What is Revolving Credit?</h3>
+        <p className="text-base">
+          Think of it like a credit card for your mobile money account. You get a credit limit 
+          based on your business cash flow. Use what you need when you need it, and only pay for what you use.
+          Unlike traditional loans, there's no fixed monthly payment - we collect small amounts from your incoming 
+          transactions, so repayment matches your business rhythm.
+        </p>
       </div>
       
       {/* Mobile app illustration */}

@@ -29,15 +29,16 @@ const HeroSection = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
-            <Button 
-              variant="green"
-              size="lg"
-              className="text-lg py-6 px-8"
-              onClick={() => setShowWaitlistModal(true)}
-            >
-              Get Your Overdraft Limit
-              <ArrowRight className="ml-2" />
-            </Button>
+            <Link to="/waitlist">
+              <Button 
+                variant="green"
+                size="lg"
+                className="text-lg py-6 px-8"
+              >
+                Get Your Credit Limit
+                <ArrowRight className="ml-2" />
+              </Button>
+            </Link>
             <Link to="/investors">
               <Button 
                 variant="outline" 
