@@ -9,12 +9,17 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showWaitlistModal, setShowWaitlistModal] = useState(false);
+  const [isOverHero, setIsOverHero] = useState(true);
   const location = useLocation();
   
   // Track scroll position to add background to header when scrolled
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
+      
+      // Check if we're still over the hero section
+      // Hero section usually takes up the first viewport height (100vh)
+      setIsOverHero(window.scrollY < window.innerHeight * 0.8);
     };
     
     window.addEventListener('scroll', handleScroll);
@@ -35,6 +40,9 @@ const Header = () => {
       window.location.href = `/#${id}`;
     }
   };
+
+  // Set text color based on scroll position
+  const navTextColor = isOverHero ? 'text-white' : 'text-foreground';
   
   return (
     <>
@@ -46,7 +54,7 @@ const Header = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center gap-2">
-              <span className="text-2xl font-bold text-nipay-green">NiPay</span>
+              <span className={`text-2xl font-bold ${isOverHero ? 'text-nipay-green' : 'text-nipay-green'}`}>NiPay</span>
             </Link>
             
             {/* Desktop Navigation */}
@@ -57,7 +65,7 @@ const Header = () => {
                   e.preventDefault();
                   handleNavClick('solution');
                 }}
-                className="text-foreground hover:text-nipay-green transition-colors"
+                className={`${navTextColor} hover:text-nipay-green transition-colors`}
               >
                 Solution
               </a>
@@ -67,7 +75,7 @@ const Header = () => {
                   e.preventDefault();
                   handleNavClick('benefits');
                 }}
-                className="text-foreground hover:text-nipay-green transition-colors"
+                className={`${navTextColor} hover:text-nipay-green transition-colors`}
               >
                 Benefits
               </a>
@@ -77,7 +85,7 @@ const Header = () => {
                   e.preventDefault();
                   handleNavClick('how-it-works');
                 }}
-                className="text-foreground hover:text-nipay-green transition-colors"
+                className={`${navTextColor} hover:text-nipay-green transition-colors`}
               >
                 How It Works
               </a>
@@ -87,7 +95,7 @@ const Header = () => {
                   e.preventDefault();
                   handleNavClick('problem');
                 }}
-                className="text-foreground hover:text-nipay-green transition-colors"
+                className={`${navTextColor} hover:text-nipay-green transition-colors`}
               >
                 Why It Matters
               </a>
@@ -103,7 +111,7 @@ const Header = () => {
                   e.preventDefault();
                   handleNavClick('faq');
                 }}
-                className="text-foreground hover:text-nipay-green transition-colors"
+                className={`${navTextColor} hover:text-nipay-green transition-colors`}
               >
                 FAQ
               </a>
@@ -121,7 +129,7 @@ const Header = () => {
                   Join Waitlist
                 </Button>
                 <Link to="/investors">
-                  <Button variant="outline">
+                  <Button variant="outline" className={isOverHero ? "text-white border-white hover:bg-white/10" : ""}>
                     For Investors
                   </Button>
                 </Link>
@@ -129,7 +137,7 @@ const Header = () => {
               
               {/* Mobile menu button */}
               <button
-                className="md:hidden flex items-center"
+                className={`md:hidden flex items-center ${isOverHero ? 'text-white' : 'text-foreground'}`}
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label="Toggle menu"
               >
