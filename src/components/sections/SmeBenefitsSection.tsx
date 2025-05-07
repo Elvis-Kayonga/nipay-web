@@ -86,10 +86,7 @@ const SmeBenefitsSection = () => {
           <div className="p-6">
             <h3 className="font-bold mb-2">NiPay Mobile Experience</h3>
             <p className="text-sm text-muted-foreground">
-              Simple USSD commands or our intuitive app make it easy to manage your overdraft.
-            </p>
-            <p className="text-sm font-medium text-nipay-green mt-4">
-              "With NiPay, I was able to stock my shop during peak season without waiting for a bank loan." - Marie K., Shop Owner
+              Simple USSD commands or our intuitive app make it easy to manage your credit.
             </p>
           </div>
         </div>

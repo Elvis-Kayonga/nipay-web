@@ -129,14 +129,6 @@ const Waitlist = () => {
                 </div>
               </div>
             </div>
-            
-            <div className="mt-16 text-center">
-              <p className="text-muted-foreground italic">
-                "NiPay has transformed how we manage our cash flow. We can now take advantage of bulk purchasing discounts 
-                and never miss a sale due to stock issues."
-              </p>
-              <p className="font-bold mt-2">- Jean-Claude M., Retail Shop Owner in Kigali</p>
-            </div>
           </div>
         </div>
       </main>
