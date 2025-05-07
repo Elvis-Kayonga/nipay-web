@@ -1,9 +1,12 @@
 
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
+import { useLocation } from 'react-router-dom';
 
 const ThemeToggle = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isOverHero, setIsOverHero] = useState(true);
+  const location = useLocation();
   
   // Initialize theme from localStorage or system preference
   useEffect(() => {
@@ -18,6 +21,23 @@ const ThemeToggle = () => {
       setIsDarkMode(false);
     }
   }, []);
+
+  // Check if we're over the hero section on homepage
+  useEffect(() => {
+    if (location.pathname === '/') {
+      const handleScroll = () => {
+        setIsOverHero(window.scrollY < window.innerHeight * 0.8);
+      };
+      
+      handleScroll(); // Initial check
+      window.addEventListener('scroll', handleScroll);
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    } else {
+      setIsOverHero(false);
+    }
+  }, [location.pathname]);
   
   const toggleTheme = () => {
     if (isDarkMode) {
@@ -33,10 +53,11 @@ const ThemeToggle = () => {
   
   return (
     <Button
-      variant="ghost"
+      variant={isOverHero && !isDarkMode ? "outline-white" : "ghost"}
       size="icon"
       onClick={toggleTheme}
       aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
+      className={isOverHero && !isDarkMode ? "border-white text-white" : ""}
     >
       {isDarkMode ? (
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">

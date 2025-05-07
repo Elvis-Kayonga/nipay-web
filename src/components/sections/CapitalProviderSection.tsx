@@ -4,6 +4,8 @@ import SectionWrapper from '../shared/SectionWrapper';
 import IconCard from '../shared/IconCard';
 import { Button } from '@/components/ui/button';
 import InvestorModal from '../modals/InvestorModal';
+import { Link } from 'react-router-dom';
+import { Badge } from '@/components/ui/badge';
 
 const CapitalProviderSection = () => {
   const [showInvestorModal, setShowInvestorModal] = useState(false);
@@ -13,9 +15,14 @@ const CapitalProviderSection = () => {
       backgroundColor="bg-accent text-accent-foreground" 
       className="text-center"
     >
-      <h2 className="text-3xl md:text-4xl font-bold mb-12">
+      <h2 className="text-3xl md:text-4xl font-bold mb-6">
         Why Capital Providers Partner with NiPay
       </h2>
+      
+      <p className="text-lg mb-12 max-w-3xl mx-auto">
+        Deploy capital efficiently with minimal acquisition costs and earn <span className="font-semibold">10-12% quarterly returns</span>
+        <Badge variant="outline" className="ml-2 bg-primary/10 border-primary/30">Minimum $10,000 USD</Badge>
+      </p>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         <IconCard 
@@ -54,32 +61,39 @@ const CapitalProviderSection = () => {
             </svg>
           }
           title="Attractive Yield"
-          description="Target 12–15% net returns, backed by partner banks."
+          description="Target 10–12% quarterly returns, backed by partner banks."
         />
         
         <IconCard 
           icon={
             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="12" cy="12" r="10"/>
-              <path d="m9 12 2 2 4-4"/>
+              <path d="M8.8 20v-4.1l1.9.2a2.3 2.3 0 0 0 2.164-2.1V8.3A5.37 5.37 0 0 0 2 8.25c0 2.8.656 3.85 4 7.55V20"/>
+              <path d="M19.8 17.8a7.5 7.5 0 0 0-2.4-11.8"/>
+              <path d="M22 12a10 10 0 0 0-3.1-7.3"/>
             </svg>
           }
-          title="Regulatory Compliance"
-          description="Structured SPV ensures clear legal & tax framework."
+          title="Customer Acquisition Savings"
+          description="Save millions in sourcing and onboarding costs."
         />
       </div>
       
-      <div className="mt-12">
+      <div className="mt-12 flex flex-col sm:flex-row justify-center gap-4">
+        <Link to="/investors">
+          <Button 
+            variant="green"
+            size="lg"
+            className="font-semibold"
+          >
+            Learn More About Investing
+          </Button>
+        </Link>
         <Button 
-          variant="outline" 
+          variant="outline-white"
+          size="lg"
           onClick={() => setShowInvestorModal(true)}
-          className="border-white text-white hover:bg-white/10"
+          className="font-semibold"
         >
-          Talk to Us
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
-            <path d="M5 12h14"/>
-            <path d="m12 5 7 7-7 7"/>
-          </svg>
+          Talk to Our Team
         </Button>
       </div>
       

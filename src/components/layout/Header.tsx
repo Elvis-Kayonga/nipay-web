@@ -121,15 +121,17 @@ const Header = () => {
               <ThemeToggle />
               
               <div className="hidden md:flex items-center gap-3">
-                <Button 
-                  variant="default"
-                  onClick={() => setShowWaitlistModal(true)}
-                  className="bg-nipay-green hover:bg-nipay-dark-green text-white"
-                >
-                  Join Waitlist
-                </Button>
+                <Link to="/waitlist">
+                  <Button 
+                    variant="green"
+                  >
+                    Join Waitlist
+                  </Button>
+                </Link>
                 <Link to="/investors">
-                  <Button variant="outline" className={isOverHero ? "text-white border-white hover:bg-white/10" : ""}>
+                  <Button 
+                    variant={isOverHero ? "outline-white" : "outline-dark"}
+                  >
                     For Investors
                   </Button>
                 </Link>
@@ -231,20 +233,17 @@ const Header = () => {
               </a>
               
               <div className="flex flex-col gap-2 pt-3 border-t border-border">
-                <Button 
-                  variant="default"
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    setShowWaitlistModal(true);
-                  }}
-                  className="w-full bg-nipay-green hover:bg-nipay-dark-green text-white"
-                >
-                  Join Waitlist
-                </Button>
+                <Link to="/waitlist" className="w-full">
+                  <Button 
+                    variant="green"
+                    className="w-full"
+                  >
+                    Join Waitlist
+                  </Button>
+                </Link>
                 <Link to="/investors" className="w-full">
                   <Button 
                     variant="outline"
-                    onClick={() => setMobileMenuOpen(false)}
                     className="w-full"
                   >
                     For Investors
