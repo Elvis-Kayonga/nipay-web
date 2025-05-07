@@ -1,7 +1,7 @@
 
-# NiPay: SME Overdraft Platform
+# NiPay: SME Credit Platform
 
-A modern, responsive website for NiPay, a fintech platform providing overdraft facilities to SMEs in Rwanda based on their mobile money transaction history.
+A modern, responsive website for NiPay, a fintech platform providing credit facilities to SMEs in Rwanda based on their mobile money transaction history.
 
 ## Getting Started
 
