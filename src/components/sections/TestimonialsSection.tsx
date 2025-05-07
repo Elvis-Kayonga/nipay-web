@@ -1,17 +1,9 @@
 
 import { useEffect, useState } from 'react';
 import SectionWrapper from '../shared/SectionWrapper';
-import { api } from '@/services/api';
+import { api, Testimonial } from '@/services/api';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Card, CardContent } from '@/components/ui/card';
-
-interface Testimonial {
-  id: number;
-  name: string;
-  title: string;
-  quote: string;
-  image: string;
-}
 
 const TestimonialsSection = () => {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);

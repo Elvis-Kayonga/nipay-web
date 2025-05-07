@@ -4,6 +4,29 @@ import faqData from '../data/faq.json';
 import testimonialsData from '../data/testimonials.json';
 import partnersData from '../data/partners.json';
 
+export interface Testimonial {
+  id: number;
+  name: string;
+  title: string;
+  quote: string;
+  image: string;
+}
+
+export interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+export interface Partner {
+  name: string;
+  logo: string;
+}
+
+export interface Partners {
+  banks: Partner[];
+  organizations: Partner[];
+}
+
 export interface WaitlistFormData {
   name: string;
   businessName: string;
@@ -20,7 +43,7 @@ export interface InvestorFormData {
 
 // Simulated API calls with promises to mimic real API behavior
 export const api = {
-  getStats: async () => {
+  getStats: async (): Promise<Record<string, string>> => {
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve(statsData);
@@ -28,7 +51,7 @@ export const api = {
     });
   },
   
-  getFAQs: async () => {
+  getFAQs: async (): Promise<FAQItem[]> => {
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve(faqData);
@@ -36,7 +59,7 @@ export const api = {
     });
   },
   
-  getTestimonials: async () => {
+  getTestimonials: async (): Promise<Testimonial[]> => {
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve(testimonialsData);
@@ -44,7 +67,7 @@ export const api = {
     });
   },
   
-  getPartners: async () => {
+  getPartners: async (): Promise<Partners> => {
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve(partnersData);

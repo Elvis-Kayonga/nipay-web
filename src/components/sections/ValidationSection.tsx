@@ -1,17 +1,7 @@
 
 import { useEffect, useState } from 'react';
 import SectionWrapper from '../shared/SectionWrapper';
-import { api } from '@/services/api';
-
-interface Partner {
-  name: string;
-  logo: string;
-}
-
-interface Partners {
-  banks: Partner[];
-  organizations: Partner[];
-}
+import { api, Partners } from '@/services/api';
 
 const ValidationSection = () => {
   const [partners, setPartners] = useState<Partners>({

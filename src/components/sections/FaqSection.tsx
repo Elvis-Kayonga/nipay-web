@@ -1,18 +1,13 @@
 
 import { useEffect, useState } from 'react';
 import SectionWrapper from '../shared/SectionWrapper';
-import { api } from '@/services/api';
+import { api, FAQItem } from '@/services/api';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger
 } from '@/components/ui/accordion';
-
-interface FAQItem {
-  question: string;
-  answer: string;
-}
 
 const FaqSection = () => {
   const [faqs, setFaqs] = useState<FAQItem[]>([]);
