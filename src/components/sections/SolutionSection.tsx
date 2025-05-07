@@ -1,17 +1,26 @@
 
 import SectionWrapper from '../shared/SectionWrapper';
 import IconCard from '../shared/IconCard';
+import { Button } from '@/components/ui/button';
+import { useState } from 'react';
+import WaitlistModal from '../modals/WaitlistModal';
 
 const SolutionSection = () => {
+  const [showWaitlistModal, setShowWaitlistModal] = useState(false);
+  
   return (
     <SectionWrapper 
       id="solution" 
       backgroundColor="bg-nipay-green" 
       className="text-white"
     >
-      <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-        NiPay: Overdrafts Powered by Your Mobile-Money Receipts
+      <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">
+        Unlock Your Business Potential With NiPay
       </h2>
+      
+      <p className="text-xl mb-12 text-center max-w-3xl mx-auto">
+        Get the capital you need when you need it - powered by your existing mobile-money transaction history.
+      </p>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
         <IconCard 
@@ -29,8 +38,8 @@ const SolutionSection = () => {
               <path d="M17 17h.01" />
             </svg>
           }
-          title="Real-Time Approval"
-          description="Instant credit scoring from 6 months of transaction history."
+          title="Apply in Minutes"
+          description="Simple application process that uses your existing mobile money history - no lengthy forms."
           className="text-white"
         />
         
@@ -42,8 +51,8 @@ const SolutionSection = () => {
               <path d="m19.07 15.93-14.14-14.14" />
             </svg>
           }
-          title="Auto-Repay on Receipts"
-          description="Small % per wallet payment; never miss a deadline."
+          title="Funds Within Hours"
+          description="Get approved and access your overdraft limit the same day - when you need it most."
           className="text-white"
         />
         
@@ -56,11 +65,26 @@ const SolutionSection = () => {
               <path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15" />
             </svg>
           }
-          title="Partner-Bank Risk Cover"
-          description="We match you with banks who underwrite your overdraft."
+          title="Flexible Repayments"
+          description="Automatically repay through small percentages of your incoming mobile money payments."
           className="text-white"
         />
       </div>
+
+      <div className="text-center mt-12">
+        <Button 
+          variant="outline" 
+          onClick={() => setShowWaitlistModal(true)}
+          className="border-white text-white hover:bg-white/10 text-lg px-8 py-6"
+        >
+          Get Started Now
+        </Button>
+      </div>
+      
+      <WaitlistModal 
+        isOpen={showWaitlistModal} 
+        onClose={() => setShowWaitlistModal(false)} 
+      />
     </SectionWrapper>
   );
 };

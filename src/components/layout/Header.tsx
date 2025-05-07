@@ -3,13 +3,13 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import ThemeToggle from '../ui/ThemeToggle';
 import WaitlistModal from '../modals/WaitlistModal';
-import InvestorModal from '../modals/InvestorModal';
+import { Link, useLocation } from 'react-router-dom';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showWaitlistModal, setShowWaitlistModal] = useState(false);
-  const [showInvestorModal, setShowInvestorModal] = useState(false);
+  const location = useLocation();
   
   // Track scroll position to add background to header when scrolled
   useEffect(() => {
@@ -25,9 +25,14 @@ const Header = () => {
 
   const handleNavClick = (id: string) => {
     setMobileMenuOpen(false);
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    if (location.pathname === '/') {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // If on another page, navigate to home with hash
+      window.location.href = `/#${id}`;
     }
   };
   
@@ -40,22 +45,12 @@ const Header = () => {
       >
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <a href="#" className="flex items-center gap-2">
+            <Link to="/" className="flex items-center gap-2">
               <span className="text-2xl font-bold text-nipay-green">NiPay</span>
-            </a>
+            </Link>
             
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-6">
-              <a 
-                href="#problem" 
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick('problem');
-                }}
-                className="text-foreground hover:text-nipay-green transition-colors"
-              >
-                Problem
-              </a>
               <a 
                 href="#solution"
                 onClick={(e) => {
@@ -87,6 +82,22 @@ const Header = () => {
                 How It Works
               </a>
               <a 
+                href="#problem"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick('problem');
+                }}
+                className="text-foreground hover:text-nipay-green transition-colors"
+              >
+                Why It Matters
+              </a>
+              <Link 
+                to="/investors"
+                className="text-nipay-green font-medium hover:underline transition-colors"
+              >
+                For Investors
+              </Link>
+              <a 
                 href="#faq"
                 onClick={(e) => {
                   e.preventDefault();
@@ -103,17 +114,17 @@ const Header = () => {
               
               <div className="hidden md:flex items-center gap-3">
                 <Button 
-                  variant="outline"
-                  onClick={() => setShowInvestorModal(true)}
-                >
-                  Talk to Us
-                </Button>
-                <Button 
                   variant="default"
                   onClick={() => setShowWaitlistModal(true)}
+                  className="bg-nipay-green hover:bg-nipay-dark-green text-white"
                 >
                   Join Waitlist
                 </Button>
+                <Link to="/investors">
+                  <Button variant="outline">
+                    For Investors
+                  </Button>
+                </Link>
               </div>
               
               {/* Mobile menu button */}
@@ -155,16 +166,6 @@ const Header = () => {
           <div className="md:hidden bg-background/95 backdrop-blur-md">
             <div className="py-4 px-6 space-y-3">
               <a
-                href="#problem"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick('problem');
-                }}
-                className="block py-2 text-foreground hover:text-nipay-green transition-colors"
-              >
-                Problem
-              </a>
-              <a
                 href="#solution"
                 onClick={(e) => {
                   e.preventDefault();
@@ -195,6 +196,22 @@ const Header = () => {
                 How It Works
               </a>
               <a
+                href="#problem"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick('problem');
+                }}
+                className="block py-2 text-foreground hover:text-nipay-green transition-colors"
+              >
+                Why It Matters
+              </a>
+              <Link 
+                to="/investors"
+                className="block py-2 text-nipay-green font-medium hover:underline"
+              >
+                For Investors
+              </Link>
+              <a
                 href="#faq"
                 onClick={(e) => {
                   e.preventDefault();
@@ -212,20 +229,19 @@ const Header = () => {
                     setMobileMenuOpen(false);
                     setShowWaitlistModal(true);
                   }}
-                  className="w-full"
+                  className="w-full bg-nipay-green hover:bg-nipay-dark-green text-white"
                 >
                   Join Waitlist
                 </Button>
-                <Button 
-                  variant="outline"
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    setShowInvestorModal(true);
-                  }}
-                  className="w-full"
-                >
-                  Talk to Us
-                </Button>
+                <Link to="/investors" className="w-full">
+                  <Button 
+                    variant="outline"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="w-full"
+                  >
+                    For Investors
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
@@ -235,10 +251,6 @@ const Header = () => {
       <WaitlistModal 
         isOpen={showWaitlistModal} 
         onClose={() => setShowWaitlistModal(false)} 
-      />
-      <InvestorModal
-        isOpen={showInvestorModal}
-        onClose={() => setShowInvestorModal(false)}
       />
     </>
   );
