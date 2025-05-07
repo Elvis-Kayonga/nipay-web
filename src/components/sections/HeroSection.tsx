@@ -30,7 +30,9 @@ const HeroSection = () => {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
             <Button 
-              className="btn-primary text-lg py-6 px-8 text-white" 
+              variant="green"
+              size="lg"
+              className="text-lg py-6 px-8"
               onClick={() => setShowWaitlistModal(true)}
             >
               Get Your Overdraft Limit
@@ -39,7 +41,8 @@ const HeroSection = () => {
             <Link to="/investors">
               <Button 
                 variant="outline" 
-                className="btn-secondary text-white dark:text-white hover:text-black hover:border-nipay-green"
+                size="lg"
+                className="text-white border-white hover:text-black hover:border-nipay-green py-6 px-8"
               >
                 For Capital Providers
               </Button>
