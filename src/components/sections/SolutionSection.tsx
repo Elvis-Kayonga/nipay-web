@@ -15,11 +15,11 @@ const SolutionSection = () => {
       className="text-white"
     >
       <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">
-        Unlock Your Business Potential With NiPay
+        NiPay Unlocks Your Business Potential
       </h2>
       
       <p className="text-xl mb-12 text-center max-w-3xl mx-auto">
-        Get the capital you need when you need it - powered by your existing mobile-money transaction history.
+        Capital based on your mobile-money transaction history.
       </p>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
@@ -39,7 +39,7 @@ const SolutionSection = () => {
             </svg>
           }
           title="Apply in Minutes"
-          description="Simple application process that uses your existing mobile money history - no lengthy forms."
+          description="Simple application using your existing mobile money history."
           className="text-white"
         />
         
@@ -52,7 +52,7 @@ const SolutionSection = () => {
             </svg>
           }
           title="Funds Within Hours"
-          description="Get approved and access your overdraft limit the same day - when you need it most."
+          description="Get approved and access your limit the same day."
           className="text-white"
         />
         
@@ -66,7 +66,7 @@ const SolutionSection = () => {
             </svg>
           }
           title="Flexible Repayments"
-          description="Automatically repay through small percentages of your incoming mobile money payments."
+          description="Repay through small percentages of incoming payments."
           className="text-white"
         />
       </div>

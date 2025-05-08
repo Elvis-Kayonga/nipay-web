@@ -24,8 +24,7 @@ const SmeBenefitsSection = () => {
                 </svg>
               </div>
               <div>
-                <p className="font-medium mb-1">Get up to 2x your monthly inflows as working capital</p>
-                <p className="text-sm text-muted-foreground">The more mobile money you receive, the higher your limit grows.</p>
+                <p className="font-medium">Up to 2x your monthly inflows as capital</p>
               </div>
             </li>
             
@@ -36,8 +35,7 @@ const SmeBenefitsSection = () => {
                 </svg>
               </div>
               <div>
-                <p className="font-medium mb-1">Pay only for what you use, when you use it</p>
-                <p className="text-sm text-muted-foreground">No fixed installments or penalties - repayments scale with your business.</p>
+                <p className="font-medium">Pay only for what you use, when you use it</p>
               </div>
             </li>
             
@@ -48,8 +46,7 @@ const SmeBenefitsSection = () => {
                 </svg>
               </div>
               <div>
-                <p className="font-medium mb-1">Real-time dashboard shows your finances at a glance</p>
-                <p className="text-sm text-muted-foreground">Track your overdraft, repayments, and available balance anytime.</p>
+                <p className="font-medium">Real-time dashboard for your finances</p>
               </div>
             </li>
             
@@ -60,8 +57,7 @@ const SmeBenefitsSection = () => {
                 </svg>
               </div>
               <div>
-                <p className="font-medium mb-1">No collateral or paperwork required</p>
-                <p className="text-sm text-muted-foreground">Your mobile money transaction history is all we need to get you started.</p>
+                <p className="font-medium">No collateral or paperwork required</p>
               </div>
             </li>
           </ul>
@@ -80,13 +76,13 @@ const SmeBenefitsSection = () => {
         <div className="bg-muted rounded-xl overflow-hidden shadow-lg">
           <img 
             src="/placeholder.svg" 
-            alt="NiPay mobile app interface showing overdraft dashboard" 
+            alt="NiPay mobile app interface" 
             className="w-full h-auto"
           />
           <div className="p-6">
             <h3 className="font-bold mb-2">NiPay Mobile Experience</h3>
             <p className="text-sm text-muted-foreground">
-              Simple USSD commands or our intuitive app make it easy to manage your credit.
+              Simple USSD commands or our intuitive app for credit management.
             </p>
           </div>
         </div>

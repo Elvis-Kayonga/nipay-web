@@ -8,7 +8,6 @@ import SolutionSection from "@/components/sections/SolutionSection";
 import SmeBenefitsSection from "@/components/sections/SmeBenefitsSection";
 import HowItWorksSection from "@/components/sections/HowItWorksSection";
 import ValidationSection from "@/components/sections/ValidationSection";
-import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import FaqSection from "@/components/sections/FaqSection";
 
 const Index = () => {
@@ -22,13 +21,13 @@ const Index = () => {
         {/* Open Graph / Social */}
         <meta property="og:type" content="website" />
         <meta property="og:title" content="NiPay | Instant Credit for SMEs in Rwanda" />
-        <meta property="og:description" content="Get instant access to working capital through your mobile-money transaction history. No paperwork, same-day approval." />
+        <meta property="og:description" content="Get instant access to working capital through your mobile-money transaction history." />
         <meta property="og:image" content="/placeholder.svg" />
         
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="NiPay | Instant Credit for SMEs in Rwanda" />
-        <meta name="twitter:description" content="Get instant access to working capital through your mobile-money transaction history. No paperwork, same-day approval." />
+        <meta name="twitter:description" content="Get instant access to working capital through your mobile-money transaction history." />
         <meta name="twitter:image" content="/placeholder.svg" />
       </Helmet>
       
@@ -41,7 +40,6 @@ const Index = () => {
         <HowItWorksSection />
         <ProblemSection />
         <ValidationSection />
-        <TestimonialsSection />
         <FaqSection />
       </main>
       

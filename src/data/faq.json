@@ -2,18 +2,18 @@
 [
   {
     "question": "How do you assess my credit?",
-    "answer": "We analyze your mobile money transaction history from the past six months. Our AI-powered algorithm looks at income patterns, transaction frequency, business seasonality, and other factors to determine your creditworthiness and credit limit—all without requiring traditional credit history or paperwork."
+    "answer": "We analyze your mobile money transaction history. Our AI looks at income patterns and transaction frequency to determine your creditworthiness—no paperwork required."
   },
   {
     "question": "What if I don't use all my limit?",
-    "answer": "You only pay interest on the amount you actually use, not on your entire approved limit. There are no commitment fees or charges for unused portions of your credit line. This makes NiPay extremely flexible for businesses with variable capital needs."
+    "answer": "You only pay interest on the amount you actually use, not on your entire approved limit. No commitment fees for unused portions."
   },
   {
     "question": "How do I repay early?",
-    "answer": "While the system automatically deducts a small percentage from your incoming mobile money payments, you can always make voluntary repayments to reduce your balance faster through the NiPay app or USSD. Early repayments incur no penalties and can help you save on interest charges."
+    "answer": "The system automatically deducts from incoming mobile money payments, but you can make voluntary repayments anytime through the NiPay app or USSD."
   },
   {
-    "question": "For investors: what's the minimum ticket size?",
-    "answer": "Our minimum investment ticket size is USD 50,000 for qualified institutional investors and USD 100,000 for family offices and high net worth individuals. We structure investments through a regulated Special Purpose Vehicle (SPV) that provides clear legal frameworks and tax efficiency."
+    "question": "For investors: what's the minimum investment?",
+    "answer": "USD 50,000 for qualified institutional investors and USD 100,000 for family offices and high net worth individuals."
   }
 ]

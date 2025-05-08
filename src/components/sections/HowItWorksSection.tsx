@@ -16,7 +16,7 @@ const HowItWorksSection = () => {
           </div>
           <h3 className="text-xl font-bold mb-3">Use the NiPay Wallet</h3>
           <p className="text-muted-foreground">
-            Sign up for our NiPay wallet through our simple USSD code or app - takes less than 2 minutes to set up.
+            Sign up through USSD code or app in under 2 minutes.
           </p>
           
           {/* Arrow (visible only on desktop) */}
@@ -37,7 +37,7 @@ const HowItWorksSection = () => {
           </div>
           <h3 className="text-xl font-bold mb-3">Get Your Credit Line</h3>
           <p className="text-muted-foreground">
-            We analyze your NiPay wallet activity and instantly approve you for up to 2x your monthly transactions.
+            We analyze your activity and instantly approve your limit.
           </p>
           
           {/* Arrow (visible only on desktop) */}
@@ -58,7 +58,7 @@ const HowItWorksSection = () => {
           </div>
           <h3 className="text-xl font-bold mb-3">Use & Repay Flexibly</h3>
           <p className="text-muted-foreground">
-            Draw credit when you need it and our flexible system collects small payments from your incoming NiPay transactions.
+            Draw credit when needed, repay through incoming transactions.
           </p>
         </div>
       </div>
@@ -67,10 +67,9 @@ const HowItWorksSection = () => {
       <div className="mt-12 max-w-2xl mx-auto bg-muted/50 p-6 rounded-lg">
         <h3 className="text-xl font-semibold mb-3">What is Revolving Credit?</h3>
         <p className="text-base">
-          Think of it like a credit card for your NiPay wallet. You get a credit limit 
-          based on your business cash flow. Use what you need when you need it, and only pay for what you use.
-          Unlike traditional loans, there's no fixed monthly payment - we collect small amounts from your incoming 
-          transactions, so repayment matches your business rhythm.
+          Like a credit card for your NiPay wallet based on your business cash flow. 
+          Use what you need when you need it, and pay only for what you use.
+          Small repayments from incoming transactions match your business rhythm.
         </p>
       </div>
       
@@ -80,27 +79,27 @@ const HowItWorksSection = () => {
           <div className="w-1/3 border-2 border-border rounded-xl overflow-hidden shadow-md mr-4">
             <img 
               src="/placeholder.svg" 
-              alt="USSD onboarding interface" 
+              alt="USSD interface" 
               className="w-full h-auto"
             />
           </div>
           <div className="w-1/3 border-2 border-nipay-green rounded-xl overflow-hidden shadow-md">
             <img 
               src="/placeholder.svg" 
-              alt="NiPay app dashboard" 
+              alt="NiPay app" 
               className="w-full h-auto"
             />
           </div>
           <div className="w-1/3 border-2 border-border rounded-xl overflow-hidden shadow-md ml-4">
             <img 
               src="/placeholder.svg" 
-              alt="Automatic repayment flow" 
+              alt="Repayment flow" 
               className="w-full h-auto"
             />
           </div>
         </div>
         <p className="text-sm text-muted-foreground mt-4">
-          Simple interface available via USSD code *123# or our NiPay mobile app.
+          Available via USSD code *123# or our mobile app.
         </p>
       </div>
     </SectionWrapper>

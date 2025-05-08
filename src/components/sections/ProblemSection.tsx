@@ -40,7 +40,7 @@ const ProblemSection = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div className="space-y-6">
           <p className="text-xl mb-6">
-            Rwanda's SME sector is the backbone of the economy, yet faces a massive financing gap that limits growth and job creation.
+            Rwanda's SME sector faces a massive financing gap limiting growth.
           </p>
 
           <ul className="space-y-8">
@@ -51,8 +51,8 @@ const ProblemSection = () => {
                 </span>
               </div>
               <div>
-                <p className="font-medium mb-1">
-                  Mobile-money processes {stats.mobileMoneySharOfPayments} of all payments in Rwanda—yet offers no overdraft.
+                <p className="font-medium">
+                  {stats.mobileMoneySharOfPayments} of all payments—yet no overdraft options
                 </p>
               </div>
             </li>
@@ -64,10 +64,9 @@ const ProblemSection = () => {
                 </span>
               </div>
               <div>
-                <p className="font-medium mb-1">
-                  {stats.gdpShareFromSMEs} of GDP & {stats.jobsFromSMEs} of jobs come from SMEs, but 79% remain under-served.
+                <p className="font-medium">
+                  {stats.gdpShareFromSMEs} of GDP & {stats.jobsFromSMEs} of jobs from SMEs
                 </p>
-                <p className="text-sm text-muted-foreground">IFC</p>
               </div>
             </li>
             
@@ -78,18 +77,14 @@ const ProblemSection = () => {
                 </span>
               </div>
               <div>
-                <p className="font-medium mb-1">
-                  Banks lend only {stats.bankLendingToSMEs} of their portfolio to SMEs; credit-scoring is opaque.
+                <p className="font-medium">
+                  Banks lend only {stats.bankLendingToSMEs} to SMEs
                 </p>
-                <p className="text-sm text-muted-foreground">World Finance</p>
               </div>
             </li>
           </ul>
 
           <div className="pt-8">
-            <p className="text-lg font-medium mb-4">
-              NiPay bridges this gap, helping your business thrive while transforming Rwanda's financial landscape.
-            </p>
             <Button 
               className="bg-nipay-green hover:bg-nipay-dark-green"
               onClick={() => setShowWaitlistModal(true)}
@@ -103,7 +98,7 @@ const ProblemSection = () => {
           <div className="space-y-6">
             <div className="flex flex-col items-center text-center">
               <div className="text-6xl font-bold text-nipay-green mb-2">{stats.creditConstrainedPercentage}</div>
-              <p className="text-lg">of Rwandan SMEs can't access adequate financing</p>
+              <p className="text-lg">of Rwandan SMEs can't access financing</p>
             </div>
             
             <div className="border-t border-border pt-6 grid grid-cols-2 gap-6">
@@ -114,7 +109,7 @@ const ProblemSection = () => {
               
               <div className="text-center">
                 <div className="text-4xl font-bold text-nipay-green mb-2">{stats.mobileMoneyUsers}</div>
-                <p className="text-sm">Active Mobile Money Users</p>
+                <p className="text-sm">Mobile Money Users</p>
               </div>
             </div>
           </div>
