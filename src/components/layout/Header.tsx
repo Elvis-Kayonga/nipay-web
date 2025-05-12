@@ -113,6 +113,12 @@ const Header = () => {
               >
                 FAQ
               </a>
+              <Link 
+                to="/contact"
+                className={`${navTextColor} hover:text-nipay-green transition-colors`}
+              >
+                Contact
+              </Link>
             </nav>
             
             <div className="flex items-center gap-3">
@@ -202,10 +208,16 @@ const Header = () => {
                   e.preventDefault();
                   handleNavClick('faq');
                 }}
-                className="block py-3 text-foreground hover:text-nipay-green transition-colors"
+                className="block py-3 text-foreground hover:text-nipay-green transition-colors border-b border-border"
               >
                 FAQ
               </a>
+              <Link
+                to="/contact"
+                className="block py-3 text-foreground hover:text-nipay-green transition-colors"
+              >
+                Contact
+              </Link>
               
               <div className="flex flex-col gap-3 pt-4">
                 <Link to="/waitlist" className="w-full">
