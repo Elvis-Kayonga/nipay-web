@@ -26,7 +26,7 @@ const Waitlist = () => {
             <div className="text-center mb-6 md:mb-8">
               <Badge variant="destructive" className="px-3 py-1 mb-2 md:mb-3">
                 <AlarmClock className="mr-1 h-3 w-3 inline" /> 
-                Only 43 spots remaining
+                Only a few spots remaining
               </Badge>
               <h1 className="text-2xl md:text-4xl font-bold mb-2 md:mb-3">Don't Miss This Opportunity</h1>
               <p className="text-sm md:text-lg text-muted-foreground max-w-xs md:max-w-2xl mx-auto">
