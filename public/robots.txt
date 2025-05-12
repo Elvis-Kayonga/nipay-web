@@ -1,14 +1,23 @@
+
+# NiPay Website Robots.txt
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://nipay.rw/sitemap.xml
+
+# Allow common bots with higher crawl priority
 User-agent: Googlebot
 Allow: /
 
 User-agent: Bingbot
 Allow: /
 
+User-agent: Yandexbot
+Allow: /
+
 User-agent: Twitterbot
 Allow: /
 
 User-agent: facebookexternalhit
-Allow: /
-
-User-agent: *
 Allow: /
