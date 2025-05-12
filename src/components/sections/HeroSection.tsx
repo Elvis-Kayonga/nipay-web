@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 import WaitlistModal from '../modals/WaitlistModal';
@@ -6,12 +5,10 @@ import InvestorModal from '../modals/InvestorModal';
 import { ArrowRight } from "lucide-react";
 import { Link } from 'react-router-dom';
 import { useIsMobile } from '@/hooks/use-mobile';
-
 const HeroSection = () => {
   const [showWaitlistModal, setShowWaitlistModal] = useState(false);
   const [showInvestorModal, setShowInvestorModal] = useState(false);
   const isMobile = useIsMobile();
-  
   return <section className="relative h-[90vh] min-h-[600px] flex items-center justify-center text-white">
       {/* Background image with overlay */}
       <div className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0" style={{
@@ -28,9 +25,7 @@ const HeroSection = () => {
             Instant Credit For Your Business
           </h1>
           
-          <p className="text-base md:text-xl mb-6 md:mb-8 animate-slide-up">
-            Up to 2x your monthly mobile-money inflows—no delays.
-          </p>
+          <p className="text-base md:text-xl mb-6 md:mb-8 animate-slide-up">Inguzanyo ku nyungu iri hasi </p>
           
           <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center mb-8 md:mb-10">
             <Link to="/waitlist" className="w-full sm:w-auto">
@@ -46,14 +41,12 @@ const HeroSection = () => {
             </Link>
           </div>
           
-          <p className="text-sm italic mb-6 md:mb-10 opacity-80 max-w-xs mx-auto md:max-w-2xl">
-            Join Rwandan SMEs unlocking working capital via mobile money.
-          </p>
+          <p className="text-sm italic mb-6 md:mb-10 opacity-80 max-w-xs mx-auto md:max-w-2xl">Isunge NiPay nawe ujye mu bacuruzi banini</p>
           
           <div className="text-xs text-gray-300 max-w-xs mx-auto md:max-w-2xl">
             <p>
               "79% of SMEs in Rwanda lack access to finance." 
-              <span className="font-semibold ml-1">I&M Group</span>
+              <span className="font-semibold ml-1">Source : *I&M Group</span>
             </p>
           </div>
         </div>
@@ -63,5 +56,4 @@ const HeroSection = () => {
       <InvestorModal isOpen={showInvestorModal} onClose={() => setShowInvestorModal(false)} />
     </section>;
 };
-
 export default HeroSection;
