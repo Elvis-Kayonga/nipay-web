@@ -1,19 +1,19 @@
 
 [
   {
-    "question": "How do you assess my credit?",
-    "answer": "We analyze your mobile money transaction history. Our AI looks at income patterns and transaction frequency to determine your creditworthiness—no paperwork required."
+    "question": "How quickly can I get funds?",
+    "answer": "Most businesses get approved within 24 hours and receive funds instantly after approval. Don't wait weeks for traditional bank loans."
   },
   {
     "question": "What if I don't use all my limit?",
-    "answer": "You only pay interest on the amount you actually use, not on your entire approved limit. No commitment fees for unused portions."
+    "answer": "You only pay interest on what you use. No fees on unused amounts. Access your full limit whenever urgent needs arise."
   },
   {
-    "question": "How do I repay early?",
-    "answer": "The system automatically deducts from incoming mobile money payments, but you can make voluntary repayments anytime through the NiPay app or USSD."
+    "question": "How do I repay?",
+    "answer": "Automatic deductions from mobile money payments make repayment effortless. No hassle, no missed payments, no penalties."
   },
   {
     "question": "For investors: what's the minimum investment?",
-    "answer": "USD 50,000 for qualified institutional investors and USD 100,000 for family offices and high net worth individuals."
+    "answer": "USD 50,000 for institutions, USD 100,000 for individuals. Early investors get priority access to our growing portfolio."
   }
 ]

@@ -14,20 +14,20 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>NiPay | Instant Credit for SMEs in Rwanda</title>
-        <meta name="description" content="NiPay provides instant credit against mobile-money inflows for SMEs in Rwanda—no paperwork, no delays." />
-        <meta name="keywords" content="mobile money, SME finance, Rwanda, credit, fintech, business loans" />
+        <title>NiPay | Urgent Credit for SMEs in Rwanda</title>
+        <meta name="description" content="NiPay provides instant credit against mobile-money inflows for SMEs in Rwanda—no paperwork, no waiting." />
+        <meta name="keywords" content="mobile money, SME finance, Rwanda, credit, fintech, business loans, urgent funding" />
         
         {/* Open Graph / Social */}
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="NiPay | Instant Credit for SMEs in Rwanda" />
-        <meta property="og:description" content="Get instant access to working capital through your mobile-money transaction history." />
+        <meta property="og:title" content="NiPay | Urgent Credit for SMEs in Rwanda" />
+        <meta property="og:description" content="Don't wait - get instant access to working capital now through your mobile-money history." />
         <meta property="og:image" content="/placeholder.svg" />
         
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="NiPay | Instant Credit for SMEs in Rwanda" />
-        <meta name="twitter:description" content="Get instant access to working capital through your mobile-money transaction history." />
+        <meta name="twitter:title" content="NiPay | Urgent Credit for SMEs in Rwanda" />
+        <meta name="twitter:description" content="Don't wait - get instant access to working capital now through your mobile-money history." />
         <meta name="twitter:image" content="/placeholder.svg" />
       </Helmet>
       
@@ -35,10 +35,10 @@ const Index = () => {
       
       <main className="min-h-screen">
         <HeroSection />
+        <ProblemSection />
         <SolutionSection />
         <SmeBenefitsSection />
         <HowItWorksSection />
-        <ProblemSection />
         <ValidationSection />
         <FaqSection />
       </main>
