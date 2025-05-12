@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 import WaitlistModal from '../modals/WaitlistModal';
@@ -22,11 +21,9 @@ const HeroSection = () => {
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10 text-center">
         <div className="max-w-md mx-auto md:max-w-3xl">
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 animate-fade-in">
-            Instant Credit For Your Business
-          </h1>
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 animate-fade-in">Instant Credit For Business- NO COLLATERAL</h1>
           
-          <p className="text-base md:text-xl mb-6 md:mb-8 animate-slide-up">Inguzanyo ku nyungu iri hasi </p>
+          <p className="text-base md:text-xl mb-6 md:mb-8 animate-slide-up">Inguzanyo  NTA NGWATE!</p>
           
           <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center mb-8 md:mb-10">
             <Link to="/waitlist" className="w-full sm:w-auto">
