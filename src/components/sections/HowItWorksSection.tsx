@@ -1,12 +1,8 @@
-
 import SectionWrapper from '../shared/SectionWrapper';
 import { useIsMobile } from '@/hooks/use-mobile';
-
 const HowItWorksSection = () => {
   const isMobile = useIsMobile();
-  
-  return (
-    <SectionWrapper id="how-it-works" className="text-center py-16 md:py-24">
+  return <SectionWrapper id="how-it-works" className="text-center py-16 md:py-24">
       <h2 className="text-2xl md:text-4xl font-bold mb-8 md:mb-12">
         How It Works
       </h2>
@@ -77,36 +73,7 @@ const HowItWorksSection = () => {
       </div>
       
       {/* Mobile app illustration */}
-      <div className="mt-10 md:mt-16 bg-muted p-4 md:p-6 rounded-xl max-w-xs md:max-w-2xl mx-auto">
-        <div className="flex items-center justify-center">
-          <div className={`${isMobile ? 'w-1/3' : 'w-1/3'} border-2 border-border rounded-xl overflow-hidden shadow-md mr-2 md:mr-4`}>
-            <img 
-              src="/placeholder.svg" 
-              alt="USSD interface" 
-              className="w-full h-auto"
-            />
-          </div>
-          <div className={`${isMobile ? 'w-1/3' : 'w-1/3'} border-2 border-nipay-green rounded-xl overflow-hidden shadow-md`}>
-            <img 
-              src="/placeholder.svg" 
-              alt="NiPay app" 
-              className="w-full h-auto"
-            />
-          </div>
-          <div className={`${isMobile ? 'w-1/3' : 'w-1/3'} border-2 border-border rounded-xl overflow-hidden shadow-md ml-2 md:ml-4`}>
-            <img 
-              src="/placeholder.svg" 
-              alt="Repayment flow" 
-              className="w-full h-auto"
-            />
-          </div>
-        </div>
-        <p className="text-xs md:text-sm text-muted-foreground mt-3 md:mt-4">
-          Via USSD *123# or mobile app
-        </p>
-      </div>
-    </SectionWrapper>
-  );
+      
+    </SectionWrapper>;
 };
-
 export default HowItWorksSection;
