@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -73,14 +72,18 @@ const WaitlistForm = ({ onSuccess }: WaitlistFormProps) => {
     try {
       await api.submitToWaitlist(data as unknown as WaitlistFormData);
       
-      toast.success("You've successfully joined our waitlist!");
+      toast.success("You've successfully joined our waitlist! We'll contact you soon.");
       reset();
       
       if (onSuccess) {
         onSuccess();
       }
     } catch (error) {
-      toast.error("There was a problem submitting your information. Please try again.");
+      const errorMessage = error instanceof Error 
+        ? error.message 
+        : "There was a problem submitting your information. Please try again.";
+      
+      toast.error(errorMessage);
       console.error("Form submission error:", error);
     } finally {
       setIsSubmitting(false);

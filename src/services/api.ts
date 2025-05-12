@@ -1,3 +1,5 @@
+
+import { supabase } from '@/integrations/supabase/client';
 import statsData from '../data/stats.json';
 import faqData from '../data/faq.json';
 import testimonialsData from '../data/testimonials.json';
@@ -30,6 +32,10 @@ export interface WaitlistFormData {
   businessName: string;
   email: string;
   monthlyVolume: string;
+  businessEarnings?: string;
+  fundingNeeded?: string;
+  interestRate?: string;
+  businessType?: string;
 }
 
 export interface InvestorFormData {
@@ -74,21 +80,43 @@ export const api = {
   },
   
   submitToWaitlist: async (data: WaitlistFormData) => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        // Simulate server validation
-        if (!data.email || !data.name) {
-          reject(new Error('Please provide all required fields'));
-          return;
-        }
-        
-        console.log('Waitlist submission:', data);
-        resolve({
-          success: true,
-          message: 'Thank you for joining our waitlist!'
+    // Validate required fields
+    if (!data.email || !data.name || !data.businessName) {
+      throw new Error('Please provide all required fields');
+    }
+    
+    try {
+      // Log the submission for debugging purposes
+      console.log('Submitting to waitlist:', data);
+      
+      // Insert the submission into Supabase
+      const { error } = await supabase
+        .from('waitlist_submissions')
+        .insert({
+          name: data.name,
+          business_name: data.businessName,
+          email: data.email,
+          monthly_volume: data.monthlyVolume,
+          business_earnings: data.businessEarnings,
+          funding_needed: data.fundingNeeded,
+          interest_rate: data.interestRate,
+          business_type: data.businessType
         });
-      }, 800);
-    });
+      
+      // Check for errors from Supabase
+      if (error) {
+        console.error('Supabase error:', error);
+        throw new Error('Failed to submit your information. Please try again.');
+      }
+      
+      return {
+        success: true,
+        message: 'Thank you for joining our waitlist!'
+      };
+    } catch (error) {
+      console.error('Waitlist submission error:', error);
+      throw error;
+    }
   },
   
   contactInvestor: async (data: InvestorFormData) => {
