@@ -1,14 +1,38 @@
+
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import WaitlistForm from "@/components/forms/WaitlistForm";
-import { CheckCircle, Clock, CreditCard, TrendingUp, DollarSign, Handshake, AlarmClock, Bell } from "lucide-react";
+import { CheckCircle, Clock, CreditCard, TrendingUp, DollarSign, Handshake, AlarmClock, Bell, Share, Users } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 
 const Waitlist = () => {
   const isMobile = useIsMobile();
+  
+  const handleShareClick = () => {
+    if (navigator.share) {
+      navigator.share({
+        title: "Join the NiPay Waitlist",
+        text: "I just joined NiPay's waitlist for business credit. You should check it out too!",
+        url: window.location.href,
+      }).then(() => {
+        toast.success("Thanks for sharing!");
+      }).catch((error) => {
+        console.error("Error sharing:", error);
+      });
+    } else {
+      // Fallback for browsers that don't support Web Share API
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        toast.success("Link copied to clipboard! Share with your friends.");
+      }).catch((error) => {
+        console.error("Error copying link:", error);
+      });
+    }
+  };
   
   return (
     <>
@@ -226,6 +250,33 @@ const Waitlist = () => {
                   <p className="text-xxs md:text-xs text-muted-foreground text-center">Immediate access</p>
                 </div>
               </div>
+            </div>
+            
+            {/* Refer Friends Section */}
+            <div className="mt-8 md:mt-12">
+              <Card className="border-amber-100 bg-amber-50/50">
+                <CardContent className="pt-6 pb-6">
+                  <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+                    <div className="flex items-center gap-3">
+                      <Users className="h-10 w-10 text-nipay-green p-2 bg-white rounded-full shadow-sm" />
+                      <div>
+                        <h3 className="font-bold text-base md:text-lg">Know Other Business Owners?</h3>
+                        <p className="text-xs md:text-sm text-muted-foreground">
+                          Spots are limited! Help your friends secure their place.
+                        </p>
+                      </div>
+                    </div>
+                    <Button 
+                      variant="green" 
+                      className="w-full md:w-auto" 
+                      onClick={handleShareClick}
+                    >
+                      <Share className="h-4 w-4" />
+                      Refer Friends Now
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>
