@@ -53,7 +53,7 @@ const Waitlist = () => {
               </Badge>
               <h1 className="text-2xl md:text-4xl font-bold mb-2 md:mb-3">Don't Miss This Opportunity</h1>
               <p className="text-sm md:text-lg text-muted-foreground max-w-xs md:max-w-2xl mx-auto">
-                Get quick funds based on your mobile money transactions.
+                We're building Rwanda's first collateral-free mobile wallet specifically designed for SMEs. Get quick access to funds based on your mobile money transaction history - no traditional collateral needed. Join our waitlist as we test the market to ensure we serve your business needs in the best possible way.
               </p>
             </div>
             
