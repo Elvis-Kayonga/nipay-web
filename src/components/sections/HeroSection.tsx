@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 import WaitlistModal from '../modals/WaitlistModal';
@@ -25,12 +26,12 @@ const HeroSection = () => {
             Instant Credit For Your Business
           </h1>
           
-          <p className="text-base md:text-xl mb-6 md:mb-8 animate-slide-up">Inguzanyo ku nyungu iri hasi </p>
+          <p className="text-base md:text-xl mb-6 md:mb-8 animate-slide-up">Inguzanyo ku nyungu iri hasi </p>
           
           <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center mb-8 md:mb-10">
             <Link to="/waitlist" className="w-full sm:w-auto">
               <Button variant="green" size={isMobile ? "default" : "lg"} className="text-base md:text-lg py-5 md:py-6 w-full sm:w-auto px-6 md:px-8">
-                Get Capital
+                Get Credit / Akira inguzanyo
                 <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
               </Button>
             </Link>
