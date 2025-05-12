@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -72,7 +73,15 @@ const WaitlistForm = ({ onSuccess }: WaitlistFormProps) => {
     try {
       await api.submitToWaitlist(data as unknown as WaitlistFormData);
       
-      toast.success("You've successfully joined our waitlist! We'll contact you soon.");
+      toast.success(
+        <div className="space-y-1">
+          <p className="font-bold">Application submitted!</p>
+          <p className="text-sm">We'll reach out when we launch very soon with your exclusive access!</p>
+        </div>,
+        {
+          duration: 6000,
+        }
+      );
       reset();
       
       if (onSuccess) {

@@ -1,10 +1,9 @@
-
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import WaitlistForm from "@/components/forms/WaitlistForm";
-import { CheckCircle, Clock, CreditCard, TrendingUp, DollarSign, Handshake, AlarmClock, Bell, Share, Users } from "lucide-react";
+import { CheckCircle, Clock, CreditCard, TrendingUp, DollarSign, Handshake, AlarmClock, Bell, Share, Users, Rocket } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Button } from "@/components/ui/button";
@@ -60,173 +59,171 @@ const Waitlist = () => {
             
             {/* Urgency Banner */}
             <div className="bg-amber-50 border border-amber-200 rounded-lg p-2 md:p-3 flex items-center justify-center mb-6 md:mb-10 shadow-sm">
-              <Bell className="text-amber-500 mr-1 md:mr-2 h-4 w-4 md:h-5 md:w-5" />
-              <p className="text-amber-800 text-xs md:text-sm font-medium">Application deadline: May 30th - Apply now!</p>
+              <Rocket className="text-amber-500 mr-1 md:mr-2 h-4 w-4 md:h-5 md:w-5" />
+              <p className="text-amber-800 text-xs md:text-sm font-medium">Launch coming soon! Apply now for early exclusive access!</p>
             </div>
             
-            <div className="grid md:grid-cols-5 gap-6">
-              {/* Priority for mobile: show form first, benefits second */}
-              {isMobile ? (
-                <>
-                  {/* Form - first on mobile */}
-                  <div className="md:col-span-3">
-                    <Card className="border-green-100 shadow-sm">
-                      <CardHeader className="pb-3 md:pb-4">
-                        <div className="flex justify-between items-center">
-                          <div>
-                            <CardTitle className="text-lg md:text-xl">Apply Now</CardTitle>
-                            <CardDescription className="text-xs md:text-sm">
-                              Limited spots available
-                            </CardDescription>
-                          </div>
-                          <Badge variant="outline" className="bg-nipay-green/10 text-nipay-dark-green">
-                            <Clock className="mr-1 h-3 w-3" /> Urgent
-                          </Badge>
+            {/* Priority for mobile: show form first, benefits second */}
+            {isMobile ? (
+              <>
+                {/* Form - first on mobile */}
+                <div className="md:col-span-3">
+                  <Card className="border-green-100 shadow-sm">
+                    <CardHeader className="pb-3 md:pb-4">
+                      <div className="flex justify-between items-center">
+                        <div>
+                          <CardTitle className="text-lg md:text-xl">Apply Now</CardTitle>
+                          <CardDescription className="text-xs md:text-sm">
+                            Limited spots available
+                          </CardDescription>
                         </div>
-                      </CardHeader>
-                      <CardContent>
-                        <WaitlistForm 
-                          onSuccess={() => {
-                            // Success is handled within the form component
-                          }}
-                        />
-                      </CardContent>
-                    </Card>
-                  </div>
-                  
-                  {/* Benefits - second on mobile */}
-                  <div className="md:col-span-2">
-                    <Card className="border-green-100 h-full shadow-sm">
-                      <CardHeader className="bg-nipay-green/5 border-b border-nipay-green/10 pb-3 md:pb-4">
-                        <CardTitle className="text-lg md:text-xl text-nipay-dark-green flex items-center">
-                          <Clock className="mr-2 h-4 w-4 md:h-5 md:w-5" />
-                          Act Fast
-                        </CardTitle>
-                        <CardDescription className="text-xs md:text-sm">Early applicants get:</CardDescription>
-                      </CardHeader>
-                      <CardContent className="pt-4 md:pt-6">
-                        <ul className="space-y-2 md:space-y-3">
-                          <li className="flex items-start gap-2 md:gap-3">
-                            <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-nipay-green mt-0.5 flex-shrink-0" />
-                            <div>
-                              <span className="font-bold block text-foreground text-sm md:text-base">Priority Access</span>
-                              <span className="text-xxs md:text-xs text-muted-foreground">Skip the queue</span>
-                            </div>
-                          </li>
-                          <li className="flex items-start gap-2 md:gap-3">
-                            <TrendingUp className="h-4 w-4 md:h-5 md:w-5 text-nipay-green mt-0.5 flex-shrink-0" />
-                            <div>
-                              <span className="font-bold block text-foreground text-sm md:text-base">Higher Limits</span>
-                              <span className="text-xxs md:text-xs text-muted-foreground">Up to 2x your volume</span>
-                            </div>
-                          </li>
-                          <li className="flex items-start gap-2 md:gap-3">
-                            <DollarSign className="h-4 w-4 md:h-5 md:w-5 text-nipay-green mt-0.5 flex-shrink-0" />
-                            <div>
-                              <span className="font-bold block text-foreground text-sm md:text-base">Lower Fees</span>
-                              <span className="text-xxs md:text-xs text-muted-foreground">Best rates available</span>
-                            </div>
-                          </li>
-                          <li className="flex items-start gap-2 md:gap-3">
-                            <CreditCard className="h-4 w-4 md:h-5 md:w-5 text-nipay-green mt-0.5 flex-shrink-0" />
-                            <div>
-                              <span className="font-bold block text-foreground text-sm md:text-base">No Hidden Charges</span>
-                              <span className="text-xxs md:text-xs text-muted-foreground">Total transparency</span>
-                            </div>
-                          </li>
-                          <li className="flex items-start gap-2 md:gap-3">
-                            <Handshake className="h-4 w-4 md:h-5 md:w-5 text-nipay-green mt-0.5 flex-shrink-0" />
-                            <div>
-                              <span className="font-bold block text-foreground text-sm md:text-base">VIP Support</span>
-                              <span className="text-xxs md:text-xs text-muted-foreground">Direct access to team</span>
-                            </div>
-                          </li>
-                        </ul>
-                      </CardContent>
-                    </Card>
-                  </div>
-                </>
-              ) : (
-                <>
-                  {/* Desktop layout - benefits first, form second */}
-                  <div className="md:col-span-2">
-                    <Card className="border-green-100 h-full shadow-sm">
-                      <CardHeader className="bg-nipay-green/5 border-b border-nipay-green/10">
-                        <CardTitle className="text-xl text-nipay-dark-green flex items-center">
-                          <Clock className="mr-2 h-5 w-5" />
-                          Act Fast
-                        </CardTitle>
-                        <CardDescription>Early applicants get:</CardDescription>
-                      </CardHeader>
-                      <CardContent className="pt-6">
-                        <ul className="space-y-3">
-                          <li className="flex items-start gap-3">
-                            <CheckCircle className="h-5 w-5 text-nipay-green mt-0.5 flex-shrink-0" />
-                            <div>
-                              <span className="font-bold block text-foreground">Priority Access</span>
-                              <span className="text-xs text-muted-foreground">Skip the queue</span>
-                            </div>
-                          </li>
-                          <li className="flex items-start gap-3">
-                            <TrendingUp className="h-5 w-5 text-nipay-green mt-0.5 flex-shrink-0" />
-                            <div>
-                              <span className="font-bold block text-foreground">Higher Limits</span>
-                              <span className="text-xs text-muted-foreground">Up to 2x your volume</span>
-                            </div>
-                          </li>
-                          <li className="flex items-start gap-3">
-                            <DollarSign className="h-5 w-5 text-nipay-green mt-0.5 flex-shrink-0" />
-                            <div>
-                              <span className="font-bold block text-foreground">Lower Fees</span>
-                              <span className="text-xs text-muted-foreground">Best rates available</span>
-                            </div>
-                          </li>
-                          <li className="flex items-start gap-3">
-                            <CreditCard className="h-5 w-5 text-nipay-green mt-0.5 flex-shrink-0" />
-                            <div>
-                              <span className="font-bold block text-foreground">No Hidden Charges</span>
-                              <span className="text-xs text-muted-foreground">Total transparency</span>
-                            </div>
-                          </li>
-                          <li className="flex items-start gap-3">
-                            <Handshake className="h-5 w-5 text-nipay-green mt-0.5 flex-shrink-0" />
-                            <div>
-                              <span className="font-bold block text-foreground">VIP Support</span>
-                              <span className="text-xs text-muted-foreground">Direct access to team</span>
-                            </div>
-                          </li>
-                        </ul>
-                      </CardContent>
-                    </Card>
-                  </div>
-                  
-                  <div className="md:col-span-3">
-                    <Card className="border-green-100 shadow-sm">
-                      <CardHeader className="pb-4">
-                        <div className="flex justify-between items-center">
+                        <Badge variant="outline" className="bg-nipay-green/10 text-nipay-dark-green">
+                          <Clock className="mr-1 h-3 w-3" /> Urgent
+                        </Badge>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <WaitlistForm 
+                        onSuccess={() => {
+                          // Success is handled within the form component
+                        }}
+                      />
+                    </CardContent>
+                  </Card>
+                </div>
+                
+                {/* Benefits - second on mobile */}
+                <div className="md:col-span-2">
+                  <Card className="border-green-100 h-full shadow-sm">
+                    <CardHeader className="bg-nipay-green/5 border-b border-nipay-green/10 pb-3 md:pb-4">
+                      <CardTitle className="text-lg md:text-xl text-nipay-dark-green flex items-center">
+                        <Clock className="mr-2 h-4 w-4 md:h-5 md:w-5" />
+                        Act Fast
+                      </CardTitle>
+                      <CardDescription className="text-xs md:text-sm">Early applicants get:</CardDescription>
+                    </CardHeader>
+                    <CardContent className="pt-4 md:pt-6">
+                      <ul className="space-y-2 md:space-y-3">
+                        <li className="flex items-start gap-2 md:gap-3">
+                          <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-nipay-green mt-0.5 flex-shrink-0" />
                           <div>
-                            <CardTitle>Apply Now</CardTitle>
-                            <CardDescription>
-                              Limited spots available
-                            </CardDescription>
+                            <span className="font-bold block text-foreground text-sm md:text-base">Priority Access</span>
+                            <span className="text-xxs md:text-xs text-muted-foreground">Skip the queue</span>
                           </div>
-                          <Badge variant="outline" className="bg-nipay-green/10 text-nipay-dark-green">
-                            <Clock className="mr-1 h-3 w-3" /> Urgent
-                          </Badge>
+                        </li>
+                        <li className="flex items-start gap-2 md:gap-3">
+                          <TrendingUp className="h-4 w-4 md:h-5 md:w-5 text-nipay-green mt-0.5 flex-shrink-0" />
+                          <div>
+                            <span className="font-bold block text-foreground text-sm md:text-base">Higher Limits</span>
+                            <span className="text-xxs md:text-xs text-muted-foreground">Up to 2x your volume</span>
+                          </div>
+                        </li>
+                        <li className="flex items-start gap-2 md:gap-3">
+                          <DollarSign className="h-4 w-4 md:h-5 md:w-5 text-nipay-green mt-0.5 flex-shrink-0" />
+                          <div>
+                            <span className="font-bold block text-foreground text-sm md:text-base">Lower Fees</span>
+                            <span className="text-xxs md:text-xs text-muted-foreground">Best rates available</span>
+                          </div>
+                        </li>
+                        <li className="flex items-start gap-2 md:gap-3">
+                          <CreditCard className="h-4 w-4 md:h-5 md:w-5 text-nipay-green mt-0.5 flex-shrink-0" />
+                          <div>
+                            <span className="font-bold block text-foreground text-sm md:text-base">No Hidden Charges</span>
+                            <span className="text-xxs md:text-xs text-muted-foreground">Total transparency</span>
+                          </div>
+                        </li>
+                        <li className="flex items-start gap-2 md:gap-3">
+                          <Handshake className="h-4 w-4 md:h-5 md:w-5 text-nipay-green mt-0.5 flex-shrink-0" />
+                          <div>
+                            <span className="font-bold block text-foreground text-sm md:text-base">VIP Support</span>
+                            <span className="text-xxs md:text-xs text-muted-foreground">Direct access to team</span>
+                          </div>
+                        </li>
+                      </ul>
+                    </CardContent>
+                  </Card>
+                </div>
+              </>
+            ) : (
+              <>
+                {/* Desktop layout - benefits first, form second */}
+                <div className="md:col-span-2">
+                  <Card className="border-green-100 h-full shadow-sm">
+                    <CardHeader className="bg-nipay-green/5 border-b border-nipay-green/10">
+                      <CardTitle className="text-xl text-nipay-dark-green flex items-center">
+                        <Clock className="mr-2 h-5 w-5" />
+                        Act Fast
+                      </CardTitle>
+                      <CardDescription>Early applicants get:</CardDescription>
+                    </CardHeader>
+                    <CardContent className="pt-6">
+                      <ul className="space-y-3">
+                        <li className="flex items-start gap-3">
+                          <CheckCircle className="h-5 w-5 text-nipay-green mt-0.5 flex-shrink-0" />
+                          <div>
+                            <span className="font-bold block text-foreground">Priority Access</span>
+                            <span className="text-xs text-muted-foreground">Skip the queue</span>
+                          </div>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <TrendingUp className="h-5 w-5 text-nipay-green mt-0.5 flex-shrink-0" />
+                          <div>
+                            <span className="font-bold block text-foreground">Higher Limits</span>
+                            <span className="text-xs text-muted-foreground">Up to 2x your volume</span>
+                          </div>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <DollarSign className="h-5 w-5 text-nipay-green mt-0.5 flex-shrink-0" />
+                          <div>
+                            <span className="font-bold block text-foreground">Lower Fees</span>
+                            <span className="text-xs text-muted-foreground">Best rates available</span>
+                          </div>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <CreditCard className="h-5 w-5 text-nipay-green mt-0.5 flex-shrink-0" />
+                          <div>
+                            <span className="font-bold block text-foreground">No Hidden Charges</span>
+                            <span className="text-xs text-muted-foreground">Total transparency</span>
+                          </div>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <Handshake className="h-5 w-5 text-nipay-green mt-0.5 flex-shrink-0" />
+                          <div>
+                            <span className="font-bold block text-foreground">VIP Support</span>
+                            <span className="text-xs text-muted-foreground">Direct access to team</span>
+                          </div>
+                        </li>
+                      </ul>
+                    </CardContent>
+                  </Card>
+                </div>
+                
+                <div className="md:col-span-3">
+                  <Card className="border-green-100 shadow-sm">
+                    <CardHeader className="pb-4">
+                      <div className="flex justify-between items-center">
+                        <div>
+                          <CardTitle>Apply Now</CardTitle>
+                          <CardDescription>
+                            Limited spots available
+                          </CardDescription>
                         </div>
-                      </CardHeader>
-                      <CardContent>
-                        <WaitlistForm 
-                          onSuccess={() => {
-                            // Success is handled within the form component
-                          }}
-                        />
-                      </CardContent>
-                    </Card>
-                  </div>
-                </>
-              )}
-            </div>
+                        <Badge variant="outline" className="bg-nipay-green/10 text-nipay-dark-green">
+                          <Clock className="mr-1 h-3 w-3" /> Urgent
+                        </Badge>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <WaitlistForm 
+                        onSuccess={() => {
+                          // Success is handled within the form component
+                        }}
+                      />
+                    </CardContent>
+                  </Card>
+                </div>
+              </>
+            )}
             
             {/* Quick Application Process */}
             <div className="mt-8 md:mt-12">
@@ -241,7 +238,7 @@ const Waitlist = () => {
                 <div className="p-3 md:p-5 rounded-lg bg-card border border-green-100 hover:border-nipay-green/30 hover:shadow-md transition-all">
                   <div className="h-8 w-8 md:h-10 md:w-10 rounded-full bg-nipay-green/10 flex items-center justify-center text-nipay-green mx-auto mb-2 md:mb-3">2</div>
                   <h3 className="font-bold mb-1 text-center text-sm md:text-base">Activation</h3>
-                  <p className="text-xxs md:text-xs text-muted-foreground text-center">SMS activation</p>
+                  <p className="text-xxs md:text-xs text-muted-foreground text-center">When we launch</p>
                 </div>
                 
                 <div className="p-3 md:p-5 rounded-lg bg-card border border-green-100 hover:border-nipay-green/30 hover:shadow-md transition-all">
