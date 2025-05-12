@@ -35,9 +35,7 @@ const HeroSection = () => {
               </Button>
             </Link>
             <Link to="/investors" className="w-full sm:w-auto">
-              <Button variant="outline" size={isMobile ? "default" : "lg"} className="text-white border-white hover:text-black hover:border-nipay-green w-full sm:w-auto py-5 md:py-6 px-6 md:px-8">
-                For Investors
-              </Button>
+              
             </Link>
           </div>
           
