@@ -74,16 +74,16 @@ const ValidationSection = () => {
       {/* Partners logos */}
       <div>
         <h3 className="text-lg md:text-xl font-bold mb-4 md:mb-6 text-center">Industry Partners</h3>
-        <div className="flex flex-wrap justify-center gap-4 md:gap-12 items-center">
+        <div className="flex flex-wrap justify-center gap-6 md:gap-12 items-center">
           {partners.organizations.map((org, index) => (
             <div 
               key={`org-${index}`} 
-              className={`bg-white p-4 md:p-6 rounded-lg shadow-md ${isMobile ? 'w-36 h-36' : 'w-48 h-48'} flex flex-col items-center justify-center`}
+              className={`bg-white p-4 md:p-6 rounded-lg shadow-md flex flex-col items-center justify-center`}
             >
               <img 
                 src={org.logo} 
                 alt={org.name} 
-                className="max-w-full max-h-16 md:max-h-24 mb-3 md:mb-4"
+                className="h-16 md:h-20 object-contain mb-3 md:mb-4"
               />
               <p className="text-center font-medium text-xs md:text-sm">{org.name}</p>
             </div>
