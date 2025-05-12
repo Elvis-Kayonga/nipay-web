@@ -1,3 +1,4 @@
+
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -8,8 +9,10 @@ import { Badge } from "@/components/ui/badge";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+
 const Waitlist = () => {
   const isMobile = useIsMobile();
+  
   const handleShareClick = () => {
     if (navigator.share) {
       navigator.share({
@@ -30,6 +33,7 @@ const Waitlist = () => {
       });
     }
   };
+
   return <>
       <Helmet>
         <title>Join the Waitlist | NiPay</title>
@@ -264,4 +268,5 @@ const Waitlist = () => {
       <Footer />
     </>;
 };
+
 export default Waitlist;

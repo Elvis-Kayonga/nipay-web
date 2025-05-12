@@ -21,6 +21,7 @@ export type Database = {
           interest_rate: string | null
           monthly_volume: string | null
           name: string
+          phone_number: string | null
         }
         Insert: {
           business_earnings?: string | null
@@ -33,6 +34,7 @@ export type Database = {
           interest_rate?: string | null
           monthly_volume?: string | null
           name: string
+          phone_number?: string | null
         }
         Update: {
           business_earnings?: string | null
@@ -45,6 +47,7 @@ export type Database = {
           interest_rate?: string | null
           monthly_volume?: string | null
           name?: string
+          phone_number?: string | null
         }
         Relationships: []
       }
