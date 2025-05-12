@@ -64,7 +64,7 @@ const SmeBenefitsSection = () => {
         </div>
         
         <div className="bg-muted rounded-xl overflow-hidden shadow-lg order-1 lg:order-2">
-          <img alt="NiPay mobile app interface" className="w-full h-auto" src="/lovable-uploads/858d10dd-85b2-4ced-8d1d-1313af25d0db.png" />
+          <img alt="NiPay mobile app interface" className="w-full h-auto" src="/lovable-uploads/51946dc5-f2c8-440c-9c1b-7671876e207e.png" />
           <div className="p-4 md:p-6">
             <h3 className="font-bold mb-2">NiPay Mobile Experience</h3>
             <p className="text-sm text-muted-foreground">
