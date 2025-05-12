@@ -74,7 +74,7 @@ const Footer = () => {
             <div>
               <h3 className="font-bold text-base md:text-lg mb-3 md:mb-4">Contact Us</h3>
               <address className="not-italic text-sm md:text-base">
-                <p className="mb-1 md:mb-2">Kigali Heights</p>
+                <p className="mb-1 md:mb-2">Norrsken House Kigali</p>
                 <p className="mb-1 md:mb-2">Kigali, Rwanda</p>
                 <p className="mb-1 md:mb-2">
                   <a href="mailto:info@nipay.rw" className="hover:text-nipay-green transition-colors">
@@ -82,8 +82,8 @@ const Footer = () => {
                   </a>
                 </p>
                 <p>
-                  <a href="tel:+250700000000" className="hover:text-nipay-green transition-colors">
-                    +250 700 000 000
+                  <a href="tel:+250788321008" className="hover:text-nipay-green transition-colors">
+                    +250 788 321 008
                   </a>
                 </p>
               </address>
@@ -94,7 +94,7 @@ const Footer = () => {
             <div>
               <h3 className="font-bold text-lg mb-4">Contact Us</h3>
               <address className="not-italic">
-                <p className="mb-2">Kigali Heights</p>
+                <p className="mb-2">Norrsken House Kigali</p>
                 <p className="mb-2">Kigali, Rwanda</p>
                 <p className="mb-2">
                   <a href="mailto:info@nipay.rw" className="hover:text-nipay-green transition-colors">
@@ -102,8 +102,8 @@ const Footer = () => {
                   </a>
                 </p>
                 <p>
-                  <a href="tel:+250700000000" className="hover:text-nipay-green transition-colors">
-                    +250 700 000 000
+                  <a href="tel:+250788321008" className="hover:text-nipay-green transition-colors">
+                    +250 788 321 008
                   </a>
                 </p>
               </address>
