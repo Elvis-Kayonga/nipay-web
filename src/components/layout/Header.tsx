@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import ThemeToggle from '../ui/ThemeToggle';
 import WaitlistModal from '../modals/WaitlistModal';
 import { Link, useLocation } from 'react-router-dom';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -103,7 +102,7 @@ const Header = () => {
                 className="text-nipay-green font-medium hover:underline transition-colors"
               >
                 For Investors
-              </Link>
+              </a>
               <a 
                 href="#faq"
                 onClick={(e) => {
@@ -117,7 +116,7 @@ const Header = () => {
             </nav>
             
             <div className="flex items-center gap-3">
-              {!isMobile && <ThemeToggle />}
+              {/* Removed ThemeToggle component reference */}
               
               {/* Desktop buttons - hidden on mobile */}
               <div className="hidden md:flex items-center gap-3">
