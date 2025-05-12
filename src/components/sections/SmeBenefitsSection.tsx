@@ -1,21 +1,15 @@
 
-import { useState } from 'react';
 import SectionWrapper from '../shared/SectionWrapper';
 import { Button } from '@/components/ui/button';
-import WaitlistModal from '../modals/WaitlistModal';
-import { ArrowRight, Check, TrendingUp, Clock, Wallet, Shield } from 'lucide-react';
-import { useIsMobile } from '@/hooks/use-mobile';
+import { ArrowRight, TrendingUp, Clock, Wallet, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const SmeBenefitsSection = () => {
-  const [showWaitlistModal, setShowWaitlistModal] = useState(false);
-  const isMobile = useIsMobile();
-  
   return <SectionWrapper id="benefits" className="py-16 md:py-24">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
         <div className="space-y-6 md:space-y-8 order-2 lg:order-1">
           <h2 className="text-2xl md:text-4xl font-bold">
-            How NiPay Powers Your Business Growth
+            How NiPay AI Powers Your Growth
           </h2>
           
           <ul className="space-y-4 md:space-y-6">
@@ -24,8 +18,8 @@ const SmeBenefitsSection = () => {
                 <TrendingUp className="w-5 h-5 md:w-6 md:h-6" />
               </div>
               <div>
-                <p className="font-medium">Up to <span className="text-nipay-green font-bold">200%</span> of your monthly inflows as instant capital</p>
-                <p className="text-sm text-muted-foreground mt-1">Double your purchasing power without traditional collateral</p>
+                <p className="font-medium"><span className="text-nipay-green font-bold">200%</span> instant capital based on your inflows</p>
+                <p className="text-sm text-muted-foreground mt-1">AI analyzes your transactions to double purchasing power</p>
               </div>
             </li>
             
@@ -34,8 +28,8 @@ const SmeBenefitsSection = () => {
                 <Wallet className="w-5 h-5 md:w-6 md:h-6" />
               </div>
               <div>
-                <p className="font-medium">Pay only for what you use, when you use it - <span className="text-nipay-green font-bold">Save 30%</span></p>
-                <p className="text-sm text-muted-foreground mt-1">Flexible repayment tied to your business cycle, not fixed terms</p>
+                <p className="font-medium">Pay as you use - <span className="text-nipay-green font-bold">save 30%</span></p>
+                <p className="text-sm text-muted-foreground mt-1">AI-optimized repayment aligned to your business cycle</p>
               </div>
             </li>
             
@@ -44,8 +38,8 @@ const SmeBenefitsSection = () => {
                 <Clock className="w-5 h-5 md:w-6 md:h-6" />
               </div>
               <div>
-                <p className="font-medium">Access funds <span className="text-nipay-green font-bold">80% faster</span> than traditional loans</p>
-                <p className="text-sm text-muted-foreground mt-1">Hours instead of weeks - no missed business opportunities</p>
+                <p className="font-medium">Access funds <span className="text-nipay-green font-bold">80% faster</span></p>
+                <p className="text-sm text-muted-foreground mt-1">AI assessment in hours instead of weeks</p>
               </div>
             </li>
             
@@ -54,8 +48,8 @@ const SmeBenefitsSection = () => {
                 <Shield className="w-5 h-5 md:w-6 md:h-6" />
               </div>
               <div>
-                <p className="font-medium">No collateral required - <span className="text-nipay-green font-bold">100% digital</span></p>
-                <p className="text-sm text-muted-foreground mt-1">Your mobile money history is all you need</p>
+                <p className="font-medium"><span className="text-nipay-green font-bold">100% digital</span> with no collateral</p>
+                <p className="text-sm text-muted-foreground mt-1">AI evaluates your digital financial footprint</p>
               </div>
             </li>
           </ul>
@@ -73,15 +67,13 @@ const SmeBenefitsSection = () => {
         <div className="bg-muted rounded-xl overflow-hidden shadow-lg order-1 lg:order-2">
           <img alt="NiPay mobile app interface" className="w-full h-auto" src="/lovable-uploads/51946dc5-f2c8-440c-9c1b-7671876e207e.png" />
           <div className="p-4 md:p-6">
-            <h3 className="font-bold mb-2">NiPay Mobile Experience</h3>
+            <h3 className="font-bold mb-2">NiPay AI Experience</h3>
             <p className="text-sm text-muted-foreground">
-              Simple USSD commands or intuitive app for credit.
+              Intelligent credit decisions at your fingertips
             </p>
           </div>
         </div>
       </div>
-      
-      <WaitlistModal isOpen={showWaitlistModal} onClose={() => setShowWaitlistModal(false)} />
     </SectionWrapper>;
 };
 
