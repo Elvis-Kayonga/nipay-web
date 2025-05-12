@@ -102,7 +102,7 @@ const Header = () => {
                 className="text-nipay-green font-medium hover:underline transition-colors"
               >
                 For Investors
-              </a>
+              </Link>
               <a 
                 href="#faq"
                 onClick={(e) => {
