@@ -10,12 +10,13 @@ import { Label } from '@/components/ui/label';
 import { toast } from 'sonner';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Slider } from '@/components/ui/slider';
-import { Building, Clock, DollarSign, Percent, User } from 'lucide-react';
+import { Building, Clock, DollarSign, Percent, Phone, User } from 'lucide-react';
 
 const formSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters' }),
   businessName: z.string().min(2, { message: 'Business name must be at least 2 characters' }),
   email: z.string().email({ message: 'Please enter a valid email address' }),
+  phoneNumber: z.string().min(10, { message: 'Please enter a valid phone number' }),
   monthlyVolume: z.string().min(1, { message: 'Please enter your monthly mobile money volume' }),
   businessEarnings: z.string().min(1, { message: 'Please enter your monthly business earnings' }),
   fundingNeeded: z.string().min(1, { message: 'Please enter how much funding you need' }),
@@ -59,6 +60,7 @@ const WaitlistForm = ({ onSuccess }: WaitlistFormProps) => {
       name: '',
       businessName: '',
       email: '',
+      phoneNumber: '',
       monthlyVolume: '',
       businessEarnings: '',
       fundingNeeded: '',
@@ -145,6 +147,21 @@ const WaitlistForm = ({ onSuccess }: WaitlistFormProps) => {
         />
         {errors.email && (
           <p className="text-destructive text-sm">{errors.email.message}</p>
+        )}
+      </div>
+      
+      <div className="space-y-2">
+        <Label htmlFor="phoneNumber" className="flex items-center gap-2">
+          <Phone className="h-4 w-4" /> Phone Number
+        </Label>
+        <Input 
+          id="phoneNumber" 
+          type="tel" 
+          placeholder="+250 7XX XXX XXX" 
+          {...register('phoneNumber')}
+        />
+        {errors.phoneNumber && (
+          <p className="text-destructive text-sm">{errors.phoneNumber.message}</p>
         )}
       </div>
       

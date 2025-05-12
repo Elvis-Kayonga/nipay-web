@@ -1,4 +1,3 @@
-
 import { supabase } from '@/integrations/supabase/client';
 import statsData from '../data/stats.json';
 import faqData from '../data/faq.json';
@@ -31,6 +30,7 @@ export interface WaitlistFormData {
   name: string;
   businessName: string;
   email: string;
+  phoneNumber: string;
   monthlyVolume: string;
   businessEarnings?: string;
   fundingNeeded?: string;
@@ -81,7 +81,7 @@ export const api = {
   
   submitToWaitlist: async (data: WaitlistFormData) => {
     // Validate required fields
-    if (!data.email || !data.name || !data.businessName) {
+    if (!data.email || !data.name || !data.businessName || !data.phoneNumber) {
       throw new Error('Please provide all required fields');
     }
     
@@ -96,6 +96,7 @@ export const api = {
           name: data.name,
           business_name: data.businessName,
           email: data.email,
+          phone_number: data.phoneNumber,
           monthly_volume: data.monthlyVolume,
           business_earnings: data.businessEarnings,
           funding_needed: data.fundingNeeded,
