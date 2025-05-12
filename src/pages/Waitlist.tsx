@@ -8,33 +8,29 @@ import { Badge } from "@/components/ui/badge";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
-
 const Waitlist = () => {
   const isMobile = useIsMobile();
-  
   const handleShareClick = () => {
     if (navigator.share) {
       navigator.share({
         title: "Join the NiPay Waitlist",
         text: "I just joined NiPay's waitlist for business credit. You should check it out too!",
-        url: window.location.href,
+        url: window.location.href
       }).then(() => {
         toast.success("Thanks for sharing!");
-      }).catch((error) => {
+      }).catch(error => {
         console.error("Error sharing:", error);
       });
     } else {
       // Fallback for browsers that don't support Web Share API
       navigator.clipboard.writeText(window.location.href).then(() => {
         toast.success("Link copied to clipboard! Share with your friends.");
-      }).catch((error) => {
+      }).catch(error => {
         console.error("Error copying link:", error);
       });
     }
   };
-  
-  return (
-    <>
+  return <>
       <Helmet>
         <title>Join the Waitlist | NiPay</title>
         <meta name="description" content="Limited time offer: Be among the first businesses in Rwanda to access instant revolving credit with NiPay." />
@@ -52,9 +48,7 @@ const Waitlist = () => {
                 Only a few spots remaining
               </Badge>
               <h1 className="text-2xl md:text-4xl font-bold mb-2 md:mb-3">Don't Miss This Opportunity</h1>
-              <p className="text-sm md:text-lg text-muted-foreground max-w-xs md:max-w-2xl mx-auto">
-                We're building Rwanda's first collateral-free mobile wallet specifically designed for SMEs. Get quick access to funds based on your mobile money transaction history - no traditional collateral needed. Join our waitlist as we test the market to ensure we serve your business needs in the best possible way.
-              </p>
+              <p className="text-sm md:text-lg text-muted-foreground max-w-xs md:max-w-2xl mx-auto">We're building Rwanda's first collateral-free mobile wallet specifically designed for SMEs. Get quick access to funds/loans based on your mobile money transaction history - no traditional collateral needed. Join our waitlist as we test the Rwandan market to ensure we serve your business needs in the best possible way.</p>
             </div>
             
             {/* Urgency Banner */}
@@ -64,8 +58,7 @@ const Waitlist = () => {
             </div>
             
             {/* Priority for mobile: show form first, benefits second */}
-            {isMobile ? (
-              <>
+            {isMobile ? <>
                 {/* Form - first on mobile */}
                 <div className="md:col-span-3">
                   <Card className="border-green-100 shadow-sm">
@@ -83,11 +76,9 @@ const Waitlist = () => {
                       </div>
                     </CardHeader>
                     <CardContent>
-                      <WaitlistForm 
-                        onSuccess={() => {
-                          // Success is handled within the form component
-                        }}
-                      />
+                      <WaitlistForm onSuccess={() => {
+                    // Success is handled within the form component
+                  }} />
                     </CardContent>
                   </Card>
                 </div>
@@ -143,9 +134,7 @@ const Waitlist = () => {
                     </CardContent>
                   </Card>
                 </div>
-              </>
-            ) : (
-              <>
+              </> : <>
                 {/* Desktop layout - benefits first, form second */}
                 <div className="md:col-span-2">
                   <Card className="border-green-100 h-full shadow-sm">
@@ -214,16 +203,13 @@ const Waitlist = () => {
                       </div>
                     </CardHeader>
                     <CardContent>
-                      <WaitlistForm 
-                        onSuccess={() => {
-                          // Success is handled within the form component
-                        }}
-                      />
+                      <WaitlistForm onSuccess={() => {
+                    // Success is handled within the form component
+                  }} />
                     </CardContent>
                   </Card>
                 </div>
-              </>
-            )}
+              </>}
             
             {/* Quick Application Process */}
             <div className="mt-8 md:mt-12">
@@ -263,11 +249,7 @@ const Waitlist = () => {
                         </p>
                       </div>
                     </div>
-                    <Button 
-                      variant="green" 
-                      className="w-full md:w-auto" 
-                      onClick={handleShareClick}
-                    >
+                    <Button variant="green" className="w-full md:w-auto" onClick={handleShareClick}>
                       <Share className="h-4 w-4" />
                       Refer Friends Now
                     </Button>
@@ -280,8 +262,6 @@ const Waitlist = () => {
       </main>
       
       <Footer />
-    </>
-  );
+    </>;
 };
-
 export default Waitlist;
