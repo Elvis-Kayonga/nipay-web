@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 import WaitlistModal from '../modals/WaitlistModal';
@@ -6,19 +5,16 @@ import InvestorModal from '../modals/InvestorModal';
 import { ArrowRight } from "lucide-react";
 import { Link } from 'react-router-dom';
 import { useIsMobile } from '@/hooks/use-mobile';
-
 const HeroSection = () => {
   const [showWaitlistModal, setShowWaitlistModal] = useState(false);
   const [showInvestorModal, setShowInvestorModal] = useState(false);
   const isMobile = useIsMobile();
-  
-  return (
-    <section className="relative h-[90vh] min-h-[600px] flex items-center justify-center text-white">
+  return <section className="relative h-[90vh] min-h-[600px] flex items-center justify-center text-white">
       {/* Background image with overlay */}
       <div className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0" style={{
-        backgroundImage: "url('https://images.unsplash.com/photo-1501854140801-50d01698950b?ixlib=rb-4.0.3')",
-        backgroundPosition: isMobile ? "65% center" : "center"
-      }} aria-hidden="true">
+      backgroundImage: "url('https://images.unsplash.com/photo-1501854140801-50d01698950b?ixlib=rb-4.0.3')",
+      backgroundPosition: isMobile ? "65% center" : "center"
+    }} aria-hidden="true">
         <div className="absolute inset-0 hero-gradient"></div>
       </div>
       
@@ -35,21 +31,13 @@ const HeroSection = () => {
           
           <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center mb-8 md:mb-10">
             <Link to="/waitlist" className="w-full sm:w-auto">
-              <Button 
-                variant="green"
-                size={isMobile ? "default" : "lg"}
-                className="text-base md:text-lg py-5 md:py-6 w-full sm:w-auto px-6 md:px-8"
-              >
+              <Button variant="green" size={isMobile ? "default" : "lg"} className="text-base md:text-lg py-5 md:py-6 w-full sm:w-auto px-6 md:px-8">
                 Get Your Limit
                 <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
               </Button>
             </Link>
             <Link to="/investors" className="w-full sm:w-auto">
-              <Button 
-                variant="outline" 
-                size={isMobile ? "default" : "lg"}
-                className="text-white border-white hover:text-black hover:border-nipay-green w-full sm:w-auto py-5 md:py-6 px-6 md:px-8"
-              >
+              <Button variant="outline" size={isMobile ? "default" : "lg"} className="text-white border-white hover:text-black hover:border-nipay-green w-full sm:w-auto py-5 md:py-6 px-6 md:px-8">
                 For Investors
               </Button>
             </Link>
@@ -70,8 +58,6 @@ const HeroSection = () => {
       
       <WaitlistModal isOpen={showWaitlistModal} onClose={() => setShowWaitlistModal(false)} />
       <InvestorModal isOpen={showInvestorModal} onClose={() => setShowInvestorModal(false)} />
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
