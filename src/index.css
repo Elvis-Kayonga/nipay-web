@@ -84,7 +84,7 @@
   }
 
   .section-padding {
-    @apply py-16 px-4 md:py-24 md:px-6;
+    @apply py-12 px-4 md:py-24 md:px-6;
   }
 }
 
@@ -103,7 +103,7 @@
   }
   
   .section-title {
-    @apply text-3xl md:text-4xl font-bold mb-6 md:mb-10 text-center;
+    @apply text-2xl md:text-4xl font-bold mb-6 md:mb-10 text-center;
   }
 
   .card-hover {
@@ -112,5 +112,31 @@
   
   .text-gradient {
     @apply bg-gradient-to-r from-nipay-green to-nipay-dark-green bg-clip-text text-transparent;
+  }
+}
+
+/* Mobile-specific tweaks */
+@layer utilities {
+  .text-xxs {
+    font-size: 0.65rem;
+    line-height: 1rem;
+  }
+  
+  /* Improve tap targets on mobile */
+  @media (max-width: 768px) {
+    button, 
+    a, 
+    [role="button"], 
+    [type="button"], 
+    [type="submit"] {
+      @apply min-h-10 min-w-10;
+    }
+    
+    /* Improve form fields touch targets */
+    input:not([type="checkbox"]):not([type="radio"]),
+    select,
+    textarea {
+      @apply min-h-10;
+    }
   }
 }

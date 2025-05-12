@@ -4,6 +4,7 @@ import IconCard from '../shared/IconCard';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 import WaitlistModal from '../modals/WaitlistModal';
+import { Link } from 'react-router-dom';
 
 const SolutionSection = () => {
   const [showWaitlistModal, setShowWaitlistModal] = useState(false);
@@ -12,20 +13,20 @@ const SolutionSection = () => {
     <SectionWrapper 
       id="solution" 
       backgroundColor="bg-nipay-green" 
-      className="text-white"
+      className="text-white py-16 md:py-24"
     >
-      <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">
-        NiPay Unlocks Your Business Potential
+      <h2 className="text-2xl md:text-4xl font-bold mb-4 md:mb-6 text-center">
+        NiPay Unlocks Business Potential
       </h2>
       
-      <p className="text-xl mb-12 text-center max-w-3xl mx-auto">
-        Capital based on your mobile-money transaction history.
+      <p className="text-lg md:text-xl mb-8 md:mb-12 text-center max-w-xs md:max-w-3xl mx-auto">
+        Capital based on your mobile-money history.
       </p>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
         <IconCard 
           icon={
-            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <rect width="18" height="18" x="3" y="3" rx="2" />
               <path d="M7 7h.01" />
               <path d="M12 7h.01" />
@@ -39,26 +40,26 @@ const SolutionSection = () => {
             </svg>
           }
           title="Apply in Minutes"
-          description="Simple application using your existing mobile money history."
+          description="Simple mobile app setup."
           className="text-white"
         />
         
         <IconCard 
           icon={
-            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M12 2v20" />
               <path d="m4.93 15.93 14.14-14.14" />
               <path d="m19.07 15.93-14.14-14.14" />
             </svg>
           }
           title="Funds Within Hours"
-          description="Get approved and access your limit the same day."
+          description="Same-day limit access."
           className="text-white"
         />
         
         <IconCard 
           icon={
-            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0" />
               <path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2" />
               <path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8" />
@@ -66,19 +67,20 @@ const SolutionSection = () => {
             </svg>
           }
           title="Flexible Repayments"
-          description="Repay through small percentages of incoming payments."
+          description="Auto-repay from income."
           className="text-white"
         />
       </div>
 
-      <div className="text-center mt-12">
-        <Button 
-          variant="outline" 
-          onClick={() => setShowWaitlistModal(true)}
-          className="border-white text-white hover:bg-white/10 text-lg px-8 py-6"
-        >
-          Get Started Now
-        </Button>
+      <div className="text-center mt-8 md:mt-12">
+        <Link to="/waitlist">
+          <Button 
+            variant="outline" 
+            className="border-white text-white hover:bg-white/10 text-base md:text-lg px-6 md:px-8 py-5 md:py-6 w-full sm:w-auto"
+          >
+            Get Started Now
+          </Button>
+        </Link>
       </div>
       
       <WaitlistModal 

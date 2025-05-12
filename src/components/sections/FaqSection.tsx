@@ -29,25 +29,25 @@ const FaqSection = () => {
   }, []);
 
   return (
-    <SectionWrapper id="faq">
-      <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+    <SectionWrapper id="faq" className="py-16 md:py-24">
+      <h2 className="text-2xl md:text-4xl font-bold mb-8 md:mb-12 text-center">
         Frequently Asked Questions
       </h2>
       
       {isLoading ? (
-        <div className="animate-pulse space-y-4 max-w-3xl mx-auto">
+        <div className="animate-pulse space-y-4 max-w-md md:max-w-3xl mx-auto">
           {[1, 2, 3, 4].map((i) => (
-            <div key={i} className="h-16 bg-muted rounded-md"></div>
+            <div key={i} className="h-14 md:h-16 bg-muted rounded-md"></div>
           ))}
         </div>
       ) : (
-        <Accordion type="single" collapsible className="max-w-3xl mx-auto">
+        <Accordion type="single" collapsible className="max-w-md md:max-w-3xl mx-auto">
           {faqs.map((faq, index) => (
-            <AccordionItem key={index} value={`item-${index}`}>
-              <AccordionTrigger className="text-left font-medium">
+            <AccordionItem key={index} value={`item-${index}`} className="py-1 md:py-2">
+              <AccordionTrigger className="text-left font-medium text-base md:text-lg py-3">
                 {faq.question}
               </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
+              <AccordionContent className="text-muted-foreground text-sm md:text-base pb-4">
                 {faq.answer}
               </AccordionContent>
             </AccordionItem>
@@ -55,9 +55,9 @@ const FaqSection = () => {
         </Accordion>
       )}
       
-      <div className="mt-12 text-center">
+      <div className="mt-8 md:mt-12 text-center">
         <p>
-          Have more questions? <a href="mailto:info@nipay.rw" className="text-nipay-green hover:underline">Contact our team</a>
+          More questions? <a href="mailto:info@nipay.rw" className="text-nipay-green hover:underline">Contact our team</a>
         </p>
       </div>
     </SectionWrapper>

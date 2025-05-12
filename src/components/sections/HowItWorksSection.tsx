@@ -1,22 +1,25 @@
 
 import SectionWrapper from '../shared/SectionWrapper';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const HowItWorksSection = () => {
+  const isMobile = useIsMobile();
+  
   return (
-    <SectionWrapper id="how-it-works" className="text-center">
-      <h2 className="text-3xl md:text-4xl font-bold mb-12">
+    <SectionWrapper id="how-it-works" className="text-center py-16 md:py-24">
+      <h2 className="text-2xl md:text-4xl font-bold mb-8 md:mb-12">
         How It Works
       </h2>
       
-      <div className="flex flex-col md:flex-row gap-6 md:gap-0 max-w-4xl mx-auto">
+      <div className="flex flex-col md:flex-row gap-8 md:gap-0 max-w-4xl mx-auto">
         {/* Step 1 */}
         <div className="flex-1 relative">
-          <div className="w-16 h-16 rounded-full bg-nipay-green flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6">
+          <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-nipay-green flex items-center justify-center text-white text-xl md:text-2xl font-bold mx-auto mb-4 md:mb-6">
             1
           </div>
-          <h3 className="text-xl font-bold mb-3">Use the NiPay Wallet</h3>
-          <p className="text-muted-foreground">
-            Sign up through USSD code or app in under 2 minutes.
+          <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">Use NiPay Wallet</h3>
+          <p className="text-muted-foreground text-sm md:text-base">
+            Sign up in under 2 minutes.
           </p>
           
           {/* Arrow (visible only on desktop) */}
@@ -32,12 +35,12 @@ const HowItWorksSection = () => {
         
         {/* Step 2 */}
         <div className="flex-1 relative">
-          <div className="w-16 h-16 rounded-full bg-nipay-green flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6">
+          <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-nipay-green flex items-center justify-center text-white text-xl md:text-2xl font-bold mx-auto mb-4 md:mb-6">
             2
           </div>
-          <h3 className="text-xl font-bold mb-3">Get Your Credit Line</h3>
-          <p className="text-muted-foreground">
-            We analyze your activity and instantly approve your limit.
+          <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">Get Credit Line</h3>
+          <p className="text-muted-foreground text-sm md:text-base">
+            Instant limit approval.
           </p>
           
           {/* Arrow (visible only on desktop) */}
@@ -53,44 +56,44 @@ const HowItWorksSection = () => {
         
         {/* Step 3 */}
         <div className="flex-1">
-          <div className="w-16 h-16 rounded-full bg-nipay-green flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6">
+          <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-nipay-green flex items-center justify-center text-white text-xl md:text-2xl font-bold mx-auto mb-4 md:mb-6">
             3
           </div>
-          <h3 className="text-xl font-bold mb-3">Use & Repay Flexibly</h3>
-          <p className="text-muted-foreground">
-            Draw credit when needed, repay through incoming transactions.
+          <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">Use & Repay</h3>
+          <p className="text-muted-foreground text-sm md:text-base">
+            Draw when needed, auto-repay.
           </p>
         </div>
       </div>
       
       {/* Additional explanation */}
-      <div className="mt-12 max-w-2xl mx-auto bg-muted/50 p-6 rounded-lg">
-        <h3 className="text-xl font-semibold mb-3">What is Revolving Credit?</h3>
-        <p className="text-base">
-          Like a credit card for your NiPay wallet based on your business cash flow. 
-          Use what you need when you need it, and pay only for what you use.
-          Small repayments from incoming transactions match your business rhythm.
+      <div className="mt-10 md:mt-12 max-w-md md:max-w-2xl mx-auto bg-muted/50 p-4 md:p-6 rounded-lg">
+        <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-3">What is Revolving Credit?</h3>
+        <p className="text-sm md:text-base">
+          Like a credit card for your NiPay wallet. 
+          Use what you need, pay only for what you use.
+          Small auto-repayments match your business flow.
         </p>
       </div>
       
       {/* Mobile app illustration */}
-      <div className="mt-16 bg-muted p-6 rounded-xl max-w-2xl mx-auto">
+      <div className="mt-10 md:mt-16 bg-muted p-4 md:p-6 rounded-xl max-w-xs md:max-w-2xl mx-auto">
         <div className="flex items-center justify-center">
-          <div className="w-1/3 border-2 border-border rounded-xl overflow-hidden shadow-md mr-4">
+          <div className={`${isMobile ? 'w-1/3' : 'w-1/3'} border-2 border-border rounded-xl overflow-hidden shadow-md mr-2 md:mr-4`}>
             <img 
               src="/placeholder.svg" 
               alt="USSD interface" 
               className="w-full h-auto"
             />
           </div>
-          <div className="w-1/3 border-2 border-nipay-green rounded-xl overflow-hidden shadow-md">
+          <div className={`${isMobile ? 'w-1/3' : 'w-1/3'} border-2 border-nipay-green rounded-xl overflow-hidden shadow-md`}>
             <img 
               src="/placeholder.svg" 
               alt="NiPay app" 
               className="w-full h-auto"
             />
           </div>
-          <div className="w-1/3 border-2 border-border rounded-xl overflow-hidden shadow-md ml-4">
+          <div className={`${isMobile ? 'w-1/3' : 'w-1/3'} border-2 border-border rounded-xl overflow-hidden shadow-md ml-2 md:ml-4`}>
             <img 
               src="/placeholder.svg" 
               alt="Repayment flow" 
@@ -98,8 +101,8 @@ const HowItWorksSection = () => {
             />
           </div>
         </div>
-        <p className="text-sm text-muted-foreground mt-4">
-          Available via USSD code *123# or our mobile app.
+        <p className="text-xs md:text-sm text-muted-foreground mt-3 md:mt-4">
+          Via USSD *123# or mobile app
         </p>
       </div>
     </SectionWrapper>

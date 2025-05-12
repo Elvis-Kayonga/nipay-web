@@ -17,6 +17,7 @@ const Index = () => {
         <title>NiPay | Urgent Credit for SMEs in Rwanda</title>
         <meta name="description" content="NiPay provides instant credit against mobile-money inflows for SMEs in Rwanda—no paperwork, no waiting." />
         <meta name="keywords" content="mobile money, SME finance, Rwanda, credit, fintech, business loans, urgent funding" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         
         {/* Open Graph / Social */}
         <meta property="og:type" content="website" />
