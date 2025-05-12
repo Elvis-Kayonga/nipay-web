@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 import WaitlistModal from '../modals/WaitlistModal';
@@ -5,10 +6,12 @@ import InvestorModal from '../modals/InvestorModal';
 import { ArrowRight } from "lucide-react";
 import { Link } from 'react-router-dom';
 import { useIsMobile } from '@/hooks/use-mobile';
+
 const HeroSection = () => {
   const [showWaitlistModal, setShowWaitlistModal] = useState(false);
   const [showInvestorModal, setShowInvestorModal] = useState(false);
   const isMobile = useIsMobile();
+  
   return <section className="relative h-[90vh] min-h-[600px] flex items-center justify-center text-white">
       {/* Background image with overlay */}
       <div className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0" style={{
@@ -32,7 +35,7 @@ const HeroSection = () => {
           <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center mb-8 md:mb-10">
             <Link to="/waitlist" className="w-full sm:w-auto">
               <Button variant="green" size={isMobile ? "default" : "lg"} className="text-base md:text-lg py-5 md:py-6 w-full sm:w-auto px-6 md:px-8">
-                Get Your Limit
+                Get Capital
                 <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
               </Button>
             </Link>
@@ -60,4 +63,5 @@ const HeroSection = () => {
       <InvestorModal isOpen={showInvestorModal} onClose={() => setShowInvestorModal(false)} />
     </section>;
 };
+
 export default HeroSection;
