@@ -4,8 +4,8 @@ window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 
-// Main configuration - Replace G-XXXXXXXXXX with your actual GA4 ID when available
-gtag('config', 'G-XXXXXXXXXX', {
+// Main configuration with actual GA4 ID
+gtag('config', 'G-4W8M75RHXN', {
   'user_id': localStorage.getItem('nipay_user_id') || '',
   'send_page_view': true,
   'page_title': document.title,

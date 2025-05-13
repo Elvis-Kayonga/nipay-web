@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -11,10 +12,10 @@ import Investors from "./pages/Investors";
 import Waitlist from "./pages/Waitlist";
 import Contact from "./pages/Contact";
 
-// Google Analytics tracking function - replace with actual GA ID when available
+// Google Analytics tracking function with actual GA ID
 const trackPageView = (path: string) => {
   if (typeof window.gtag !== 'undefined') {
-    window.gtag('config', 'G-XXXXXXXXXX', {
+    window.gtag('config', 'G-4W8M75RHXN', {
       page_path: path,
     });
   }
