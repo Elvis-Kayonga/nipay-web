@@ -17,7 +17,7 @@ const Waitlist = () => {
     if (navigator.share) {
       navigator.share({
         title: "Join the NiPay Waitlist",
-        text: "I just joined NiPay's waitlist for business credit. You should check it out too!",
+        text: "I just joined NiPay's waitlist for business credit without collateral. You should check it out too!",
         url: window.location.href
       }).then(() => {
         toast.success("Thanks for sharing!");
