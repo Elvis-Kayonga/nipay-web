@@ -14,11 +14,14 @@ const Waitlist = () => {
   const isMobile = useIsMobile();
   
   const handleShareClick = () => {
+    // Create the absolute URL to ensure valid links when sharing
+    const shareUrl = new URL("/waitlist", window.location.origin).toString();
+    
     if (navigator.share) {
       navigator.share({
         title: "Join the NiPay Waitlist",
         text: "I just joined NiPay's waitlist for business credit without collateral. You should check it out too!",
-        url: window.location.href
+        url: shareUrl
       }).then(() => {
         toast.success("Thanks for sharing!");
       }).catch(error => {
@@ -26,7 +29,7 @@ const Waitlist = () => {
       });
     } else {
       // Fallback for browsers that don't support Web Share API
-      navigator.clipboard.writeText(window.location.href).then(() => {
+      navigator.clipboard.writeText(shareUrl).then(() => {
         toast.success("Link copied to clipboard! Share with your friends.");
       }).catch(error => {
         console.error("Error copying link:", error);
