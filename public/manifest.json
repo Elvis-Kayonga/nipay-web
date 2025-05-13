@@ -1,0 +1,17 @@
+
+{
+  "name": "NiPay Rwanda",
+  "short_name": "NiPay",
+  "description": "Instant credit for SMEs in Rwanda based on mobile money transaction history",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4CAF50",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ]
+}
