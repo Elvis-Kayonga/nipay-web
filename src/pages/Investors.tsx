@@ -1,4 +1,3 @@
-
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -9,18 +8,12 @@ import { Button } from "@/components/ui/button";
 import InvestorForm from "@/components/forms/InvestorForm";
 import IconCard from "@/components/shared/IconCard";
 import { ArrowRight, ChartBarIcon, DollarSign, TrendingUp, Users } from "lucide-react";
-
 const InvestorHero = () => {
-  return (
-    <section className="relative min-h-[70vh] flex items-center text-white">
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0" 
-        style={{ 
-          backgroundImage: "url('https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?ixlib=rb-4.0.3')",
-          backgroundAttachment: "fixed"
-        }}
-        aria-hidden="true"
-      >
+  return <section className="relative min-h-[70vh] flex items-center text-white">
+      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0" style={{
+      backgroundImage: "url('https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?ixlib=rb-4.0.3')",
+      backgroundAttachment: "fixed"
+    }} aria-hidden="true">
         <div className="absolute inset-0 hero-gradient"></div>
       </div>
       
@@ -30,30 +23,23 @@ const InvestorHero = () => {
             Fund NiPay's Mission to Transform SME Finance in Rwanda
           </h1>
           
-          <p className="text-xl mb-8">
-            Join us in closing Rwanda's $1.2 billion SME financing gap while achieving social impact and sustainable returns. We're seeking grant funding and partnerships.
-          </p>
+          <p className="text-xl mb-8">Join us in closing Rwanda's $1.2 billion SME financing gap while achieving social impact and sustainable returns. We're seeking investment ,grant funding and partnerships.</p>
           
-          <Button 
-            size="lg"
-            className="bg-white text-nipay-dark-green hover:bg-white/90 text-lg px-8"
-            onClick={() => {
-              const element = document.getElementById("contact-form");
-              element?.scrollIntoView({ behavior: "smooth" });
-            }}
-          >
+          <Button size="lg" className="bg-white text-nipay-dark-green hover:bg-white/90 text-lg px-8" onClick={() => {
+          const element = document.getElementById("contact-form");
+          element?.scrollIntoView({
+            behavior: "smooth"
+          });
+        }}>
             Partner With Us
             <ArrowRight className="ml-2" />
           </Button>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 const ImpactStatistics = () => {
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+  return <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
       <div className="bg-card p-6 rounded-lg border">
         <div className="text-4xl font-bold text-nipay-green mb-2">$1.2B</div>
         <p className="text-muted-foreground">SME financing gap in Rwanda</p>
@@ -66,13 +52,10 @@ const ImpactStatistics = () => {
         <div className="text-4xl font-bold text-nipay-green mb-2">91%</div>
         <p className="text-muted-foreground">of Rwandans use mobile money</p>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 const Investors = () => {
-  return (
-    <>
+  return <>
       <Helmet>
         <title>For Funders & Partners | NiPay</title>
         <meta name="description" content="Partner with NiPay to fund our mission of providing loans to underserved SMEs in Rwanda through our mobile-money based credit solution." />
@@ -186,40 +169,22 @@ const Investors = () => {
           <h2 className="text-3xl font-bold mb-12 text-center">Funding Needs</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <IconCard
-              icon={
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <IconCard icon={<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"></path>
                   <path d="M13 5v2"></path>
                   <path d="M13 17v2"></path>
                   <path d="M13 11v2"></path>
-                </svg>
-              }
-              title="Seed Capital"
-              description="$250,000 to fund our pilot program and technology development"
-            />
+                </svg>} title="Seed Capital" description="$250,000 to fund our pilot program and technology development" />
             
-            <IconCard
-              icon={
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <IconCard icon={<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path>
-                </svg>
-              }
-              title="Grant Funding"
-              description="Partnerships with NGOs and foundations focused on financial inclusion"
-            />
+                </svg>} title="Grant Funding" description="Partnerships with NGOs and foundations focused on financial inclusion" />
             
-            <IconCard
-              icon={
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <IconCard icon={<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M5.3 18a9 9 0 1 1 13.4 0"></path>
                   <path d="M16 22l-4-9-4 9"></path>
                   <circle cx="12" cy="10" r="1"></circle>
-                </svg>
-              }
-              title="Technical Partnerships"
-              description="Support with mobile money integrations, AI development, and scaling infrastructure"
-            />
+                </svg>} title="Technical Partnerships" description="Support with mobile money integrations, AI development, and scaling infrastructure" />
           </div>
         </SectionWrapper>
         
@@ -274,8 +239,6 @@ const Investors = () => {
       </main>
       
       <Footer />
-    </>
-  );
+    </>;
 };
-
 export default Investors;
