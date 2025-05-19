@@ -19,9 +19,9 @@ const Index = () => {
   return (
     <>
       <SEO 
-        title="NiPay | Business Loans via Mobile Money in Rwanda"
-        description="NiPay provides instant loans based on your mobile money transaction history for SMEs in Rwanda — no collateral, no paperwork. Access working capital instantly."
-        keywords="NiPay, mobile money Rwanda, SME finance Rwanda, instant loans Rwanda, business loans Rwanda, fintech Rwanda, working capital, small business funding"
+        title="NiPay | Business Loans via Phone in Rwanda"
+        description="NiPay provides instant loans based on your phone transaction history for SMEs in Rwanda — no collateral, no paperwork. Access working capital instantly."
+        keywords="NiPay, loans Rwanda, SME finance Rwanda, instant loans Rwanda, business loans Rwanda, fintech Rwanda, working capital, small business funding"
         canonicalUrl="/"
         ogImage="/placeholder.svg"
         structuredData={{

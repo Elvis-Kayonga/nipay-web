@@ -11,13 +11,13 @@ const SolutionSection = () => {
   const [showWaitlistModal, setShowWaitlistModal] = useState(false);
   
   return (
-    <SectionWrapper id="solution" backgroundColor="bg-nipay-green" className="text-white py-16 md:py-24">
+    <SectionWrapper id="solution" backgroundColor="bg-nipay-dark-green" className="text-white py-16 md:py-24">
       <h2 className="text-2xl md:text-4xl font-bold mb-4 md:mb-6 text-center">
-        NiPay: Loans Based On Your Mobile Money
+        NiPay: Loans Based On Your Phone
       </h2>
       
       <p className="text-lg md:text-xl mb-8 md:mb-12 text-center max-w-xs md:max-w-3xl mx-auto">
-        Get access to capital based on your mobile-money transaction history — no collateral required.
+        Get access to capital with just your phone number — no collateral required.
       </p>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
@@ -37,7 +37,7 @@ const SolutionSection = () => {
             </svg>
           } 
           title="Apply in 5 Minutes" 
-          description="Simple mobile registration with your phone number and MTN Mobile Money or Airtel Money account." 
+          description="Simple registration with your phone number." 
           className="text-white" 
         />
         
@@ -50,7 +50,7 @@ const SolutionSection = () => {
             </svg>
           } 
           title="Get Money Within Hours" 
-          description="Our AI reviews your mobile wallet history and approves loans quickly with same-day payments." 
+          description="Our AI reviews your payment history for quick loan approval." 
           className="text-white" 
         />
         
@@ -64,7 +64,7 @@ const SolutionSection = () => {
             </svg>
           } 
           title="Easy Repayments" 
-          description="Small automatic repayments from your mobile money income - pay only when you earn." 
+          description="Small automatic repayments from your income." 
           className="text-white" 
         />
       </div>
@@ -73,18 +73,18 @@ const SolutionSection = () => {
         <h3 className="text-xl font-bold mb-4 text-center">How It Works</h3>
         <div className="flex flex-col md:flex-row justify-between items-center text-center gap-4">
           <div className="flex-1 p-3">
-            <div className="w-12 h-12 rounded-full bg-white text-nipay-green flex items-center justify-center text-xl font-bold mx-auto mb-2">1</div>
-            <p className="text-sm">Connect your mobile wallet</p>
+            <div className="w-12 h-12 rounded-full bg-white text-nipay-dark-green flex items-center justify-center text-xl font-bold mx-auto mb-2">1</div>
+            <p className="text-sm">Connect your phone</p>
           </div>
           <div className="hidden md:block text-3xl">→</div>
           <div className="flex-1 p-3">
-            <div className="w-12 h-12 rounded-full bg-white text-nipay-green flex items-center justify-center text-xl font-bold mx-auto mb-2">2</div>
-            <p className="text-sm">Get approved for a loan limit</p>
+            <div className="w-12 h-12 rounded-full bg-white text-nipay-dark-green flex items-center justify-center text-xl font-bold mx-auto mb-2">2</div>
+            <p className="text-sm">Get approved for a loan</p>
           </div>
           <div className="hidden md:block text-3xl">→</div>
           <div className="flex-1 p-3">
-            <div className="w-12 h-12 rounded-full bg-white text-nipay-green flex items-center justify-center text-xl font-bold mx-auto mb-2">3</div>
-            <p className="text-sm">Use the money & repay automatically</p>
+            <div className="w-12 h-12 rounded-full bg-white text-nipay-dark-green flex items-center justify-center text-xl font-bold mx-auto mb-2">3</div>
+            <p className="text-sm">Use money & repay automatically</p>
           </div>
         </div>
       </div>

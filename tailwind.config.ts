@@ -68,10 +68,10 @@ export default {
 				},
 				nipay: {
 					green: "#2ecc71",
+					"dark-green": "#1a5c38", // Darker green color added
 					white: "#ffffff",
 					dark: "#333333",
 					"light-green": "#a8eec1",
-					"dark-green": "#27ae60",
 					gray: "#f5f5f5",
 					"dark-gray": "#666666"
 				}

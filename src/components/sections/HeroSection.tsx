@@ -30,7 +30,7 @@ const HeroSection = () => {
           </h1>
           
           <p className="text-base md:text-xl mb-6 md:mb-8 animate-slide-up">
-            Get quick access to loans based on your mobile wallet inflows - Inguzanyo NTA NGWATE!
+            Get quick access to loans with just your phone number - Inguzanyo NTA NGWATE!
           </p>
           
           <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center mb-8 md:mb-10">
