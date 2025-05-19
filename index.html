@@ -4,6 +4,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>NiPay | Instant Credit for SMEs in Rwanda</title>
     <meta name="description" content="NiPay provides urgent credit facilities to SMEs in Rwanda based on their mobile-money transaction history. Get instant access to working capital now." />
     <meta name="author" content="NiPay" />
@@ -33,9 +34,14 @@
     
     <!-- Favicon -->
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     
     <!-- Web App Manifest -->
     <link rel="manifest" href="/manifest.json" />
+    
+    <!-- Preconnect to important domains -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     
     <!-- Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4W8M75RHXN"></script>
@@ -47,5 +53,13 @@
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Fallback for when JavaScript is disabled -->
+    <noscript>
+      <div style="text-align: center; padding: 20px;">
+        <h1>JavaScript is required</h1>
+        <p>Please enable JavaScript to use the NiPay application.</p>
+      </div>
+    </noscript>
   </body>
 </html>
