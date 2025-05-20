@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -36,7 +37,8 @@ const WaitlistForm = ({ onSuccess, onClose }: WaitlistFormProps) => {
     register, 
     handleSubmit, 
     formState: { errors },
-    reset
+    reset,
+    setValue
   } = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -153,7 +155,9 @@ const WaitlistForm = ({ onSuccess, onClose }: WaitlistFormProps) => {
       
       <div className="space-y-2">
         <Label htmlFor="monthlyVolume">Monthly Mobile Money Volume</Label>
-        <Select onValueChange={register('monthlyVolume').onChange}>
+        <Select 
+          onValueChange={(value) => setValue('monthlyVolume', value)}
+        >
           <SelectTrigger className="w-full">
             <SelectValue placeholder="Select volume" />
           </SelectTrigger>
@@ -171,7 +175,9 @@ const WaitlistForm = ({ onSuccess, onClose }: WaitlistFormProps) => {
       
       <div className="space-y-2">
         <Label htmlFor="businessType">Type of Business</Label>
-        <Select onValueChange={register('businessType').onChange}>
+        <Select 
+          onValueChange={(value) => setValue('businessType', value)}
+        >
           <SelectTrigger className="w-full">
             <SelectValue placeholder="Select business type" />
           </SelectTrigger>

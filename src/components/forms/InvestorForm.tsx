@@ -33,6 +33,7 @@ const InvestorForm = ({ onSuccess }: InvestorFormProps) => {
     handleSubmit, 
     formState: { errors },
     watch,
+    setValue,
     reset
   } = useForm<FormData>({
     resolver: zodResolver(formSchema),
@@ -112,7 +113,7 @@ const InvestorForm = ({ onSuccess }: InvestorFormProps) => {
           value={investorType}
           onValueChange={(value) => {
             if (value === 'individual' || value === 'organization') {
-              register('investorType').onChange({ target: { value } });
+              setValue('investorType', value as 'individual' | 'organization');
             }
           }}
           className="flex flex-col space-y-1"

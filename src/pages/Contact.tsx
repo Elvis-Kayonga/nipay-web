@@ -12,7 +12,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useToast } from "@/hooks/use-toast";
+import { toast } from "sonner";
 import { Mail, Phone, MapPin } from "lucide-react";
 
 const formSchema = z.object({
@@ -23,8 +23,6 @@ const formSchema = z.object({
 });
 
 const Contact = () => {
-  const { toast } = useToast();
-  
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
