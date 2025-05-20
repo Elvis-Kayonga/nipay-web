@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -54,17 +53,14 @@ const Contact = () => {
         }),
       });
       
-      toast({
-        title: "Message sent",
-        description: "We'll get back to you as soon as possible!",
+      toast.success("Message sent", {
+        description: "We'll get back to you as soon as possible!"
       });
       form.reset();
     } catch (error) {
       console.error("Failed to send message:", error);
-      toast({
-        title: "Error",
-        description: "Failed to send your message. Please try again.",
-        variant: "destructive",
+      toast.error("Error", {
+        description: "Failed to send your message. Please try again."
       });
     }
   };
