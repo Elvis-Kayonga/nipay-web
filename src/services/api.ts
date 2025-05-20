@@ -1,3 +1,4 @@
+
 import { supabase } from '@/integrations/supabase/client';
 import statsData from '../data/stats.json';
 import faqData from '../data/faq.json';
@@ -39,10 +40,11 @@ export interface WaitlistFormData {
 }
 
 export interface InvestorFormData {
-  fundName: string;
-  aum: string;
+  name: string;
   email: string;
-  meetingSlots: string[];
+  organizationName?: string;
+  investorType: 'individual' | 'organization';
+  message: string;
 }
 
 // Simulated API calls with promises to mimic real API behavior
@@ -124,7 +126,7 @@ export const api = {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         // Simulate server validation
-        if (!data.email || !data.fundName) {
+        if (!data.email || !data.name) {
           reject(new Error('Please provide all required fields'));
           return;
         }

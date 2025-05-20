@@ -39,17 +39,36 @@ const Contact = () => {
     },
   });
 
-  const onSubmit = (data: z.infer<typeof formSchema>) => {
+  const onSubmit = async (data: z.infer<typeof formSchema>) => {
     console.log(data);
     
-    // This would normally send the contact form to a server
-    setTimeout(() => {
+    try {
+      // Send confirmation email
+      await fetch('https://alkjgogriwshdpkuwqhp.functions.supabase.co/send-confirmation-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          to: data.email,
+          type: 'investor', // We're using the investor template for contact messages
+          name: data.name,
+        }),
+      });
+      
       toast({
         title: "Message sent",
         description: "We'll get back to you as soon as possible!",
       });
       form.reset();
-    }, 1000);
+    } catch (error) {
+      console.error("Failed to send message:", error);
+      toast({
+        title: "Error",
+        description: "Failed to send your message. Please try again.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
@@ -64,52 +83,52 @@ const Contact = () => {
       
       <main>
         {/* Hero Section */}
-        <SectionWrapper className="bg-gradient-to-b from-accent to-background py-16 md:py-24">
+        <SectionWrapper className="bg-gradient-to-b from-accent to-background py-12 md:py-16">
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-3xl md:text-5xl font-bold mb-4">Contact Us</h1>
-            <p className="text-lg md:text-xl text-muted-foreground">
-              Have questions about NiPay? We're here to help.
+            <h1 className="text-2xl md:text-4xl font-bold mb-3">Contact Us</h1>
+            <p className="text-lg text-muted-foreground">
+              We're here to help with any questions about NiPay.
             </p>
           </div>
         </SectionWrapper>
         
         {/* Contact Form & Info */}
-        <SectionWrapper className="py-12 md:py-20">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-6xl mx-auto">
+        <SectionWrapper className="py-10 md:py-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 max-w-6xl mx-auto">
             {/* Contact Information */}
-            <div className="flex flex-col gap-8">
+            <div className="flex flex-col gap-6">
               <div>
-                <h2 className="text-2xl md:text-3xl font-bold mb-6">Get in Touch</h2>
-                <p className="text-muted-foreground mb-8">
-                  Have questions about how NiPay can help your business? Or interested in partnering with us? 
-                  Fill out the form or reach out directly through one of our channels below.
+                <h2 className="text-xl md:text-2xl font-bold mb-4">Get in Touch</h2>
+                <p className="text-muted-foreground mb-6">
+                  Have questions about NiPay? Interested in partnering with us? 
+                  Reach out directly or fill out the form.
                 </p>
               </div>
               
-              <div className="space-y-6">
+              <div className="space-y-4">
                 <Card>
-                  <CardContent className="p-6 flex items-start gap-4">
+                  <CardContent className="p-5 flex items-start gap-4">
                     <div className="bg-accent p-3 rounded-full">
-                      <MapPin className="h-6 w-6 text-nipay-green" />
+                      <MapPin className="h-5 w-5 text-nipay-green" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-lg mb-1">Visit Us</h3>
-                      <p className="text-muted-foreground">Norrsken House Kigali</p>
-                      <p className="text-muted-foreground">Kigali, Rwanda</p>
+                      <h3 className="font-bold text-base mb-1">Visit Us</h3>
+                      <p className="text-muted-foreground text-sm">Norrsken House Kigali</p>
+                      <p className="text-muted-foreground text-sm">Kigali, Rwanda</p>
                     </div>
                   </CardContent>
                 </Card>
                 
                 <Card>
-                  <CardContent className="p-6 flex items-start gap-4">
+                  <CardContent className="p-5 flex items-start gap-4">
                     <div className="bg-accent p-3 rounded-full">
-                      <Mail className="h-6 w-6 text-nipay-green" />
+                      <Mail className="h-5 w-5 text-nipay-green" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-lg mb-1">Email Us</h3>
-                      <p className="text-muted-foreground">
-                        <a href="mailto:info@nipay.rw" className="hover:text-nipay-green transition-colors">
-                          info@nipay.rw
+                      <h3 className="font-bold text-base mb-1">Email Us</h3>
+                      <p className="text-muted-foreground text-sm">
+                        <a href="mailto:kayongaelvis@nipay.rw" className="hover:text-nipay-green transition-colors">
+                          kayongaelvis@nipay.rw
                         </a>
                       </p>
                     </div>
@@ -117,13 +136,13 @@ const Contact = () => {
                 </Card>
                 
                 <Card>
-                  <CardContent className="p-6 flex items-start gap-4">
+                  <CardContent className="p-5 flex items-start gap-4">
                     <div className="bg-accent p-3 rounded-full">
-                      <Phone className="h-6 w-6 text-nipay-green" />
+                      <Phone className="h-5 w-5 text-nipay-green" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-lg mb-1">Call Us</h3>
-                      <p className="text-muted-foreground">
+                      <h3 className="font-bold text-base mb-1">Call Us</h3>
+                      <p className="text-muted-foreground text-sm">
                         <a href="tel:+250788321008" className="hover:text-nipay-green transition-colors">
                           +250 788 321 008
                         </a>
@@ -136,23 +155,23 @@ const Contact = () => {
             
             {/* Contact Form */}
             <Card className="shadow-md">
-              <CardHeader>
+              <CardHeader className="pb-3">
                 <CardTitle>Send a Message</CardTitle>
                 <CardDescription>
-                  Fill out the form below and we'll get back to you as soon as possible.
+                  We'll get back to you as soon as possible.
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <Form {...form}>
-                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
                     <FormField
                       control={form.control}
                       name="name"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Full Name</FormLabel>
+                          <FormLabel>Name</FormLabel>
                           <FormControl>
-                            <Input placeholder="John Doe" {...field} />
+                            <Input placeholder="Your name" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -166,7 +185,7 @@ const Contact = () => {
                         <FormItem>
                           <FormLabel>Email</FormLabel>
                           <FormControl>
-                            <Input type="email" placeholder="john.doe@example.com" {...field} />
+                            <Input type="email" placeholder="Your email" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -180,7 +199,7 @@ const Contact = () => {
                         <FormItem>
                           <FormLabel>Subject</FormLabel>
                           <FormControl>
-                            <Input placeholder="How can we help you?" {...field} />
+                            <Input placeholder="What is this about?" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -195,8 +214,8 @@ const Contact = () => {
                           <FormLabel>Message</FormLabel>
                           <FormControl>
                             <Textarea 
-                              placeholder="Tell us more about your inquiry..." 
-                              className="min-h-[120px]"
+                              placeholder="Your message" 
+                              className="min-h-[100px]"
                               {...field} 
                             />
                           </FormControl>
@@ -205,7 +224,7 @@ const Contact = () => {
                       )}
                     />
                     
-                    <Button type="submit" variant="green" className="w-full">
+                    <Button type="submit" className="w-full bg-nipay-green hover:bg-nipay-dark-green">
                       Submit Message
                     </Button>
                   </form>

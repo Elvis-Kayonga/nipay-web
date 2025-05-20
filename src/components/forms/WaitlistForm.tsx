@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -7,50 +6,35 @@ import { WaitlistFormData, api } from '@/services/api';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { toast } from 'sonner';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Slider } from '@/components/ui/slider';
-import { Building, Clock, DollarSign, Percent, Phone, User } from 'lucide-react';
+import { toast } from 'sonner';
+import { DialogClose } from "@/components/ui/dialog"
 
 const formSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters' }),
   businessName: z.string().min(2, { message: 'Business name must be at least 2 characters' }),
-  phoneNumber: z.string().min(10, { message: 'Please enter a valid phone number' }),
+  email: z.string().email({ message: 'Please enter a valid email address' }),
+  phoneNumber: z.string().min(8, { message: 'Please enter a valid phone number' }),
+  monthlyVolume: z.string().min(1, { message: 'Please select your monthly volume' }),
   businessType: z.string().min(1, { message: 'Please select your business type' }),
-  email: z.string().email({ message: 'Please enter a valid email address' }).optional().or(z.literal('')),
-  monthlyVolume: z.string().min(1, { message: 'Please enter your monthly mobile money volume' }),
-  fundingNeeded: z.string().min(1, { message: 'Please enter how much funding you need' }),
-  interestRate: z.string().min(1, { message: 'Please select your preferred interest rate' })
 });
 
 type FormData = z.infer<typeof formSchema>;
 
 interface WaitlistFormProps {
   onSuccess?: () => void;
+  onClose?: () => void;
 }
 
-const BUSINESS_TYPES = [
-  "Retail Shop",
-  "Restaurant/Food",
-  "Transportation",
-  "Agriculture",
-  "Manufacturing",
-  "Technology",
-  "Professional Services",
-  "Construction",
-  "Healthcare",
-  "Education",
-  "Other"
-];
-
-const WaitlistForm = ({ onSuccess }: WaitlistFormProps) => {
+const WaitlistForm = ({ onSuccess, onClose }: WaitlistFormProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [interestRateValue, setInterestRateValue] = useState(10);
+  const [businessEarnings, setBusinessEarnings] = useState('');
+  const [fundingNeeded, setFundingNeeded] = useState('');
+  const [interestRate, setInterestRate] = useState('');
   
   const { 
     register, 
     handleSubmit, 
-    setValue,
     formState: { errors },
     reset
   } = useForm<FormData>({
@@ -58,12 +42,10 @@ const WaitlistForm = ({ onSuccess }: WaitlistFormProps) => {
     defaultValues: {
       name: '',
       businessName: '',
-      phoneNumber: '',
       email: '',
+      phoneNumber: '',
       monthlyVolume: '',
-      fundingNeeded: '',
-      interestRate: '10',
-      businessType: ''
+      businessType: '',
     }
   });
   
@@ -71,46 +53,57 @@ const WaitlistForm = ({ onSuccess }: WaitlistFormProps) => {
     setIsSubmitting(true);
     
     try {
-      await api.submitToWaitlist(data as unknown as WaitlistFormData);
+      const result = await api.submitToWaitlist({
+        name: data.name,
+        businessName: data.businessName,
+        email: data.email,
+        phoneNumber: data.phoneNumber,
+        monthlyVolume: data.monthlyVolume,
+        businessEarnings: businessEarnings,
+        fundingNeeded: fundingNeeded,
+        interestRate: interestRate,
+        businessType: data.businessType
+      });
       
-      toast.success(
-        <div className="space-y-1">
-          <p className="font-bold">Application submitted!</p>
-          <p className="text-sm">We'll contact you soon with access details.</p>
-        </div>,
-        {
-          duration: 6000,
-        }
-      );
+      // Send confirmation email
+      try {
+        await fetch('https://alkjgogriwshdpkuwqhp.functions.supabase.co/send-confirmation-email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            to: data.email,
+            type: 'waitlist',
+            name: data.name,
+          }),
+        });
+      } catch (emailError) {
+        console.error("Failed to send confirmation email:", emailError);
+        // Don't block the form submission if email fails
+      }
+      
+      toast.success(result.message);
       reset();
       
       if (onSuccess) {
         onSuccess();
       }
-    } catch (error) {
-      const errorMessage = error instanceof Error 
-        ? error.message 
-        : "There was a problem submitting. Please try again.";
       
-      toast.error(errorMessage);
-      console.error("Form submission error:", error);
+      if (onClose) {
+        onClose();
+      }
+    } catch (error: any) {
+      toast.error(error.message || "There was a problem submitting your information.");
     } finally {
       setIsSubmitting(false);
     }
   };
   
-  const handleInterestRateChange = (value: number[]) => {
-    const rate = value[0];
-    setInterestRateValue(rate);
-    setValue('interestRate', rate.toString());
-  };
-  
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
       <div className="space-y-2">
-        <Label htmlFor="name" className="flex items-center gap-2">
-          <User className="h-4 w-4" /> Your Name
-        </Label>
+        <Label htmlFor="name">Your Name</Label>
         <Input 
           id="name" 
           placeholder="John Doe" 
@@ -122,12 +115,10 @@ const WaitlistForm = ({ onSuccess }: WaitlistFormProps) => {
       </div>
       
       <div className="space-y-2">
-        <Label htmlFor="businessName" className="flex items-center gap-2">
-          <Building className="h-4 w-4" /> Business Name
-        </Label>
+        <Label htmlFor="businessName">Business Name</Label>
         <Input 
           id="businessName" 
-          placeholder="Your Business" 
+          placeholder="Acme Corp" 
           {...register('businessName')}
         />
         {errors.businessName && (
@@ -136,86 +127,7 @@ const WaitlistForm = ({ onSuccess }: WaitlistFormProps) => {
       </div>
       
       <div className="space-y-2">
-        <Label htmlFor="phoneNumber" className="flex items-center gap-2">
-          <Phone className="h-4 w-4" /> Phone Number
-        </Label>
-        <Input 
-          id="phoneNumber" 
-          type="tel" 
-          placeholder="+250 7XX XXX XXX" 
-          {...register('phoneNumber')}
-        />
-        {errors.phoneNumber && (
-          <p className="text-destructive text-sm">{errors.phoneNumber.message}</p>
-        )}
-      </div>
-      
-      <div className="space-y-2">
-        <Label htmlFor="businessType" className="flex items-center gap-2">
-          <Building className="h-4 w-4" /> Type of Business
-        </Label>
-        <Select onValueChange={(value) => setValue('businessType', value)}>
-          <SelectTrigger>
-            <SelectValue placeholder="Select business type" />
-          </SelectTrigger>
-          <SelectContent>
-            {BUSINESS_TYPES.map((type) => (
-              <SelectItem key={type} value={type}>{type}</SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
-        {errors.businessType && (
-          <p className="text-destructive text-sm">{errors.businessType.message}</p>
-        )}
-      </div>
-      
-      <div className="space-y-2">
-        <Label htmlFor="monthlyVolume">Monthly Money Volume (RWF)</Label>
-        <Input 
-          id="monthlyVolume" 
-          placeholder="500,000" 
-          {...register('monthlyVolume')}
-        />
-        {errors.monthlyVolume && (
-          <p className="text-destructive text-sm">{errors.monthlyVolume.message}</p>
-        )}
-      </div>
-      
-      <div className="space-y-2">
-        <Label htmlFor="fundingNeeded" className="flex items-center gap-2">
-          <DollarSign className="h-4 w-4" /> Funding Needed (RWF)
-        </Label>
-        <Input 
-          id="fundingNeeded" 
-          placeholder="2,000,000" 
-          {...register('fundingNeeded')}
-        />
-        {errors.fundingNeeded && (
-          <p className="text-destructive text-sm">{errors.fundingNeeded.message}</p>
-        )}
-      </div>
-      
-      <div className="space-y-2">
-        <Label htmlFor="interestRate" className="flex items-center gap-2">
-          <Percent className="h-4 w-4" /> Interest Rate: {interestRateValue}%
-        </Label>
-        <Slider 
-          id="interestRate"
-          min={5}
-          max={20}
-          step={1}
-          defaultValue={[10]}
-          onValueChange={handleInterestRateChange}
-          className="py-4"
-        />
-        <input type="hidden" {...register('interestRate')} value={interestRateValue} />
-        {errors.interestRate && (
-          <p className="text-destructive text-sm">{errors.interestRate.message}</p>
-        )}
-      </div>
-      
-      <div className="space-y-2">
-        <Label htmlFor="email">Email (Optional)</Label>
+        <Label htmlFor="email">Email</Label>
         <Input 
           id="email" 
           type="email" 
@@ -227,18 +139,62 @@ const WaitlistForm = ({ onSuccess }: WaitlistFormProps) => {
         )}
       </div>
       
+      <div className="space-y-2">
+        <Label htmlFor="phoneNumber">Phone Number</Label>
+        <Input 
+          id="phoneNumber" 
+          placeholder="+250788123456" 
+          {...register('phoneNumber')}
+        />
+        {errors.phoneNumber && (
+          <p className="text-destructive text-sm">{errors.phoneNumber.message}</p>
+        )}
+      </div>
+      
+      <div className="space-y-2">
+        <Label htmlFor="monthlyVolume">Monthly Mobile Money Volume</Label>
+        <Select onValueChange={register('monthlyVolume').onChange}>
+          <SelectTrigger className="w-full">
+            <SelectValue placeholder="Select volume" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="0-1000">$0 - $1,000</SelectItem>
+            <SelectItem value="1000-5000">$1,000 - $5,000</SelectItem>
+            <SelectItem value="5000-10000">$5,000 - $10,000</SelectItem>
+            <SelectItem value="10000+">$10,000+</SelectItem>
+          </SelectContent>
+        </Select>
+        {errors.monthlyVolume && (
+          <p className="text-destructive text-sm">{errors.monthlyVolume.message}</p>
+        )}
+      </div>
+      
+      <div className="space-y-2">
+        <Label htmlFor="businessType">Type of Business</Label>
+        <Select onValueChange={register('businessType').onChange}>
+          <SelectTrigger className="w-full">
+            <SelectValue placeholder="Select business type" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="retail">Retail</SelectItem>
+            <SelectItem value="wholesale">Wholesale</SelectItem>
+            <SelectItem value="services">Services</SelectItem>
+            <SelectItem value="agriculture">Agriculture</SelectItem>
+            <SelectItem value="other">Other</SelectItem>
+          </SelectContent>
+        </Select>
+        {errors.businessType && (
+          <p className="text-destructive text-sm">{errors.businessType.message}</p>
+        )}
+      </div>
+      
       <Button 
         type="submit" 
         className="w-full bg-nipay-green hover:bg-nipay-dark-green"
         disabled={isSubmitting}
       >
-        {isSubmitting ? "Submitting..." : "Join Waitlist Now"}
+        {isSubmitting ? "Submitting..." : "Join Waitlist"}
       </Button>
-      
-      <p className="text-center text-sm text-muted-foreground">
-        <Clock className="inline h-3 w-3 mr-1" />
-        Limited spots available.
-      </p>
     </form>
   );
 };
