@@ -47,6 +47,11 @@ export interface InvestorFormData {
   message: string;
 }
 
+export interface ApiResponse {
+  success: boolean;
+  message: string;
+}
+
 // Simulated API calls with promises to mimic real API behavior
 export const api = {
   getStats: async (): Promise<Record<string, string>> => {
@@ -81,7 +86,7 @@ export const api = {
     });
   },
   
-  submitToWaitlist: async (data: WaitlistFormData) => {
+  submitToWaitlist: async (data: WaitlistFormData): Promise<ApiResponse> => {
     // Validate required fields
     if (!data.email || !data.name || !data.businessName || !data.phoneNumber) {
       throw new Error('Please provide all required fields');
@@ -107,7 +112,7 @@ export const api = {
     }
   },
   
-  contactInvestor: async (data: InvestorFormData) => {
+  contactInvestor: async (data: InvestorFormData): Promise<ApiResponse> => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         // Simulate server validation

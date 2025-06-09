@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { WaitlistFormData, api } from '@/services/api';
+import { WaitlistFormData, api, ApiResponse } from '@/services/api';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -55,7 +55,7 @@ const WaitlistForm = ({ onSuccess, onClose }: WaitlistFormProps) => {
     setIsSubmitting(true);
     
     try {
-      const result = await api.submitToWaitlist({
+      const result: ApiResponse = await api.submitToWaitlist({
         name: data.name,
         businessName: data.businessName,
         email: data.email,
