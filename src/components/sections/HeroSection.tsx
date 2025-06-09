@@ -31,13 +31,6 @@ const HeroSection = () => {
       {/* Content */}
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
         <div className="max-w-6xl mx-auto text-center">
-          {/* Pain Point Callout - Redesigned */}
-          <div className="inline-block bg-white/15 backdrop-blur-md rounded-2xl px-8 py-6 mb-12 border border-white/20 shadow-2xl transform hover:scale-105 transition-all duration-300">
-            <p className="text-lg lg:text-xl italic text-white/95 leading-relaxed font-medium">
-              "You run your business with mobile money — but no one will lend you even 20K when you need it most."
-            </p>
-          </div>
-          
           {/* Main Headline - Enhanced Typography */}
           <div className="mb-8 lg:mb-12">
             <h1 className="text-4xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight text-white">
@@ -57,9 +50,16 @@ const HeroSection = () => {
           </div>
           
           {/* Subheadline */}
-          <p className="text-2xl lg:text-3xl mb-12 lg:mb-16 max-w-4xl mx-auto leading-relaxed font-medium text-white/90">
+          <p className="text-2xl lg:text-3xl mb-8 lg:mb-10 max-w-4xl mx-auto leading-relaxed font-medium text-white/90">
             No paperwork. No stress. No collateral.
           </p>
+
+          {/* Pain Point Callout - Repositioned */}
+          <div className="inline-block bg-white/15 backdrop-blur-md rounded-2xl px-8 py-6 mb-12 border border-white/20 shadow-2xl transform hover:scale-105 transition-all duration-300">
+            <p className="text-lg lg:text-xl italic text-white/95 leading-relaxed font-medium">
+              "You run your business with mobile money — but no one will lend you even 20K when you need it most."
+            </p>
+          </div>
           
           {/* CTA Buttons - Enhanced Design */}
           <div className="flex flex-col sm:flex-row gap-6 lg:gap-8 justify-center mb-16 lg:mb-20">
