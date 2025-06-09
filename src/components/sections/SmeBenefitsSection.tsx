@@ -1,80 +1,100 @@
 
 import SectionWrapper from '../shared/SectionWrapper';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, TrendingUp, Clock, Wallet, Shield } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { ArrowRight, Smartphone, FileText, Shield, Target, MapPin } from 'lucide-react';
+import { useState } from 'react';
+import WaitlistModal from '../modals/WaitlistModal';
 
 const SmeBenefitsSection = () => {
-  return <SectionWrapper id="benefits" className="py-20 lg:py-32">
-      <div className="grid grid-cols-1 xl:grid-cols-2 gap-12 lg:gap-16 xl:gap-20 items-center">
-        <div className="space-y-8 lg:space-y-12 order-2 xl:order-1">
-          <h2 className="text-3xl lg:text-5xl xl:text-6xl font-bold leading-tight">
-            How NiPay AI Powers Your Growth
-          </h2>
-          
-          <ul className="space-y-6 lg:space-y-8">
-            <li className="flex gap-4 lg:gap-6 items-start p-4 lg:p-6 rounded-xl bg-card shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex-shrink-0 text-nipay-green mt-1">
-                <TrendingUp className="w-6 h-6 lg:w-8 lg:h-8" />
-              </div>
-              <div>
-                <p className="font-medium text-lg lg:text-xl"><span className="text-nipay-green font-bold">200%</span> instant capital based on your inflows</p>
-                <p className="text-base lg:text-lg text-muted-foreground mt-2 leading-relaxed">AI analyzes your transactions to double purchasing power</p>
-              </div>
-            </li>
-            
-            <li className="flex gap-4 lg:gap-6 items-start p-4 lg:p-6 rounded-xl bg-card shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex-shrink-0 text-nipay-green mt-1">
-                <Wallet className="w-6 h-6 lg:w-8 lg:h-8" />
-              </div>
-              <div>
-                <p className="font-medium text-lg lg:text-xl">Pay as you use - <span className="text-nipay-green font-bold">save 30%</span></p>
-                <p className="text-base lg:text-lg text-muted-foreground mt-2 leading-relaxed">AI-optimized repayment aligned to your business cycle</p>
-              </div>
-            </li>
-            
-            <li className="flex gap-4 lg:gap-6 items-start p-4 lg:p-6 rounded-xl bg-card shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex-shrink-0 text-nipay-green mt-1">
-                <Clock className="w-6 h-6 lg:w-8 lg:h-8" />
-              </div>
-              <div>
-                <p className="font-medium text-lg lg:text-xl">Access funds <span className="text-nipay-green font-bold">80% faster</span></p>
-                <p className="text-base lg:text-lg text-muted-foreground mt-2 leading-relaxed">AI assessment in hours instead of weeks</p>
-              </div>
-            </li>
-            
-            <li className="flex gap-4 lg:gap-6 items-start p-4 lg:p-6 rounded-xl bg-card shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex-shrink-0 text-nipay-green mt-1">
-                <Shield className="w-6 h-6 lg:w-8 lg:h-8" />
-              </div>
-              <div>
-                <p className="font-medium text-lg lg:text-xl"><span className="text-nipay-green font-bold">100% digital</span> with no collateral</p>
-                <p className="text-base lg:text-lg text-muted-foreground mt-2 leading-relaxed">AI evaluates your digital financial footprint</p>
-              </div>
-            </li>
-          </ul>
-          
-          <div className="pt-6 lg:pt-8">
-            <Link to="/waitlist">
-              <Button className="bg-nipay-green hover:bg-nipay-dark-green w-full sm:w-auto text-lg lg:text-xl py-6 lg:py-8 px-8 lg:px-12 shadow-lg hover:shadow-xl transition-all duration-300">
-                Join Waitlist
-                <ArrowRight className="ml-3 h-5 w-5 lg:h-6 lg:w-6" />
-              </Button>
-            </Link>
-          </div>
-        </div>
+  const [showWaitlistModal, setShowWaitlistModal] = useState(false);
+  
+  return (
+    <SectionWrapper id="benefits" className="py-20 lg:py-32 bg-gray-50">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-3xl lg:text-5xl xl:text-6xl font-bold mb-6 lg:mb-8 text-center leading-tight text-gray-900">
+          Why NiPay?
+        </h2>
         
-        <div className="bg-muted rounded-2xl overflow-hidden shadow-xl order-1 xl:order-2">
-          <img alt="NiPay mobile app interface" className="w-full h-auto" src="/lovable-uploads/51946dc5-f2c8-440c-9c1b-7671876e207e.png" />
-          <div className="p-6 lg:p-8">
-            <h3 className="font-bold text-lg lg:text-xl mb-3">NiPay AI Experience</h3>
-            <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">
-              Intelligent credit decisions at your fingertips
+        <p className="text-xl lg:text-2xl mb-12 lg:mb-16 text-center max-w-3xl mx-auto leading-relaxed text-gray-600">
+          Built specifically for Rwandan SMEs who hustle every day
+        </p>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-16 lg:mb-20">
+          <div className="bg-white p-6 lg:p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+            <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-lg bg-green-100 flex items-center justify-center mb-4 lg:mb-6">
+              <Smartphone className="w-6 h-6 lg:w-7 lg:h-7 text-nipay-green" />
+            </div>
+            <h3 className="text-lg lg:text-xl font-bold mb-3 lg:mb-4 text-gray-900">Works with Basic Phones</h3>
+            <p className="text-gray-600 leading-relaxed">
+              Use USSD codes or our simple app — no smartphone needed
+            </p>
+          </div>
+          
+          <div className="bg-white p-6 lg:p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+            <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-lg bg-blue-100 flex items-center justify-center mb-4 lg:mb-6">
+              <FileText className="w-6 h-6 lg:w-7 lg:h-7 text-blue-600" />
+            </div>
+            <h3 className="text-lg lg:text-xl font-bold mb-3 lg:mb-4 text-gray-900">No Bank Account Needed</h3>
+            <p className="text-gray-600 leading-relaxed">
+              No paperwork, no collateral, no bank visits required
+            </p>
+          </div>
+          
+          <div className="bg-white p-6 lg:p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+            <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-lg bg-yellow-100 flex items-center justify-center mb-4 lg:mb-6">
+              <ArrowRight className="w-6 h-6 lg:w-7 lg:h-7 text-yellow-600" />
+            </div>
+            <h3 className="text-lg lg:text-xl font-bold mb-3 lg:mb-4 text-gray-900">Borrow from Your Sales</h3>
+            <p className="text-gray-600 leading-relaxed">
+              Get small amounts when you need them, repay from daily transactions
+            </p>
+          </div>
+          
+          <div className="bg-white p-6 lg:p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+            <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-lg bg-purple-100 flex items-center justify-center mb-4 lg:mb-6">
+              <Shield className="w-6 h-6 lg:w-7 lg:h-7 text-purple-600" />
+            </div>
+            <h3 className="text-lg lg:text-xl font-bold mb-3 lg:mb-4 text-gray-900">Free Business Tools</h3>
+            <p className="text-gray-600 leading-relaxed">
+              Track sales, stock, and invoices free for 6 months
+            </p>
+          </div>
+          
+          <div className="bg-white p-6 lg:p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+            <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-lg bg-red-100 flex items-center justify-center mb-4 lg:mb-6">
+              <MapPin className="w-6 h-6 lg:w-7 lg:h-7 text-red-600" />
+            </div>
+            <h3 className="text-lg lg:text-xl font-bold mb-3 lg:mb-4 text-gray-900">100% Built for Rwanda</h3>
+            <p className="text-gray-600 leading-relaxed">
+              Designed for how Rwandan SMEs actually do business
+            </p>
+          </div>
+          
+          <div className="bg-white p-6 lg:p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+            <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-lg bg-green-100 flex items-center justify-center mb-4 lg:mb-6">
+              <Target className="w-6 h-6 lg:w-7 lg:h-7 text-green-600" />
+            </div>
+            <h3 className="text-lg lg:text-xl font-bold mb-3 lg:mb-4 text-gray-900">Your Limit Grows</h3>
+            <p className="text-gray-600 leading-relaxed">
+              The more you sell, the more you can borrow for your business
             </p>
           </div>
         </div>
+        
+        <div className="text-center">
+          <Button 
+            onClick={() => setShowWaitlistModal(true)}
+            className="bg-nipay-green hover:bg-nipay-dark-green text-lg lg:text-xl px-8 lg:px-12 py-6 lg:py-8 shadow-lg hover:shadow-xl transition-all duration-300"
+          >
+            Join the Waitlist
+            <ArrowRight className="ml-3 h-5 w-5 lg:h-6 lg:w-6" />
+          </Button>
+        </div>
       </div>
-    </SectionWrapper>;
+      
+      <WaitlistModal isOpen={showWaitlistModal} onClose={() => setShowWaitlistModal(false)} />
+    </SectionWrapper>
+  );
 };
 
 export default SmeBenefitsSection;

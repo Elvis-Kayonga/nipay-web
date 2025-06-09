@@ -3,12 +3,11 @@ import SEO from "@/components/SEO";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import HeroSection from "@/components/sections/HeroSection";
-import ProblemSection from "@/components/sections/ProblemSection";
 import SolutionSection from "@/components/sections/SolutionSection";
 import SmeBenefitsSection from "@/components/sections/SmeBenefitsSection";
-import HowItWorksSection from "@/components/sections/HowItWorksSection";
-import ValidationSection from "@/components/sections/ValidationSection";
+import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import FaqSection from "@/components/sections/FaqSection";
+import ContactSection from "@/components/sections/ContactSection";
 import { generateOrganizationSchema, generateServiceSchema } from "@/utils/seo";
 
 const Index = () => {
@@ -19,9 +18,9 @@ const Index = () => {
   return (
     <>
       <SEO 
-        title="NiPay | Business Loans via Phone in Rwanda"
-        description="NiPay provides instant loans based on your phone transaction history for SMEs in Rwanda — no collateral, no paperwork. Access working capital instantly."
-        keywords="NiPay, loans Rwanda, SME finance Rwanda, instant loans Rwanda, business loans Rwanda, fintech Rwanda, working capital, small business funding"
+        title="NiPay | Loans from Your Mobile Money Sales - No Collateral Needed"
+        description="Cash tight? NiPay helps Rwandan SMEs borrow from their mobile money sales automatically. No paperwork, no stress, no collateral. Join 400+ businesses already using NiPay."
+        keywords="NiPay, mobile money loans Rwanda, SME credit Rwanda, business loans no collateral, MTN mobile money loans, Airtel money credit, instant business loans Rwanda"
         canonicalUrl="/"
         ogImage="/placeholder.svg"
         structuredData={{
@@ -37,12 +36,11 @@ const Index = () => {
       
       <main className="min-h-screen">
         <HeroSection />
-        <ProblemSection />
         <SolutionSection />
         <SmeBenefitsSection />
-        <HowItWorksSection />
-        <ValidationSection />
+        <TestimonialsSection />
         <FaqSection />
+        <ContactSection />
       </main>
       
       <Footer />

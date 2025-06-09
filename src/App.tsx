@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { useEffect, useState, lazy, Suspense } from "react";
 import NotFound from "./pages/NotFound";
+import NiPayLoading from "@/components/ui/loading";
 
 // Lazy load pages to improve initial load time
 const Index = lazy(() => import("./pages/Index"));
@@ -26,16 +27,6 @@ const trackPageView = (path: string) => {
     console.warn('Failed to track page view:', error);
   }
 };
-
-// Loading fallback component
-const LoadingFallback = () => (
-  <div className="flex items-center justify-center min-h-screen">
-    <div className="text-center">
-      <h2 className="text-xl font-medium mb-2">Loading...</h2>
-      <p className="text-gray-500">Please wait while we prepare the page for you.</p>
-    </div>
-  </div>
-);
 
 // Network status monitoring component
 const ConnectionStatus = () => {
@@ -94,7 +85,7 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <RouteTracker />
-          <Suspense fallback={<LoadingFallback />}>
+          <Suspense fallback={<NiPayLoading />}>
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/investors" element={<Investors />} />

@@ -8,8 +8,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Checkbox } from '@/components/ui/checkbox';
 import { toast } from 'sonner';
-import { DialogClose } from "@/components/ui/dialog"
 
 const formSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters' }),
@@ -29,9 +29,9 @@ interface WaitlistFormProps {
 
 const WaitlistForm = ({ onSuccess, onClose }: WaitlistFormProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [businessEarnings, setBusinessEarnings] = useState('');
-  const [fundingNeeded, setFundingNeeded] = useState('');
-  const [interestRate, setInterestRate] = useState('');
+  const [mobileMoneyProvider, setMobileMoneyProvider] = useState('');
+  const [location, setLocation] = useState('');
+  const [wantVisit, setWantVisit] = useState(false);
   
   const { 
     register, 
@@ -61,9 +61,9 @@ const WaitlistForm = ({ onSuccess, onClose }: WaitlistFormProps) => {
         email: data.email,
         phoneNumber: data.phoneNumber,
         monthlyVolume: data.monthlyVolume,
-        businessEarnings: businessEarnings,
-        fundingNeeded: fundingNeeded,
-        interestRate: interestRate,
+        businessEarnings: mobileMoneyProvider,
+        fundingNeeded: location,
+        interestRate: wantVisit ? 'yes' : 'no',
         businessType: data.businessType
       });
       
@@ -85,7 +85,7 @@ const WaitlistForm = ({ onSuccess, onClose }: WaitlistFormProps) => {
         // Don't block the form submission if email fails
       }
       
-      toast.success(result.message);
+      toast.success("Thanks! You're on the waitlist. Our team will contact you soon to onboard your business.");
       reset();
       
       if (onSuccess) {
@@ -108,7 +108,7 @@ const WaitlistForm = ({ onSuccess, onClose }: WaitlistFormProps) => {
         <Label htmlFor="name">Your Name</Label>
         <Input 
           id="name" 
-          placeholder="John Doe" 
+          placeholder="Jean Uwimana" 
           {...register('name')}
         />
         {errors.name && (
@@ -117,35 +117,10 @@ const WaitlistForm = ({ onSuccess, onClose }: WaitlistFormProps) => {
       </div>
       
       <div className="space-y-2">
-        <Label htmlFor="businessName">Business Name</Label>
-        <Input 
-          id="businessName" 
-          placeholder="Acme Corp" 
-          {...register('businessName')}
-        />
-        {errors.businessName && (
-          <p className="text-destructive text-sm">{errors.businessName.message}</p>
-        )}
-      </div>
-      
-      <div className="space-y-2">
-        <Label htmlFor="email">Email</Label>
-        <Input 
-          id="email" 
-          type="email" 
-          placeholder="you@example.com" 
-          {...register('email')}
-        />
-        {errors.email && (
-          <p className="text-destructive text-sm">{errors.email.message}</p>
-        )}
-      </div>
-      
-      <div className="space-y-2">
         <Label htmlFor="phoneNumber">Phone Number</Label>
         <Input 
           id="phoneNumber" 
-          placeholder="+250788123456" 
+          placeholder="078 888 8888" 
           {...register('phoneNumber')}
         />
         {errors.phoneNumber && (
@@ -154,38 +129,46 @@ const WaitlistForm = ({ onSuccess, onClose }: WaitlistFormProps) => {
       </div>
       
       <div className="space-y-2">
-        <Label htmlFor="monthlyVolume">Monthly Mobile Money Volume</Label>
-        <Select 
-          onValueChange={(value) => setValue('monthlyVolume', value)}
-        >
-          <SelectTrigger className="w-full">
-            <SelectValue placeholder="Select volume" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="0-1000">$0 - $1,000</SelectItem>
-            <SelectItem value="1000-5000">$1,000 - $5,000</SelectItem>
-            <SelectItem value="5000-10000">$5,000 - $10,000</SelectItem>
-            <SelectItem value="10000+">$10,000+</SelectItem>
-          </SelectContent>
-        </Select>
-        {errors.monthlyVolume && (
-          <p className="text-destructive text-sm">{errors.monthlyVolume.message}</p>
+        <Label htmlFor="businessName">Business Name</Label>
+        <Input 
+          id="businessName" 
+          placeholder="Uwimana Shop" 
+          {...register('businessName')}
+        />
+        {errors.businessName && (
+          <p className="text-destructive text-sm">{errors.businessName.message}</p>
         )}
       </div>
       
       <div className="space-y-2">
+        <Label htmlFor="mobile-money">Mobile Money Provider</Label>
+        <Select onValueChange={(value) => setMobileMoneyProvider(value)}>
+          <SelectTrigger className="w-full">
+            <SelectValue placeholder="Select provider" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="mtn">MTN Mobile Money</SelectItem>
+            <SelectItem value="airtel">Airtel Money</SelectItem>
+            <SelectItem value="bank">Bank Account</SelectItem>
+            <SelectItem value="multiple">Multiple providers</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
+      
+      <div className="space-y-2">
         <Label htmlFor="businessType">Type of Business</Label>
-        <Select 
-          onValueChange={(value) => setValue('businessType', value)}
-        >
+        <Select onValueChange={(value) => setValue('businessType', value)}>
           <SelectTrigger className="w-full">
             <SelectValue placeholder="Select business type" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="retail">Retail</SelectItem>
-            <SelectItem value="wholesale">Wholesale</SelectItem>
-            <SelectItem value="services">Services</SelectItem>
-            <SelectItem value="agriculture">Agriculture</SelectItem>
+            <SelectItem value="retail">Retail Shop</SelectItem>
+            <SelectItem value="boutique">Boutique/Clothing</SelectItem>
+            <SelectItem value="groceries">Groceries/Food</SelectItem>
+            <SelectItem value="pharmacy">Pharmacy</SelectItem>
+            <SelectItem value="electronics">Electronics</SelectItem>
+            <SelectItem value="salon">Salon/Beauty</SelectItem>
+            <SelectItem value="restaurant">Restaurant/Bar</SelectItem>
             <SelectItem value="other">Other</SelectItem>
           </SelectContent>
         </Select>
@@ -194,12 +177,70 @@ const WaitlistForm = ({ onSuccess, onClose }: WaitlistFormProps) => {
         )}
       </div>
       
+      <div className="space-y-2">
+        <Label htmlFor="location">Location/District</Label>
+        <Select onValueChange={(value) => setLocation(value)}>
+          <SelectTrigger className="w-full">
+            <SelectValue placeholder="Select location" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="kigali">Kigali</SelectItem>
+            <SelectItem value="nyarugenge">Nyarugenge</SelectItem>
+            <SelectItem value="gasabo">Gasabo</SelectItem>
+            <SelectItem value="kicukiro">Kicukiro</SelectItem>
+            <SelectItem value="other">Other District</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
+      
+      <div className="space-y-2">
+        <Label htmlFor="monthlyVolume">Monthly Mobile Money Sales</Label>
+        <Select onValueChange={(value) => setValue('monthlyVolume', value)}>
+          <SelectTrigger className="w-full">
+            <SelectValue placeholder="Select volume" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="50-200k">50K - 200K RWF</SelectItem>
+            <SelectItem value="200-500k">200K - 500K RWF</SelectItem>
+            <SelectItem value="500k-1m">500K - 1M RWF</SelectItem>
+            <SelectItem value="1m+">1M+ RWF</SelectItem>
+          </SelectContent>
+        </Select>
+        {errors.monthlyVolume && (
+          <p className="text-destructive text-sm">{errors.monthlyVolume.message}</p>
+        )}
+      </div>
+      
+      <div className="space-y-2">
+        <Label htmlFor="email">Email (Optional)</Label>
+        <Input 
+          id="email" 
+          type="email" 
+          placeholder="jean@example.com" 
+          {...register('email')}
+        />
+        {errors.email && (
+          <p className="text-destructive text-sm">{errors.email.message}</p>
+        )}
+      </div>
+      
+      <div className="flex items-center space-x-2">
+        <Checkbox 
+          id="visit" 
+          checked={wantVisit}
+          onCheckedChange={(checked) => setWantVisit(checked as boolean)}
+        />
+        <Label htmlFor="visit" className="text-sm">
+          Would you like us to visit your business?
+        </Label>
+      </div>
+      
       <Button 
         type="submit" 
         className="w-full bg-nipay-green hover:bg-nipay-dark-green"
         disabled={isSubmitting}
       >
-        {isSubmitting ? "Submitting..." : "Join Waitlist"}
+        {isSubmitting ? "Joining..." : "Join the Waitlist"}
       </Button>
     </form>
   );
