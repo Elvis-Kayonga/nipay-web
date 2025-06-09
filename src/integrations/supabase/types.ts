@@ -9,48 +9,7 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      waitlist_submissions: {
-        Row: {
-          business_earnings: string | null
-          business_name: string
-          business_type: string | null
-          created_at: string
-          email: string
-          funding_needed: string | null
-          id: string
-          interest_rate: string | null
-          monthly_volume: string | null
-          name: string
-          phone_number: string | null
-        }
-        Insert: {
-          business_earnings?: string | null
-          business_name: string
-          business_type?: string | null
-          created_at?: string
-          email: string
-          funding_needed?: string | null
-          id?: string
-          interest_rate?: string | null
-          monthly_volume?: string | null
-          name: string
-          phone_number?: string | null
-        }
-        Update: {
-          business_earnings?: string | null
-          business_name?: string
-          business_type?: string | null
-          created_at?: string
-          email?: string
-          funding_needed?: string | null
-          id?: string
-          interest_rate?: string | null
-          monthly_volume?: string | null
-          name?: string
-          phone_number?: string | null
-        }
-        Relationships: []
-      }
+      [_ in never]: never
     }
     Views: {
       [_ in never]: never

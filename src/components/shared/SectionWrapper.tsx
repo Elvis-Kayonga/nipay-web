@@ -19,7 +19,7 @@ const SectionWrapper = ({
       id={id}
       className={`w-full ${backgroundColor ? backgroundColor : ''} ${className}`}
     >
-      <div className="container mx-auto section-padding">
+      <div className="container mx-auto px-6 lg:px-8 xl:px-12">
         {children}
       </div>
     </section>

@@ -47,14 +47,16 @@
 
   body {
     @apply bg-background text-foreground font-sans;
+    line-height: 1.7;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading font-bold;
+    line-height: 1.2;
   }
 
   .section-padding {
-    @apply py-12 px-4 md:py-24 md:px-6;
+    @apply py-20 px-6 lg:py-32 lg:px-8 xl:px-12;
   }
 }
 
@@ -63,17 +65,17 @@
     @apply bg-gradient-to-b from-transparent via-black/60 to-black/80;
   }
 
-  /* Remove the conflicting btn-primary class that might override our button styles */
   .btn-primary {
-    @apply bg-nipay-green text-white hover:bg-nipay-dark-green transition-colors rounded-md font-bold;
+    @apply bg-nipay-green text-white hover:bg-nipay-dark-green transition-all duration-300 rounded-lg font-bold shadow-md hover:shadow-lg;
   }
 
   .btn-secondary {
-    @apply bg-transparent border transition-colors rounded-md font-bold;
+    @apply bg-transparent border transition-all duration-300 rounded-lg font-bold shadow-sm hover:shadow-md;
   }
   
   .section-title {
-    @apply text-2xl md:text-4xl font-bold mb-6 md:mb-10 text-center;
+    @apply text-3xl lg:text-5xl xl:text-6xl font-bold mb-8 lg:mb-12 text-center;
+    line-height: 1.1;
   }
 
   .card-hover {
@@ -85,28 +87,54 @@
   }
 }
 
-/* Mobile-specific tweaks */
+/* Professional laptop-optimized spacing and typography */
 @layer utilities {
   .text-xxs {
     font-size: 0.65rem;
     line-height: 1rem;
   }
   
-  /* Improve tap targets on mobile */
-  @media (max-width: 768px) {
-    button, 
-    a, 
-    [role="button"], 
-    [type="button"], 
-    [type="submit"] {
-      @apply min-h-10 min-w-10;
+  /* Smooth scrolling for better UX */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Professional spacing for laptop screens */
+  @media (min-width: 1024px) {
+    .container {
+      max-width: 1200px;
     }
     
-    /* Improve form fields touch targets */
-    input:not([type="checkbox"]):not([type="radio"]),
-    select,
-    textarea {
-      @apply min-h-10;
+    /* Optimized line heights for readability */
+    p, .text-base {
+      line-height: 1.75;
+    }
+    
+    .text-lg {
+      line-height: 1.7;
+    }
+    
+    .text-xl {
+      line-height: 1.6;
+    }
+    
+    /* Professional button spacing */
+    button, 
+    .btn {
+      @apply min-h-12 transition-all duration-300;
+    }
+    
+    /* Enhanced card styling for professional look */
+    .card, 
+    [class*="bg-card"] {
+      @apply shadow-sm hover:shadow-md transition-shadow duration-300;
+    }
+  }
+  
+  /* Extra large screens - prevent content from being too wide */
+  @media (min-width: 1536px) {
+    .container {
+      max-width: 1400px;
     }
   }
 }
