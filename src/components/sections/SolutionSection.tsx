@@ -3,61 +3,114 @@ import SectionWrapper from '../shared/SectionWrapper';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 import WaitlistModal from '../modals/WaitlistModal';
-import { ArrowRight, Smartphone, DollarSign, RefreshCw } from 'lucide-react';
+import { ArrowRight, Smartphone, DollarSign, RefreshCw, CheckCircle } from 'lucide-react';
 
 const SolutionSection = () => {
   const [showWaitlistModal, setShowWaitlistModal] = useState(false);
   
   return (
-    <SectionWrapper id="how-it-works" className="py-20 lg:py-32 bg-white">
-      <h2 className="text-3xl lg:text-5xl xl:text-6xl font-bold mb-6 lg:mb-8 text-center leading-tight text-gray-900">
-        How NiPay Works
-      </h2>
+    <SectionWrapper id="how-it-works" className="py-24 lg:py-32 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-nipay-green/5 rounded-full blur-3xl"></div>
       
-      <p className="text-xl lg:text-2xl mb-12 lg:mb-16 text-center max-w-3xl mx-auto leading-relaxed text-gray-600">
-        Simple. Automatic. Built for your mobile money business.
-      </p>
-      
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 xl:gap-16 mb-16 lg:mb-20">
-        <div className="text-center p-6 lg:p-8 rounded-2xl bg-gradient-to-br from-green-50 to-green-100 shadow-sm hover:shadow-md transition-shadow">
-          <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-nipay-green flex items-center justify-center mx-auto mb-6 lg:mb-8 shadow-lg">
-            <Smartphone className="w-8 h-8 lg:w-10 lg:h-10 text-white" />
+      <div className="relative z-10">
+        {/* Section Header */}
+        <div className="text-center mb-20 lg:mb-24">
+          <div className="inline-flex items-center bg-nipay-green/10 text-nipay-green px-6 py-3 rounded-full text-sm font-semibold mb-6">
+            <CheckCircle className="w-4 h-4 mr-2" />
+            How It Works
           </div>
-          <h3 className="text-xl lg:text-2xl font-bold mb-4 lg:mb-6 text-gray-900">Accept Payments</h3>
-          <p className="text-gray-600 text-base lg:text-lg leading-relaxed">
-            Keep using MTN Mobile Money, Airtel Money, or your bank account like normal
+          <h2 className="text-4xl lg:text-6xl xl:text-7xl font-bold mb-8 text-gray-900 leading-tight">
+            Simple. Automatic. 
+            <br />
+            <span className="bg-gradient-to-r from-nipay-green to-nipay-dark-green bg-clip-text text-transparent">
+              Built for you.
+            </span>
+          </h2>
+          <p className="text-xl lg:text-2xl max-w-3xl mx-auto leading-relaxed text-gray-600 font-medium">
+            Three steps to unlock working capital from your mobile money business
           </p>
         </div>
         
-        <div className="text-center p-6 lg:p-8 rounded-2xl bg-gradient-to-br from-yellow-50 to-yellow-100 shadow-sm hover:shadow-md transition-shadow">
-          <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-yellow-500 flex items-center justify-center mx-auto mb-6 lg:mb-8 shadow-lg">
-            <DollarSign className="w-8 h-8 lg:w-10 lg:h-10 text-white" />
+        {/* Steps Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16 mb-20 lg:mb-24 max-w-7xl mx-auto">
+          {/* Step 1 */}
+          <div className="relative group">
+            <div className="absolute inset-0 bg-gradient-to-br from-green-100 to-green-50 rounded-3xl transform group-hover:scale-105 transition-transform duration-300"></div>
+            <div className="relative text-center p-10 lg:p-12">
+              <div className="relative mb-8">
+                <div className="w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-gradient-to-br from-nipay-green to-nipay-dark-green flex items-center justify-center mx-auto shadow-2xl">
+                  <Smartphone className="w-10 h-10 lg:w-12 lg:h-12 text-white" />
+                </div>
+                <div className="absolute -top-2 -right-2 w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center text-black font-bold text-sm">1</div>
+              </div>
+              <h3 className="text-2xl lg:text-3xl font-bold mb-6 text-gray-900">Accept Payments</h3>
+              <p className="text-gray-600 text-lg leading-relaxed">
+                Keep using MTN Mobile Money, Airtel Money, or your bank account like normal
+              </p>
+            </div>
+            
+            {/* Connection Arrow */}
+            <div className="hidden lg:block absolute top-1/2 -right-8 transform -translate-y-1/2">
+              <div className="w-16 h-1 bg-gradient-to-r from-nipay-green to-transparent"></div>
+              <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-3 h-3 bg-nipay-green rotate-45"></div>
+            </div>
           </div>
-          <h3 className="text-xl lg:text-2xl font-bold mb-4 lg:mb-6 text-gray-900">Borrow Instantly</h3>
-          <p className="text-gray-600 text-base lg:text-lg leading-relaxed">
-            NiPay grows your overdraft limit based on your daily mobile money sales
-          </p>
-        </div>
-        
-        <div className="text-center p-6 lg:p-8 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 shadow-sm hover:shadow-md transition-shadow">
-          <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-blue-500 flex items-center justify-center mx-auto mb-6 lg:mb-8 shadow-lg">
-            <RefreshCw className="w-8 h-8 lg:w-10 lg:h-10 text-white" />
+          
+          {/* Step 2 */}
+          <div className="relative group">
+            <div className="absolute inset-0 bg-gradient-to-br from-yellow-100 to-yellow-50 rounded-3xl transform group-hover:scale-105 transition-transform duration-300"></div>
+            <div className="relative text-center p-10 lg:p-12">
+              <div className="relative mb-8">
+                <div className="w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-gradient-to-br from-yellow-500 to-yellow-600 flex items-center justify-center mx-auto shadow-2xl">
+                  <DollarSign className="w-10 h-10 lg:w-12 lg:h-12 text-white" />
+                </div>
+                <div className="absolute -top-2 -right-2 w-8 h-8 bg-nipay-green rounded-full flex items-center justify-center text-white font-bold text-sm">2</div>
+              </div>
+              <h3 className="text-2xl lg:text-3xl font-bold mb-6 text-gray-900">Borrow Instantly</h3>
+              <p className="text-gray-600 text-lg leading-relaxed">
+                NiPay grows your overdraft limit based on your daily mobile money sales
+              </p>
+            </div>
+            
+            {/* Connection Arrow */}
+            <div className="hidden lg:block absolute top-1/2 -right-8 transform -translate-y-1/2">
+              <div className="w-16 h-1 bg-gradient-to-r from-yellow-500 to-transparent"></div>
+              <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-3 h-3 bg-yellow-500 rotate-45"></div>
+            </div>
           </div>
-          <h3 className="text-xl lg:text-2xl font-bold mb-4 lg:mb-6 text-gray-900">Repay Automatically</h3>
-          <p className="text-gray-600 text-base lg:text-lg leading-relaxed">
-            Small percentage deducted from each transaction — no stress about due dates
-          </p>
+          
+          {/* Step 3 */}
+          <div className="relative group">
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-blue-50 rounded-3xl transform group-hover:scale-105 transition-transform duration-300"></div>
+            <div className="relative text-center p-10 lg:p-12">
+              <div className="relative mb-8">
+                <div className="w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center mx-auto shadow-2xl">
+                  <RefreshCw className="w-10 h-10 lg:w-12 lg:h-12 text-white" />
+                </div>
+                <div className="absolute -top-2 -right-2 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-sm">3</div>
+              </div>
+              <h3 className="text-2xl lg:text-3xl font-bold mb-6 text-gray-900">Repay Automatically</h3>
+              <p className="text-gray-600 text-lg leading-relaxed">
+                Small percentage deducted from each transaction — no stress about due dates
+              </p>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div className="text-center">
-        <Button 
-          onClick={() => setShowWaitlistModal(true)}
-          className="bg-nipay-green hover:bg-nipay-dark-green text-lg lg:text-xl px-8 lg:px-12 py-6 lg:py-8 shadow-lg hover:shadow-xl transition-all duration-300"
-        >
-          Start with NiPay Today
-          <ArrowRight className="ml-3 h-5 w-5 lg:h-6 lg:w-6" />
-        </Button>
+        {/* CTA Section */}
+        <div className="text-center">
+          <div className="inline-block bg-white rounded-3xl p-8 lg:p-12 shadow-2xl border border-gray-100">
+            <h3 className="text-2xl lg:text-3xl font-bold mb-6 text-gray-900">Ready to get started?</h3>
+            <Button 
+              onClick={() => setShowWaitlistModal(true)}
+              className="bg-gradient-to-r from-nipay-green to-nipay-dark-green hover:from-nipay-dark-green hover:to-nipay-green text-xl lg:text-2xl px-10 lg:px-14 py-6 lg:py-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 rounded-2xl"
+            >
+              Start with NiPay Today
+              <ArrowRight className="ml-3 h-6 w-6 lg:h-7 lg:w-7" />
+            </Button>
+          </div>
+        </div>
       </div>
       
       <WaitlistModal isOpen={showWaitlistModal} onClose={() => setShowWaitlistModal(false)} />
