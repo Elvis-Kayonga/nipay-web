@@ -32,8 +32,8 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 lg:px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Main Headline - Enhanced Typography */}
-          <div className="mb-6 lg:mb-8">
-            <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 leading-tight text-white">
+          <div className="mb-4 lg:mb-5">
+            <h1 className="text-2xl lg:text-3xl xl:text-4xl font-bold mb-3 leading-tight text-white">
               Cash tight? <span className="relative">
                 <span className="bg-gradient-to-r from-yellow-300 to-yellow-400 bg-clip-text text-transparent">
                   NiPay
@@ -50,53 +50,53 @@ const HeroSection = () => {
           </div>
           
           {/* Subheadline */}
-          <p className="text-lg lg:text-xl mb-6 lg:mb-7 max-w-3xl mx-auto leading-relaxed font-medium text-white/90">
+          <p className="text-base lg:text-lg mb-4 lg:mb-5 max-w-3xl mx-auto leading-relaxed font-medium text-white/90">
             No paperwork. No stress. No collateral.
           </p>
 
           {/* Pain Point Callout - Repositioned */}
-          <div className="inline-block bg-white/15 backdrop-blur-md rounded-xl px-6 py-4 mb-8 border border-white/20 shadow-2xl transform hover:scale-105 transition-all duration-300">
-            <p className="text-base lg:text-lg italic text-white/95 leading-relaxed font-medium">
+          <div className="inline-block bg-white/15 backdrop-blur-md rounded-lg px-4 py-3 mb-6 border border-white/20 shadow-xl transform hover:scale-105 transition-all duration-300">
+            <p className="text-sm lg:text-base italic text-white/95 leading-relaxed font-medium">
               "You run your business with mobile money — but no one will lend you even 20K when you need it most."
             </p>
           </div>
           
           {/* CTA Buttons - Enhanced Design */}
-          <div className="flex flex-col sm:flex-row gap-4 lg:gap-6 justify-center mb-12 lg:mb-14">
+          <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 justify-center mb-8 lg:mb-10">
             <Button 
               onClick={() => setShowWaitlistModal(true)}
               size="lg" 
-              className="group bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-black font-bold text-lg lg:text-xl py-6 lg:py-7 px-8 lg:px-10 shadow-2xl hover:shadow-yellow-400/25 transition-all duration-300 transform hover:-translate-y-1 w-full sm:w-auto rounded-xl"
+              className="group bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-black font-bold text-base lg:text-lg py-4 lg:py-5 px-6 lg:px-8 shadow-2xl hover:shadow-yellow-400/25 transition-all duration-300 transform hover:-translate-y-1 w-full sm:w-auto rounded-xl"
             >
               Join the Waitlist
-              <ArrowRight className="ml-2 h-5 w-5 lg:h-6 lg:w-6 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="ml-2 h-4 w-4 lg:h-5 lg:w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
             
             <Button 
               variant="outline" 
               size="lg"
-              className="group border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50 text-lg lg:text-xl py-6 lg:py-7 px-8 lg:px-10 w-full sm:w-auto backdrop-blur-sm rounded-xl transition-all duration-300"
+              className="group border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50 text-base lg:text-lg py-4 lg:py-5 px-6 lg:px-8 w-full sm:w-auto backdrop-blur-sm rounded-xl transition-all duration-300"
               onClick={() => window.open('https://wa.me/250788123456?text=Hi%20NiPay%2C%20I%20have%20a%20question', '_blank')}
             >
-              <MessageCircle className="mr-2 h-5 w-5 lg:h-6 lg:w-6 group-hover:scale-110 transition-transform" />
+              <MessageCircle className="mr-2 h-4 w-4 lg:h-5 lg:w-5 group-hover:scale-110 transition-transform" />
               Ask a Question
             </Button>
           </div>
           
-          {/* Early Traction - Compact Card Design */}
-          <div className="bg-white/10 backdrop-blur-lg rounded-xl p-3 lg:p-4 border border-white/20 shadow-2xl max-w-2xl mx-auto">
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4">
-              <div className="group">
-                <div className="text-lg lg:text-xl xl:text-2xl font-bold text-yellow-300 mb-1 group-hover:scale-110 transition-transform">400+</div>
-                <div className="text-xs lg:text-sm text-white/80 font-medium">SMEs Signed Up</div>
+          {/* Early Traction - Compact Single Line Design */}
+          <div className="bg-white/10 backdrop-blur-lg rounded-lg p-2 lg:p-3 border border-white/20 shadow-xl max-w-lg mx-auto">
+            <div className="flex items-center justify-center space-x-6 lg:space-x-8">
+              <div className="text-center">
+                <div className="text-lg lg:text-xl font-bold text-yellow-300">400+</div>
+                <div className="text-xs text-white/80 font-medium">SMEs</div>
               </div>
-              <div className="group">
-                <div className="text-lg lg:text-xl xl:text-2xl font-bold text-yellow-300 mb-1 group-hover:scale-110 transition-transform">258M</div>
-                <div className="text-xs lg:text-sm text-white/80 font-medium">RWF Requested</div>
+              <div className="text-center">
+                <div className="text-lg lg:text-xl font-bold text-yellow-300">258M</div>
+                <div className="text-xs text-white/80 font-medium">RWF</div>
               </div>
-              <div className="col-span-2 lg:col-span-1 group">
-                <div className="text-lg lg:text-xl xl:text-2xl font-bold text-yellow-300 mb-1 group-hover:scale-110 transition-transform">100%</div>
-                <div className="text-xs lg:text-sm text-white/80 font-medium">Built for Rwanda</div>
+              <div className="text-center">
+                <div className="text-lg lg:text-xl font-bold text-yellow-300">100%</div>
+                <div className="text-xs text-white/80 font-medium">Rwanda</div>
               </div>
             </div>
           </div>
