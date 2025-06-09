@@ -5,41 +5,53 @@ import Footer from "@/components/layout/Footer";
 import SectionWrapper from "@/components/shared/SectionWrapper";
 import { Button } from "@/components/ui/button";
 import InvestorForm from "@/components/forms/InvestorForm";
-import IconCard from "@/components/shared/IconCard";
-import { ArrowRight, ChartBarIcon, DollarSign, TrendingUp, Users } from "lucide-react";
+import { 
+  ArrowRight, 
+  Users, 
+  DollarSign, 
+  TrendingUp, 
+  Smartphone, 
+  CreditCard, 
+  BarChart3,
+  CheckCircle,
+  Target,
+  Shield,
+  Zap
+} from "lucide-react";
 
 const InvestorHero = () => {
   return (
-    <section className="relative min-h-[60vh] flex items-center text-white">
+    <section className="relative min-h-[80vh] flex items-center text-white overflow-hidden">
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0" 
         style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?ixlib=rb-4.0.3')",
-          backgroundAttachment: "fixed"
+          backgroundImage: "linear-gradient(135deg, #1a5c38 0%, #2ecc71 100%)"
         }} 
         aria-hidden="true"
       >
-        <div className="absolute inset-0 hero-gradient"></div>
+        <div className="absolute inset-0 bg-black/20"></div>
       </div>
       
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-2xl">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 animate-fade-in">
-            Fund NiPay's Mission to Transform SME Finance in Rwanda
+      <div className="container mx-auto px-6 lg:px-8 relative z-10 max-w-6xl">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in leading-tight">
+            Invest in the future of SME liquidity in Africa
           </h1>
           
-          <p className="text-lg mb-6">Join us in closing Rwanda's $1.2B SME financing gap with mobile-based loans.</p>
+          <p className="text-xl lg:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed opacity-95">
+            NiPay unlocks working capital for mobile money-driven SMEs in Rwanda via a USSD-first overdraft wallet with automatic repayments.
+          </p>
           
           <Button 
             size="lg" 
-            className="bg-white text-nipay-dark-green hover:bg-white/90 text-lg px-6" 
+            className="bg-white text-nipay-dark-green hover:bg-white/90 text-xl px-12 py-6 shadow-2xl hover:shadow-xl transition-all duration-300 font-bold" 
             onClick={() => {
-              const element = document.getElementById("contact-form");
+              const element = document.getElementById("investor-form");
               element?.scrollIntoView({ behavior: "smooth" });
             }}
           >
-            Partner With Us
-            <ArrowRight className="ml-2" />
+            Join Our Pre-Seed Round
+            <ArrowRight className="ml-3 h-6 w-6" />
           </Button>
         </div>
       </div>
@@ -47,22 +59,230 @@ const InvestorHero = () => {
   );
 };
 
-const ImpactStatistics = () => {
+const TractionSnapshot = () => {
+  const metrics = [
+    { icon: <Users className="h-8 w-8" />, value: "400+", label: "SMEs onboarded" },
+    { icon: <DollarSign className="h-8 w-8" />, value: "$174K", label: "requested in loan book" },
+    { icon: <TrendingUp className="h-8 w-8" />, value: "$1.8B", label: "SME funding gap in Rwanda" },
+    { icon: <Target className="h-8 w-8" />, value: "$16.8M", label: "projected ARR at scale" }
+  ];
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
-      <div className="bg-card p-5 rounded-lg border">
-        <div className="text-3xl font-bold text-nipay-green mb-1">$1.2B</div>
-        <p className="text-muted-foreground text-sm">SME financing gap in Rwanda</p>
+    <SectionWrapper className="py-16 lg:py-20">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-3xl lg:text-4xl font-bold text-center mb-12 text-nipay-dark-green">
+          Traction Snapshot
+        </h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {metrics.map((metric, index) => (
+            <div key={index} className="text-center bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
+              <div className="flex justify-center mb-4 text-nipay-green">
+                {metric.icon}
+              </div>
+              <div className="text-3xl lg:text-4xl font-bold text-nipay-dark-green mb-2">
+                {metric.value}
+              </div>
+              <p className="text-gray-600 font-medium">{metric.label}</p>
+            </div>
+          ))}
+        </div>
       </div>
-      <div className="bg-card p-5 rounded-lg border">
-        <div className="text-3xl font-bold text-nipay-green mb-1">79%</div>
-        <p className="text-muted-foreground text-sm">of SMEs lack access to finance</p>
+    </SectionWrapper>
+  );
+};
+
+const WhatWereBuilding = () => {
+  const features = [
+    {
+      icon: <CreditCard className="h-10 w-10" />,
+      title: "Overdraft Wallet",
+      description: "Borrow against sales with automatic repayment"
+    },
+    {
+      icon: <Smartphone className="h-10 w-10" />,
+      title: "USSD + App",
+      description: "Works on any phone, anywhere in Rwanda"
+    },
+    {
+      icon: <BarChart3 className="h-10 w-10" />,
+      title: "Free ERP",
+      description: "Helps SMEs track finances and repay faster"
+    }
+  ];
+
+  return (
+    <SectionWrapper backgroundColor="bg-gray-50" className="py-16 lg:py-20">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-3xl lg:text-4xl font-bold text-center mb-4 text-nipay-dark-green">
+          What We're Building
+        </h2>
+        <p className="text-xl text-center text-gray-600 mb-12 max-w-3xl mx-auto">
+          A comprehensive financial ecosystem designed for Africa's mobile-first economy
+        </p>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {features.map((feature, index) => (
+            <div key={index} className="bg-white rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
+              <div className="flex justify-center mb-6 text-nipay-green">
+                {feature.icon}
+              </div>
+              <h3 className="text-xl font-bold mb-4 text-nipay-dark-green">{feature.title}</h3>
+              <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+            </div>
+          ))}
+        </div>
       </div>
-      <div className="bg-card p-5 rounded-lg border">
-        <div className="text-3xl font-bold text-nipay-green mb-1">91%</div>
-        <p className="text-muted-foreground text-sm">of Rwandans use mobile money</p>
+    </SectionWrapper>
+  );
+};
+
+const BusinessModel = () => {
+  const revenueStreams = [
+    { stream: "Loan Fees (2%)", estimate: "$7.2M" },
+    { stream: "Wallet Fees", estimate: "$8.76M" },
+    { stream: "ERP SaaS ($3/mo)", estimate: "$540K" },
+    { stream: "Merchant Commissions", estimate: "$300K" }
+  ];
+
+  return (
+    <SectionWrapper className="py-16 lg:py-20">
+      <div className="max-w-4xl mx-auto">
+        <h2 className="text-3xl lg:text-4xl font-bold text-center mb-12 text-nipay-dark-green">
+          Business Model
+        </h2>
+        
+        <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+          <div className="bg-nipay-green text-white p-6">
+            <h3 className="text-xl font-bold text-center">Annual Revenue Projections</h3>
+          </div>
+          
+          <div className="p-6">
+            {revenueStreams.map((item, index) => (
+              <div key={index} className="flex justify-between items-center py-4 border-b border-gray-100 last:border-b-0">
+                <span className="font-medium text-gray-700">{item.stream}</span>
+                <span className="text-xl font-bold text-nipay-dark-green">{item.estimate}</span>
+              </div>
+            ))}
+            
+            <div className="flex justify-between items-center pt-6 mt-6 border-t-2 border-nipay-green">
+              <span className="text-xl font-bold text-nipay-dark-green">Total ARR</span>
+              <span className="text-2xl font-bold text-nipay-green">$16.8M</span>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </SectionWrapper>
+  );
+};
+
+const WhyWeWin = () => {
+  const advantages = [
+    { icon: <Smartphone className="h-6 w-6" />, text: "USSD-first where 85% of local transactions happen" },
+    { icon: <Shield className="h-6 w-6" />, text: "Auto-repayment reduces default risk" },
+    { icon: <BarChart3 className="h-6 w-6" />, text: "Transaction-based credit scoring" },
+    { icon: <Zap className="h-6 w-6" />, text: "Free ERP = user stickiness" },
+    { icon: <CheckCircle className="h-6 w-6" />, text: "Regulatory groundwork done" }
+  ];
+
+  return (
+    <SectionWrapper backgroundColor="bg-nipay-dark-green" className="py-16 lg:py-20 text-white">
+      <div className="max-w-4xl mx-auto">
+        <h2 className="text-3xl lg:text-4xl font-bold text-center mb-12">
+          Why We Win
+        </h2>
+        
+        <div className="space-y-6">
+          {advantages.map((advantage, index) => (
+            <div key={index} className="flex items-center gap-4 bg-white/10 rounded-xl p-6 backdrop-blur-sm">
+              <div className="text-nipay-green flex-shrink-0">
+                {advantage.icon}
+              </div>
+              <span className="text-lg">{advantage.text}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </SectionWrapper>
+  );
+};
+
+const TheRaise = () => {
+  return (
+    <SectionWrapper className="py-16 lg:py-20">
+      <div className="max-w-4xl mx-auto text-center">
+        <div className="bg-gradient-to-r from-nipay-green to-nipay-dark-green rounded-3xl p-12 text-white shadow-2xl">
+          <h2 className="text-3xl lg:text-4xl font-bold mb-6">The Raise</h2>
+          <div className="text-6xl lg:text-7xl font-bold mb-6">$550K</div>
+          <p className="text-xl mb-8">Pre-Seed Round</p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div>
+              <div className="text-2xl font-bold mb-2">18 months</div>
+              <div className="text-sm opacity-90">Runway</div>
+            </div>
+            <div>
+              <div className="text-2xl font-bold mb-2">Series A</div>
+              <div className="text-sm opacity-90">Next milestone</div>
+            </div>
+            <div>
+              <div className="text-2xl font-bold mb-2">10,000+</div>
+              <div className="text-sm opacity-90">SMEs target</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </SectionWrapper>
+  );
+};
+
+const InvestorCTA = () => {
+  return (
+    <SectionWrapper id="investor-form" backgroundColor="bg-gray-50" className="py-16 lg:py-20">
+      <div className="max-w-4xl mx-auto">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-nipay-dark-green">
+            Ready to Invest?
+          </h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Join us in transforming SME finance across Africa. Get in touch to learn more about our investment opportunity.
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="space-y-6">
+            <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
+              <h3 className="text-xl font-bold mb-4 text-nipay-dark-green">Investment Highlights</h3>
+              <ul className="space-y-3">
+                <li className="flex items-center gap-3">
+                  <CheckCircle className="h-5 w-5 text-nipay-green flex-shrink-0" />
+                  <span>Proven traction with 400+ SMEs</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <CheckCircle className="h-5 w-5 text-nipay-green flex-shrink-0" />
+                  <span>Large addressable market ($1.8B gap)</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <CheckCircle className="h-5 w-5 text-nipay-green flex-shrink-0" />
+                  <span>Scalable technology platform</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <CheckCircle className="h-5 w-5 text-nipay-green flex-shrink-0" />
+                  <span>Experienced founding team</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
+            <h3 className="text-2xl font-bold mb-6 text-nipay-dark-green text-center">
+              Contact Our Team
+            </h3>
+            <InvestorForm onSuccess={() => {}} />
+          </div>
+        </div>
+      </div>
+    </SectionWrapper>
   );
 };
 
@@ -70,14 +290,14 @@ const Investors = () => {
   return (
     <>
       <Helmet>
-        <title>For Funders & Partners | NiPay</title>
-        <meta name="description" content="Partner with NiPay to fund our mission of providing loans to underserved SMEs in Rwanda through our mobile-money based credit solution." />
-        <meta name="keywords" content="investment opportunity, SME finance, Rwanda, fintech funding, grant funding" />
+        <title>Investors | NiPay - SME Finance Innovation</title>
+        <meta name="description" content="Join NiPay's $550K Pre-Seed round. Invest in the future of SME liquidity in Africa with our USSD-first overdraft wallet and automatic repayments." />
+        <meta name="keywords" content="investment opportunity, SME finance, Rwanda, fintech funding, pre-seed round, africa fintech" />
         
         {/* Open Graph / Social */}
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="NiPay | Partnership Opportunity" />
-        <meta property="og:description" content="Fund our mission to provide loans to Rwandan SMEs through our data-driven platform." />
+        <meta property="og:title" content="NiPay Investors | SME Finance Innovation" />
+        <meta property="og:description" content="Join our $550K Pre-Seed round to transform SME finance in Africa." />
         <meta property="og:image" content="/placeholder.svg" />
       </Helmet>
       
@@ -85,181 +305,12 @@ const Investors = () => {
       
       <main className="min-h-screen pt-16">
         <InvestorHero />
-        
-        <SectionWrapper className="py-10 md:py-16">
-          <div className="mb-10 md:mb-12">
-            <h2 className="text-2xl font-bold mb-6 text-center">The Market Opportunity</h2>
-            <ImpactStatistics />
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div>
-              <h2 className="text-2xl font-bold mb-4">Why Support NiPay?</h2>
-              <p className="text-base mb-4">
-                NiPay provides critical financing to small businesses in Rwanda through mobile-money loans.
-              </p>
-              
-              <div className="space-y-4">
-                <div className="flex gap-3 items-start">
-                  <div className="bg-nipay-green p-2 rounded-full text-white">
-                    <Users size={20} />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-base">Financial Inclusion</h3>
-                    <p className="text-sm text-muted-foreground">Reaching SMEs that lack access to formal financial services</p>
-                  </div>
-                </div>
-                
-                <div className="flex gap-3 items-start">
-                  <div className="bg-nipay-green p-2 rounded-full text-white">
-                    <ChartBarIcon size={20} />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-base">Data-Driven Approach</h3>
-                    <p className="text-sm text-muted-foreground">AI algorithm analyzes mobile money patterns to assess risk accurately</p>
-                  </div>
-                </div>
-                
-                <div className="flex gap-3 items-start">
-                  <div className="bg-nipay-green p-2 rounded-full text-white">
-                    <TrendingUp size={20} />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-base">Scalable Model</h3>
-                    <p className="text-sm text-muted-foreground">Digital-first approach enables rapid scaling across Rwanda</p>
-                  </div>
-                </div>
-                
-                <div className="flex gap-3 items-start">
-                  <div className="bg-nipay-green p-2 rounded-full text-white">
-                    <DollarSign size={20} />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-base">Sustainable Impact</h3>
-                    <p className="text-sm text-muted-foreground">Self-sustaining loan model that continues to serve communities</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="bg-muted p-6 rounded-lg">
-              <h3 className="text-lg font-bold mb-3">Our Roadmap</h3>
-              
-              <div className="space-y-5">
-                <div className="relative pl-6 border-l-2 border-nipay-green">
-                  <div className="absolute w-3 h-3 bg-nipay-green rounded-full -left-[7px] top-1"></div>
-                  <h4 className="font-bold text-sm">Pilot Program (Current)</h4>
-                  <p className="text-xs text-muted-foreground">100 selected SMEs to validate our model</p>
-                </div>
-                
-                <div className="relative pl-6 border-l-2 border-accent">
-                  <div className="absolute w-3 h-3 bg-accent rounded-full -left-[7px] top-1"></div>
-                  <h4 className="font-bold text-sm">Limited Market Launch</h4>
-                  <p className="text-xs text-muted-foreground">1,000 businesses in Kigali</p>
-                </div>
-                
-                <div className="relative pl-6 border-l-2 border-accent">
-                  <div className="absolute w-3 h-3 bg-accent rounded-full -left-[7px] top-1"></div>
-                  <h4 className="font-bold text-sm">Full Market Rollout</h4>
-                  <p className="text-xs text-muted-foreground">Nationwide availability</p>
-                </div>
-                
-                <div className="relative pl-6">
-                  <div className="absolute w-3 h-3 bg-accent rounded-full -left-[7px] top-1"></div>
-                  <h4 className="font-bold text-sm">Regional Expansion</h4>
-                  <p className="text-xs text-muted-foreground">East African countries</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </SectionWrapper>
-        
-        <SectionWrapper backgroundColor="bg-nipay-dark-green" className="text-white">
-          <h2 className="text-2xl font-bold mb-8 text-center">Funding Needs</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <IconCard 
-              icon={<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"></path>
-                <path d="M13 5v2"></path>
-                <path d="M13 17v2"></path>
-                <path d="M13 11v2"></path>
-              </svg>} 
-              title="Seed Capital" 
-              description="$250,000 to fund our pilot program" 
-              className="bg-white/10 text-white hover:bg-white/20"
-            />
-            
-            <IconCard 
-              icon={<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path>
-              </svg>} 
-              title="Grant Funding" 
-              description="Partnerships with NGOs and foundations" 
-              className="bg-white/10 text-white hover:bg-white/20"
-            />
-            
-            <IconCard 
-              icon={<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M5.3 18a9 9 0 1 1 13.4 0"></path>
-                <path d="M16 22l-4-9-4 9"></path>
-                <circle cx="12" cy="10" r="1"></circle>
-              </svg>} 
-              title="Technical Partnerships" 
-              description="Mobile money and AI development support" 
-              className="bg-white/10 text-white hover:bg-white/20"
-            />
-          </div>
-        </SectionWrapper>
-        
-        <SectionWrapper id="contact-form" className="py-10 md:py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div>
-              <h2 className="text-2xl font-bold mb-4">Partner With Us</h2>
-              <p className="text-base mb-4">
-                Ready to help transform SME financing in Rwanda? Contact us to discuss partnership opportunities.
-              </p>
-              
-              <div className="bg-muted p-5 rounded-lg mb-4">
-                <h3 className="font-bold mb-2">Our Team</h3>
-                <p className="mb-3 text-sm">
-                  NiPay combines local market expertise with fintech innovation, led by a team experienced in:
-                </p>
-                <ul className="space-y-1">
-                  <li className="flex items-start gap-2 text-sm">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-nipay-green mt-1 flex-shrink-0">
-                      <path d="M20 6 9 17l-5-5" />
-                    </svg>
-                    <span>Rwandan financial services</span>
-                  </li>
-                  <li className="flex items-start gap-2 text-sm">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-nipay-green mt-1 flex-shrink-0">
-                      <path d="M20 6 9 17l-5-5" />
-                    </svg>
-                    <span>Mobile money systems</span>
-                  </li>
-                  <li className="flex items-start gap-2 text-sm">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-nipay-green mt-1 flex-shrink-0">
-                      <path d="M20 6 9 17l-5-5" />
-                    </svg>
-                    <span>Fintech product development</span>
-                  </li>
-                  <li className="flex items-start gap-2 text-sm">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-nipay-green mt-1 flex-shrink-0">
-                      <path d="M20 6 9 17l-5-5" />
-                    </svg>
-                    <span>SME business operations</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            
-            <div className="bg-card p-5 rounded-lg border">
-              <h3 className="text-xl font-bold mb-3">Get in Touch</h3>
-              <InvestorForm onSuccess={() => {}} />
-            </div>
-          </div>
-        </SectionWrapper>
+        <TractionSnapshot />
+        <WhatWereBuilding />
+        <BusinessModel />
+        <WhyWeWin />
+        <TheRaise />
+        <InvestorCTA />
       </main>
       
       <Footer />

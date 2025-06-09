@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
 @tailwind base;
@@ -85,6 +85,19 @@
   .text-gradient {
     @apply bg-gradient-to-r from-nipay-green to-nipay-dark-green bg-clip-text text-transparent;
   }
+  
+  /* Professional investor page styles */
+  .investor-metric-card {
+    @apply bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 text-center;
+  }
+  
+  .investor-feature-card {
+    @apply bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100;
+  }
+  
+  .professional-gradient {
+    background: linear-gradient(135deg, #1a5c38 0%, #2ecc71 100%);
+  }
 }
 
 /* Professional laptop-optimized spacing and typography */
@@ -129,12 +142,50 @@
     [class*="bg-card"] {
       @apply shadow-sm hover:shadow-md transition-shadow duration-300;
     }
+    
+    /* Investor page specific improvements */
+    .investor-hero-text {
+      @apply text-5xl lg:text-6xl xl:text-7xl;
+    }
+    
+    .investor-section-spacing {
+      @apply py-20 lg:py-24;
+    }
   }
   
   /* Extra large screens - prevent content from being too wide */
   @media (min-width: 1536px) {
     .container {
       max-width: 1400px;
+    }
+  }
+  
+  /* Professional animations for investor page */
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out;
+  }
+  
+  .animate-fade-in-delayed {
+    animation: fadeIn 0.8s ease-out 0.2s both;
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
     }
   }
 }
