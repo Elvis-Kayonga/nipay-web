@@ -32,8 +32,8 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 lg:px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Main Headline - Enhanced Typography */}
-          <div className="mb-4 lg:mb-5">
-            <h1 className="text-2xl lg:text-3xl xl:text-4xl font-bold mb-3 leading-tight text-white">
+          <div className="mb-3 lg:mb-4">
+            <h1 className="text-xl lg:text-2xl xl:text-3xl font-bold mb-2 leading-tight text-white">
               Cash tight? <span className="relative">
                 <span className="bg-gradient-to-r from-yellow-300 to-yellow-400 bg-clip-text text-transparent">
                   NiPay
@@ -50,40 +50,40 @@ const HeroSection = () => {
           </div>
           
           {/* Subheadline */}
-          <p className="text-base lg:text-lg mb-4 lg:mb-5 max-w-3xl mx-auto leading-relaxed font-medium text-white/90">
+          <p className="text-sm lg:text-base mb-3 lg:mb-4 max-w-3xl mx-auto leading-relaxed font-medium text-white/90">
             No paperwork. No stress. No collateral.
           </p>
 
-          {/* Pain Point Callout - Repositioned */}
-          <div className="inline-block bg-white/15 backdrop-blur-md rounded-lg px-4 py-3 mb-6 border border-white/20 shadow-xl transform hover:scale-105 transition-all duration-300">
-            <p className="text-sm lg:text-base italic text-white/95 leading-relaxed font-medium">
+          {/* Pain Point Callout */}
+          <div className="inline-block bg-white/15 backdrop-blur-md rounded-lg px-3 py-2 mb-4 border border-white/20 shadow-xl transform hover:scale-105 transition-all duration-300">
+            <p className="text-xs lg:text-sm italic text-white/95 leading-relaxed font-medium">
               "You run your business with mobile money — but no one will lend you even 20K when you need it most."
             </p>
           </div>
           
           {/* CTA Buttons - Enhanced Design */}
-          <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 justify-center mb-8 lg:mb-10">
+          <div className="flex flex-col sm:flex-row gap-2 lg:gap-3 justify-center mb-16 lg:mb-20">
             <Button 
               onClick={() => setShowWaitlistModal(true)}
               size="lg" 
-              className="group bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-black font-bold text-base lg:text-lg py-4 lg:py-5 px-6 lg:px-8 shadow-2xl hover:shadow-yellow-400/25 transition-all duration-300 transform hover:-translate-y-1 w-full sm:w-auto rounded-xl"
+              className="group bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-black font-bold text-sm lg:text-base py-3 lg:py-4 px-4 lg:px-6 shadow-2xl hover:shadow-yellow-400/25 transition-all duration-300 transform hover:-translate-y-1 w-full sm:w-auto rounded-xl"
             >
               Join the Waitlist
-              <ArrowRight className="ml-2 h-4 w-4 lg:h-5 lg:w-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="ml-2 h-3 w-3 lg:h-4 lg:w-4 group-hover:translate-x-1 transition-transform" />
             </Button>
             
             <Button 
               variant="outline" 
               size="lg"
-              className="group border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50 text-base lg:text-lg py-4 lg:py-5 px-6 lg:px-8 w-full sm:w-auto backdrop-blur-sm rounded-xl transition-all duration-300"
+              className="group border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50 text-sm lg:text-base py-3 lg:py-4 px-4 lg:px-6 w-full sm:w-auto backdrop-blur-sm rounded-xl transition-all duration-300"
               onClick={() => window.open('https://wa.me/250788123456?text=Hi%20NiPay%2C%20I%20have%20a%20question', '_blank')}
             >
-              <MessageCircle className="mr-2 h-4 w-4 lg:h-5 lg:w-5 group-hover:scale-110 transition-transform" />
+              <MessageCircle className="mr-2 h-3 w-3 lg:h-4 lg:w-4 group-hover:scale-110 transition-transform" />
               Ask a Question
             </Button>
           </div>
           
-          {/* Early Traction - Compact Single Line Design */}
+          {/* Early Traction - Compact Single Line Design - Moved Further Down */}
           <div className="bg-white/10 backdrop-blur-lg rounded-lg p-2 lg:p-3 border border-white/20 shadow-xl max-w-lg mx-auto">
             <div className="flex items-center justify-center space-x-6 lg:space-x-8">
               <div className="text-center">
