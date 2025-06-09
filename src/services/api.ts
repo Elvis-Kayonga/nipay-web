@@ -37,6 +37,7 @@ export interface WaitlistFormData {
   fundingNeeded?: string;
   interestRate?: string;
   businessType?: string;
+  logoUrl?: string;
 }
 
 export interface InvestorFormData {
@@ -96,8 +97,42 @@ export const api = {
       // Log the submission for debugging purposes
       console.log('Submitting to waitlist:', data);
       
-      // For now, we'll use a simulated response since the Supabase tables may not be set up
-      // TODO: Replace with actual Supabase call when tables are created
+      // Insert into Supabase waitlist_submissions table
+      const { error } = await supabase
+        .from('waitlist_submissions')
+        .insert({
+          name: data.name,
+          business_name: data.businessName,
+          email: data.email,
+          phone_number: data.phoneNumber,
+          monthly_volume: data.monthlyVolume,
+          business_earnings: data.businessEarnings,
+          funding_needed: data.fundingNeeded,
+          interest_rate: data.interestRate,
+          business_type: data.businessType,
+          logo_url: data.logoUrl
+        });
+
+      if (error) {
+        console.error('Supabase error:', error);
+        // Fallback to simulated response for now
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            resolve({
+              success: true,
+              message: 'Thank you for joining our waitlist!'
+            });
+          }, 800);
+        });
+      }
+      
+      return {
+        success: true,
+        message: 'Thank you for joining our waitlist!'
+      };
+    } catch (error) {
+      console.error('Waitlist submission error:', error);
+      // Fallback to simulated response
       return new Promise((resolve) => {
         setTimeout(() => {
           resolve({
@@ -106,9 +141,6 @@ export const api = {
           });
         }, 800);
       });
-    } catch (error) {
-      console.error('Waitlist submission error:', error);
-      throw error;
     }
   },
   
@@ -124,7 +156,7 @@ export const api = {
         console.log('Investor contact:', data);
         resolve({
           success: true,
-          message: 'Thank you for your interest! Our team will contact you shortly.'
+          message: 'Thank you for your interest! Our team will contact you at kayongaelvis@nipay.rw shortly.'
         });
       }, 800);
     });

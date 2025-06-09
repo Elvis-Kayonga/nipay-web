@@ -15,7 +15,7 @@ const Footer = () => {
               <span className="text-xl md:text-2xl font-bold text-nipay-green">NiPay</span>
             </div>
             <p className="mb-4 md:mb-6 max-w-md text-sm md:text-base">
-              Revolutionizing SME finance in Rwanda with instant credit against mobile-money inflows.
+              Rwanda's #1 mobile money loan platform. Get instant business loans from your MTN/Airtel money sales. No paperwork, no collateral needed.
             </p>
             <div className="flex space-x-4">
               <a 
@@ -39,7 +39,7 @@ const Footer = () => {
                 </svg>
               </a>
               <a 
-                href="mailto:info@nipay.rw" 
+                href="mailto:contact@nipay.rw" 
                 className="hover:text-nipay-green transition-colors"
                 aria-label="Email"
               >
@@ -74,11 +74,16 @@ const Footer = () => {
             <div>
               <h3 className="font-bold text-base md:text-lg mb-3 md:mb-4">Contact Us</h3>
               <address className="not-italic text-sm md:text-base">
-                <p className="mb-1 md:mb-2">Norrsken House Kigali</p>
+                <p className="mb-1 md:mb-2">Norrsken Rwanda</p>
                 <p className="mb-1 md:mb-2">Kigali, Rwanda</p>
                 <p className="mb-1 md:mb-2">
-                  <a href="mailto:info@nipay.rw" className="hover:text-nipay-green transition-colors">
-                    info@nipay.rw
+                  <a href="mailto:contact@nipay.rw" className="hover:text-nipay-green transition-colors">
+                    contact@nipay.rw
+                  </a>
+                </p>
+                <p className="mb-1 md:mb-2">
+                  <a href="mailto:sales@nipay.rw" className="hover:text-nipay-green transition-colors">
+                    sales@nipay.rw
                   </a>
                 </p>
                 <p>
@@ -94,11 +99,16 @@ const Footer = () => {
             <div>
               <h3 className="font-bold text-lg mb-4">Contact Us</h3>
               <address className="not-italic">
-                <p className="mb-2">Norrsken House Kigali</p>
+                <p className="mb-2">Norrsken Rwanda</p>
                 <p className="mb-2">Kigali, Rwanda</p>
                 <p className="mb-2">
-                  <a href="mailto:info@nipay.rw" className="hover:text-nipay-green transition-colors">
-                    info@nipay.rw
+                  <a href="mailto:contact@nipay.rw" className="hover:text-nipay-green transition-colors">
+                    contact@nipay.rw
+                  </a>
+                </p>
+                <p className="mb-2">
+                  <a href="mailto:sales@nipay.rw" className="hover:text-nipay-green transition-colors">
+                    sales@nipay.rw
                   </a>
                 </p>
                 <p>
@@ -116,7 +126,7 @@ const Footer = () => {
             &copy; {currentYear} NiPay Ltd. All rights reserved.
           </p>
           <p className="text-xs md:text-sm text-muted-foreground mt-2 md:mt-0">
-            NiPay Ltd. is a fintech partner of XYZ Bank, regulated by BNR.
+            NiPay Ltd. is a fintech partner regulated by BNR.
           </p>
         </div>
       </div>

@@ -9,6 +9,51 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
+      site_config: {
+        Row: {
+          contact_email: string | null
+          created_at: string
+          founder_email: string | null
+          id: string
+          location: string | null
+          logo_url: string | null
+          meta_keywords: string | null
+          phone_number: string | null
+          sales_email: string | null
+          site_description: string | null
+          site_title: string | null
+          updated_at: string
+        }
+        Insert: {
+          contact_email?: string | null
+          created_at?: string
+          founder_email?: string | null
+          id?: string
+          location?: string | null
+          logo_url?: string | null
+          meta_keywords?: string | null
+          phone_number?: string | null
+          sales_email?: string | null
+          site_description?: string | null
+          site_title?: string | null
+          updated_at?: string
+        }
+        Update: {
+          contact_email?: string | null
+          created_at?: string
+          founder_email?: string | null
+          id?: string
+          location?: string | null
+          logo_url?: string | null
+          meta_keywords?: string | null
+          phone_number?: string | null
+          sales_email?: string | null
+          site_description?: string | null
+          site_title?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       waitlist_submissions: {
         Row: {
           business_earnings: string | null
@@ -19,6 +64,7 @@ export type Database = {
           funding_needed: string | null
           id: string
           interest_rate: string | null
+          logo_url: string | null
           monthly_volume: string | null
           name: string
           phone_number: string | null
@@ -32,6 +78,7 @@ export type Database = {
           funding_needed?: string | null
           id?: string
           interest_rate?: string | null
+          logo_url?: string | null
           monthly_volume?: string | null
           name: string
           phone_number?: string | null
@@ -45,6 +92,7 @@ export type Database = {
           funding_needed?: string | null
           id?: string
           interest_rate?: string | null
+          logo_url?: string | null
           monthly_volume?: string | null
           name?: string
           phone_number?: string | null

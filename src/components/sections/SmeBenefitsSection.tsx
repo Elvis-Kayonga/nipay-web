@@ -2,11 +2,10 @@
 import SectionWrapper from '../shared/SectionWrapper';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Smartphone, FileText, Shield, Target, MapPin, Star } from 'lucide-react';
-import { useState } from 'react';
-import WaitlistModal from '../modals/WaitlistModal';
+import { useNavigate } from 'react-router-dom';
 
 const SmeBenefitsSection = () => {
-  const [showWaitlistModal, setShowWaitlistModal] = useState(false);
+  const navigate = useNavigate();
   
   const benefits = [
     {
@@ -66,13 +65,21 @@ const SmeBenefitsSection = () => {
             <Star className="w-4 h-4 mr-2" />
             Why Choose NiPay
           </div>
-          <h2 className="text-4xl lg:text-6xl xl:text-7xl font-bold mb-8 text-gray-900 leading-tight">
-            Built specifically for 
-            <br />
-            <span className="bg-gradient-to-r from-nipay-green to-nipay-dark-green bg-clip-text text-transparent">
-              Rwandan SMEs
-            </span>
-          </h2>
+          
+          {/* Logo and Title Integration */}
+          <div className="flex items-center justify-center mb-8">
+            <div className="bg-white rounded-2xl p-4 shadow-lg mr-4">
+              <span className="text-3xl font-bold text-nipay-green">NP</span>
+            </div>
+            <h2 className="text-4xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-tight">
+              Built specifically for 
+              <br />
+              <span className="bg-gradient-to-r from-nipay-green to-nipay-dark-green bg-clip-text text-transparent">
+                Rwandan SMEs
+              </span>
+            </h2>
+          </div>
+          
           <p className="text-xl lg:text-2xl max-w-3xl mx-auto leading-relaxed text-gray-600 font-medium">
             Who hustle every day and deserve financial tools that work for them
           </p>
@@ -114,7 +121,7 @@ const SmeBenefitsSection = () => {
               Join hundreds of SMEs already using NiPay to grow their businesses
             </p>
             <Button 
-              onClick={() => setShowWaitlistModal(true)}
+              onClick={() => navigate('/waitlist')}
               className="bg-gradient-to-r from-nipay-green to-nipay-dark-green hover:from-nipay-dark-green hover:to-nipay-green text-xl lg:text-2xl px-12 lg:px-16 py-6 lg:py-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 rounded-2xl group"
             >
               Join the Waitlist
@@ -123,8 +130,6 @@ const SmeBenefitsSection = () => {
           </div>
         </div>
       </div>
-      
-      <WaitlistModal isOpen={showWaitlistModal} onClose={() => setShowWaitlistModal(false)} />
     </SectionWrapper>
   );
 };

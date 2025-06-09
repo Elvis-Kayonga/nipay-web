@@ -6,19 +6,26 @@ import SEO from "@/components/SEO";
 import SectionWrapper from "@/components/shared/SectionWrapper";
 import ContactForm from "@/components/contact/ContactForm";
 import ContactInfo from "@/components/contact/ContactInfo";
+import { generateBreadcrumbSchema } from "@/utils/seo";
 
 const Contact = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: "https://nipay.rw/" },
+    { name: "Contact", url: "https://nipay.rw/contact" }
+  ]);
+
   return (
     <>
       <SEO
-        title="Contact Us | NiPay"
-        description="Reach out to our team for questions about NiPay's instant credit solutions for SMEs in Rwanda."
-        keywords="contact NiPay, Rwanda fintech support, SME credit contact"
+        title="Contact NiPay | Get Mobile Money Loans Support Rwanda"
+        description="Contact NiPay for mobile money loan support in Rwanda. Email: contact@nipay.rw, sales@nipay.rw. Phone: +250 788 321 008. Located at Norrsken Rwanda, Kigali."
+        keywords="contact NiPay Rwanda, mobile money loans support, NiPay customer service, Rwanda fintech contact, SME credit support"
         canonicalUrl="/contact"
+        structuredData={breadcrumbSchema}
       />
       <Header />
       
@@ -26,9 +33,9 @@ const Contact = () => {
         {/* Hero Section */}
         <SectionWrapper className="bg-gradient-to-b from-accent to-background py-12 md:py-16">
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-2xl md:text-4xl font-bold mb-3">Contact Us</h1>
+            <h1 className="text-2xl md:text-4xl font-bold mb-3">Contact NiPay</h1>
             <p className="text-lg text-muted-foreground">
-              We're here to help with any questions about NiPay.
+              Get support for mobile money loans and business growth solutions in Rwanda.
             </p>
           </div>
         </SectionWrapper>

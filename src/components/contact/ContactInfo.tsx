@@ -21,7 +21,7 @@ const ContactInfo = () => {
             </div>
             <div>
               <h3 className="font-bold text-base mb-1">Visit Us</h3>
-              <p className="text-muted-foreground text-sm">Norrsken House Kigali</p>
+              <p className="text-muted-foreground text-sm">Norrsken Rwanda</p>
               <p className="text-muted-foreground text-sm">Kigali, Rwanda</p>
             </div>
           </CardContent>
@@ -35,8 +35,13 @@ const ContactInfo = () => {
             <div>
               <h3 className="font-bold text-base mb-1">Email Us</h3>
               <p className="text-muted-foreground text-sm">
-                <a href="mailto:kayongaelvis@nipay.rw" className="hover:text-nipay-green transition-colors">
-                  kayongaelvis@nipay.rw
+                <a href="mailto:contact@nipay.rw" className="hover:text-nipay-green transition-colors">
+                  contact@nipay.rw
+                </a>
+              </p>
+              <p className="text-muted-foreground text-sm">
+                <a href="mailto:sales@nipay.rw" className="hover:text-nipay-green transition-colors">
+                  sales@nipay.rw
                 </a>
               </p>
             </div>

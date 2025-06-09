@@ -38,7 +38,7 @@ const ContactSection = () => {
             
             <div className="space-y-4 lg:space-y-6">
               <Button 
-                onClick={() => window.open('https://wa.me/250788123456?text=Hi%20NiPay%2C%20I%20want%20to%20learn%20more', '_blank')}
+                onClick={() => window.open('https://wa.me/250788321008?text=Hi%20NiPay%2C%20I%20want%20to%20learn%20more', '_blank')}
                 className="w-full bg-green-600 hover:bg-green-700 text-white text-lg lg:text-xl py-6 lg:py-8 justify-start"
               >
                 <MessageCircle className="mr-4 h-6 w-6 lg:h-7 lg:w-7" />
@@ -60,7 +60,7 @@ const ContactSection = () => {
                 <Phone className="mr-4 h-6 w-6 lg:h-7 lg:w-7" />
                 <div className="text-left">
                   <div className="font-semibold text-lg lg:text-xl">Call Us</div>
-                  <div className="text-white/80">+250 788 123 456</div>
+                  <div className="text-white/80">+250 788 321 008</div>
                 </div>
               </div>
               
@@ -68,7 +68,7 @@ const ContactSection = () => {
                 <MapPin className="mr-4 h-6 w-6 lg:h-7 lg:w-7" />
                 <div className="text-left">
                   <div className="font-semibold text-lg lg:text-xl">Visit Us</div>
-                  <div className="text-white/80">Kigali, Rwanda</div>
+                  <div className="text-white/80">Norrsken Rwanda, Kigali</div>
                 </div>
               </div>
             </div>
