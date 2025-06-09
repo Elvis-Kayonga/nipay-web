@@ -83,20 +83,20 @@ const HeroSection = () => {
             </Button>
           </div>
           
-          {/* Early Traction - Premium Card Design */}
-          <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 lg:p-12 border border-white/20 shadow-2xl">
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+          {/* Early Traction - Compact Card Design */}
+          <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-4 lg:p-6 border border-white/20 shadow-2xl max-w-3xl mx-auto">
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
               <div className="group">
-                <div className="text-3xl lg:text-4xl xl:text-5xl font-bold text-yellow-300 mb-2 group-hover:scale-110 transition-transform">400+</div>
-                <div className="text-base lg:text-lg text-white/80 font-medium">SMEs Signed Up</div>
+                <div className="text-2xl lg:text-3xl xl:text-4xl font-bold text-yellow-300 mb-1 group-hover:scale-110 transition-transform">400+</div>
+                <div className="text-sm lg:text-base text-white/80 font-medium">SMEs Signed Up</div>
               </div>
               <div className="group">
-                <div className="text-3xl lg:text-4xl xl:text-5xl font-bold text-yellow-300 mb-2 group-hover:scale-110 transition-transform">258M</div>
-                <div className="text-base lg:text-lg text-white/80 font-medium">RWF Requested</div>
+                <div className="text-2xl lg:text-3xl xl:text-4xl font-bold text-yellow-300 mb-1 group-hover:scale-110 transition-transform">258M</div>
+                <div className="text-sm lg:text-base text-white/80 font-medium">RWF Requested</div>
               </div>
               <div className="col-span-2 lg:col-span-1 group">
-                <div className="text-3xl lg:text-4xl xl:text-5xl font-bold text-yellow-300 mb-2 group-hover:scale-110 transition-transform">100%</div>
-                <div className="text-base lg:text-lg text-white/80 font-medium">Built for Rwanda</div>
+                <div className="text-2xl lg:text-3xl xl:text-4xl font-bold text-yellow-300 mb-1 group-hover:scale-110 transition-transform">100%</div>
+                <div className="text-sm lg:text-base text-white/80 font-medium">Built for Rwanda</div>
               </div>
             </div>
           </div>
