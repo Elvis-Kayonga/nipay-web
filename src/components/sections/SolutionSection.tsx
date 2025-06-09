@@ -32,66 +32,66 @@ const SolutionSection = () => {
           </p>
         </div>
         
-        {/* Steps Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16 mb-20 lg:mb-24 max-w-7xl mx-auto">
+        {/* Steps Grid - Made 35% smaller */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10 mb-20 lg:mb-24 max-w-5xl mx-auto">
           {/* Step 1 */}
           <div className="relative group">
             <div className="absolute inset-0 bg-gradient-to-br from-green-100 to-green-50 rounded-3xl transform group-hover:scale-105 transition-transform duration-300"></div>
-            <div className="relative text-center p-10 lg:p-12">
-              <div className="relative mb-8">
-                <div className="w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-gradient-to-br from-nipay-green to-nipay-dark-green flex items-center justify-center mx-auto shadow-2xl">
-                  <Smartphone className="w-10 h-10 lg:w-12 lg:h-12 text-white" />
+            <div className="relative text-center p-6 lg:p-8">
+              <div className="relative mb-6">
+                <div className="w-16 h-16 lg:w-18 lg:h-18 rounded-full bg-gradient-to-br from-nipay-green to-nipay-dark-green flex items-center justify-center mx-auto shadow-2xl">
+                  <Smartphone className="w-7 h-7 lg:w-8 lg:h-8 text-white" />
                 </div>
-                <div className="absolute -top-2 -right-2 w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center text-black font-bold text-sm">1</div>
+                <div className="absolute -top-2 -right-2 w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center text-black font-bold text-xs">1</div>
               </div>
-              <h3 className="text-2xl lg:text-3xl font-bold mb-6 text-gray-900">Accept Payments</h3>
-              <p className="text-gray-600 text-lg leading-relaxed">
+              <h3 className="text-xl lg:text-2xl font-bold mb-4 text-gray-900">Accept Payments</h3>
+              <p className="text-gray-600 text-base leading-relaxed">
                 Keep using MTN Mobile Money, Airtel Money, or your bank account like normal
               </p>
             </div>
             
             {/* Connection Arrow */}
-            <div className="hidden lg:block absolute top-1/2 -right-8 transform -translate-y-1/2">
-              <div className="w-16 h-1 bg-gradient-to-r from-nipay-green to-transparent"></div>
-              <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-3 h-3 bg-nipay-green rotate-45"></div>
+            <div className="hidden lg:block absolute top-1/2 -right-6 transform -translate-y-1/2">
+              <div className="w-12 h-1 bg-gradient-to-r from-nipay-green to-transparent"></div>
+              <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-nipay-green rotate-45"></div>
             </div>
           </div>
           
           {/* Step 2 */}
           <div className="relative group">
             <div className="absolute inset-0 bg-gradient-to-br from-yellow-100 to-yellow-50 rounded-3xl transform group-hover:scale-105 transition-transform duration-300"></div>
-            <div className="relative text-center p-10 lg:p-12">
-              <div className="relative mb-8">
-                <div className="w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-gradient-to-br from-yellow-500 to-yellow-600 flex items-center justify-center mx-auto shadow-2xl">
-                  <DollarSign className="w-10 h-10 lg:w-12 lg:h-12 text-white" />
+            <div className="relative text-center p-6 lg:p-8">
+              <div className="relative mb-6">
+                <div className="w-16 h-16 lg:w-18 lg:h-18 rounded-full bg-gradient-to-br from-yellow-500 to-yellow-600 flex items-center justify-center mx-auto shadow-2xl">
+                  <DollarSign className="w-7 h-7 lg:w-8 lg:h-8 text-white" />
                 </div>
-                <div className="absolute -top-2 -right-2 w-8 h-8 bg-nipay-green rounded-full flex items-center justify-center text-white font-bold text-sm">2</div>
+                <div className="absolute -top-2 -right-2 w-6 h-6 bg-nipay-green rounded-full flex items-center justify-center text-white font-bold text-xs">2</div>
               </div>
-              <h3 className="text-2xl lg:text-3xl font-bold mb-6 text-gray-900">Borrow Instantly</h3>
-              <p className="text-gray-600 text-lg leading-relaxed">
+              <h3 className="text-xl lg:text-2xl font-bold mb-4 text-gray-900">Borrow Instantly</h3>
+              <p className="text-gray-600 text-base leading-relaxed">
                 NiPay grows your overdraft limit based on your daily mobile money sales
               </p>
             </div>
             
             {/* Connection Arrow */}
-            <div className="hidden lg:block absolute top-1/2 -right-8 transform -translate-y-1/2">
-              <div className="w-16 h-1 bg-gradient-to-r from-yellow-500 to-transparent"></div>
-              <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-3 h-3 bg-yellow-500 rotate-45"></div>
+            <div className="hidden lg:block absolute top-1/2 -right-6 transform -translate-y-1/2">
+              <div className="w-12 h-1 bg-gradient-to-r from-yellow-500 to-transparent"></div>
+              <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-yellow-500 rotate-45"></div>
             </div>
           </div>
           
           {/* Step 3 */}
           <div className="relative group">
             <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-blue-50 rounded-3xl transform group-hover:scale-105 transition-transform duration-300"></div>
-            <div className="relative text-center p-10 lg:p-12">
-              <div className="relative mb-8">
-                <div className="w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center mx-auto shadow-2xl">
-                  <RefreshCw className="w-10 h-10 lg:w-12 lg:h-12 text-white" />
+            <div className="relative text-center p-6 lg:p-8">
+              <div className="relative mb-6">
+                <div className="w-16 h-16 lg:w-18 lg:h-18 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center mx-auto shadow-2xl">
+                  <RefreshCw className="w-7 h-7 lg:w-8 lg:h-8 text-white" />
                 </div>
-                <div className="absolute -top-2 -right-2 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-sm">3</div>
+                <div className="absolute -top-2 -right-2 w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-xs">3</div>
               </div>
-              <h3 className="text-2xl lg:text-3xl font-bold mb-6 text-gray-900">Repay Automatically</h3>
-              <p className="text-gray-600 text-lg leading-relaxed">
+              <h3 className="text-xl lg:text-2xl font-bold mb-4 text-gray-900">Repay Automatically</h3>
+              <p className="text-gray-600 text-base leading-relaxed">
                 Small percentage deducted from each transaction — no stress about due dates
               </p>
             </div>
