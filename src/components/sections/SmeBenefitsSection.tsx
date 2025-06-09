@@ -79,7 +79,7 @@ const SmeBenefitsSection = () => {
         </div>
         
         {/* Benefits Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 mb-20 lg:mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6 mb-20 lg:mb-24">
           {benefits.map((benefit, index) => {
             const Icon = benefit.icon;
             return (
@@ -88,14 +88,14 @@ const SmeBenefitsSection = () => {
                 <div className={`absolute inset-0 bg-gradient-to-br ${benefit.bgColor} rounded-3xl transform group-hover:scale-105 transition-all duration-300 opacity-0 group-hover:opacity-100`}></div>
                 
                 {/* Card content */}
-                <div className="relative bg-white p-8 lg:p-10 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 group-hover:border-gray-200 h-full">
-                  <div className={`w-16 h-16 lg:w-18 lg:h-18 rounded-2xl bg-gradient-to-br ${benefit.color} flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                    <Icon className="w-8 h-8 lg:w-9 lg:h-9 text-white" />
+                <div className="relative bg-white p-5 lg:p-6 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 group-hover:border-gray-200 h-full">
+                  <div className={`w-12 h-12 lg:w-14 lg:h-14 rounded-2xl bg-gradient-to-br ${benefit.color} flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                    <Icon className="w-6 h-6 lg:w-7 lg:h-7 text-white" />
                   </div>
-                  <h3 className="text-xl lg:text-2xl font-bold mb-4 text-gray-900 group-hover:text-nipay-green transition-colors">
+                  <h3 className="text-lg lg:text-xl font-bold mb-3 text-gray-900 group-hover:text-nipay-green transition-colors">
                     {benefit.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed text-lg">
+                  <p className="text-gray-600 leading-relaxed text-base">
                     {benefit.description}
                   </p>
                 </div>
