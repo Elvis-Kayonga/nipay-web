@@ -1,10 +1,7 @@
-
 import SectionWrapper from '../shared/SectionWrapper';
 import { Star, Quote, TrendingUp, Users, Award } from 'lucide-react';
-
 const TestimonialsSection = () => {
-  return (
-    <SectionWrapper id="testimonials" className="py-24 lg:py-32 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+  return <SectionWrapper id="testimonials" className="py-24 lg:py-32 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-nipay-green/5 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-yellow-400/5 rounded-full blur-3xl"></div>
@@ -51,9 +48,7 @@ const TestimonialsSection = () => {
             </div>
             
             <div className="flex justify-center mt-8 lg:mt-10 space-x-2">
-              {[1, 2, 3, 4, 5].map((star) => (
-                <Star key={star} className="w-6 h-6 lg:w-8 lg:h-8 fill-yellow-300 text-yellow-300" />
-              ))}
+              {[1, 2, 3, 4, 5].map(star => <Star key={star} className="w-6 h-6 lg:w-8 lg:h-8 fill-yellow-300 text-yellow-300" />)}
             </div>
           </div>
         </div>
@@ -70,7 +65,7 @@ const TestimonialsSection = () => {
                   <Users className="w-6 h-6 text-nipay-green" />
                 </div>
                 <div className="text-4xl lg:text-5xl font-bold text-nipay-green mb-3 group-hover:scale-110 transition-transform">400+</div>
-                <div className="text-gray-600 font-medium text-lg">SMEs Already Signed Up</div>
+                <div className="text-gray-600 font-medium text-lg">SMEs  Signed Up</div>
               </div>
             </div>
           </div>
@@ -100,14 +95,12 @@ const TestimonialsSection = () => {
                   <Award className="w-6 h-6 text-green-600" />
                 </div>
                 <div className="text-4xl lg:text-5xl font-bold text-nipay-green mb-3 group-hover:scale-110 transition-transform">95%</div>
-                <div className="text-gray-600 font-medium text-lg">Would Recommend NiPay</div>
+                <div className="text-gray-600 font-medium text-lg">Recommend NiPay</div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </SectionWrapper>
-  );
+    </SectionWrapper>;
 };
-
 export default TestimonialsSection;
