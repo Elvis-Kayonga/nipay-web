@@ -196,6 +196,15 @@
   .animate-glow {
     animation: glow 2s ease-in-out infinite alternate;
   }
+
+  /* Cash loading animations */
+  .animate-cash-fall {
+    animation: cashFall 4s ease-in infinite;
+  }
+
+  .animate-cash-fill {
+    animation: cashFill 3s ease-out infinite;
+  }
   
   @keyframes slideUp {
     from {
@@ -232,6 +241,32 @@
     }
     to {
       box-shadow: 0 0 30px rgba(46, 204, 113, 0.6);
+    }
+  }
+
+  @keyframes cashFall {
+    0% {
+      transform: translateY(-100vh) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  @keyframes cashFill {
+    0% {
+      height: 0%;
+      opacity: 0.7;
+    }
+    50% {
+      height: 60%;
+      opacity: 0.9;
+    }
+    100% {
+      height: 80%;
+      opacity: 1;
     }
   }
 

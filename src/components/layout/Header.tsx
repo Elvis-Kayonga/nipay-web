@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import WaitlistModal from '../modals/WaitlistModal';
@@ -16,10 +17,10 @@ const Header = () => {
   // Track scroll position to add background to header when scrolled
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      setIsScrolled(window.scrollY > 5);
       
       // Check if we're still over the hero section
-      setIsOverHero(window.scrollY < window.innerHeight * 0.8);
+      setIsOverHero(window.scrollY < window.innerHeight * 0.6);
     };
     
     window.addEventListener('scroll', handleScroll);
@@ -49,23 +50,23 @@ const Header = () => {
           isScrolled ? 'bg-background/95 backdrop-blur-md shadow-sm' : 'bg-transparent'
         }`}
       >
-        <div className="container mx-auto px-4 py-3">
-          <div className="flex items-center justify-between">
+        <div className="container mx-auto px-4 py-2">
+          <div className="flex items-center justify-between h-12">
             <Link to="/" className="flex items-center gap-2">
-              <span className={`text-2xl font-bold ${isOverHero ? 'text-nipay-green' : 'text-nipay-green'}`}>NiPay</span>
+              <span className={`text-xl font-bold ${isOverHero ? 'text-nipay-green' : 'text-nipay-green'}`}>NiPay</span>
             </Link>
             
-            {/* Desktop Navigation - hidden on mobile */}
-            <nav className="hidden md:flex items-center gap-6">
+            {/* Desktop Navigation - smaller and thinner */}
+            <nav className="hidden md:flex items-center gap-4">
               <a 
                 href="#solution"
                 onClick={(e) => {
                   e.preventDefault();
                   handleNavClick('solution');
                 }}
-                className={`${navTextColor} hover:text-nipay-green transition-colors`}
+                className={`${navTextColor} hover:text-nipay-green transition-colors text-sm py-1`}
               >
-                Solution
+                Our Solution
               </a>
               <a 
                 href="#benefits"
@@ -73,9 +74,9 @@ const Header = () => {
                   e.preventDefault();
                   handleNavClick('benefits');
                 }}
-                className={`${navTextColor} hover:text-nipay-green transition-colors`}
+                className={`${navTextColor} hover:text-nipay-green transition-colors text-sm py-1`}
               >
-                Benefits
+                Why NiPay
               </a>
               <a 
                 href="#how-it-works"
@@ -83,25 +84,25 @@ const Header = () => {
                   e.preventDefault();
                   handleNavClick('how-it-works');
                 }}
-                className={`${navTextColor} hover:text-nipay-green transition-colors`}
+                className={`${navTextColor} hover:text-nipay-green transition-colors text-sm py-1`}
               >
                 How It Works
               </a>
               <a 
-                href="#problem"
+                href="#validation"
                 onClick={(e) => {
                   e.preventDefault();
-                  handleNavClick('problem');
+                  handleNavClick('validation');
                 }}
-                className={`${navTextColor} hover:text-nipay-green transition-colors`}
+                className={`${navTextColor} hover:text-nipay-green transition-colors text-sm py-1`}
               >
-                Why It Matters
+                Proven Results
               </a>
               <Link 
                 to="/investors"
-                className="text-nipay-green font-medium hover:underline transition-colors"
+                className="text-nipay-green font-medium hover:underline transition-colors text-sm py-1"
               >
-                For Investors
+                Investors
               </Link>
               <a 
                 href="#faq"
@@ -109,62 +110,60 @@ const Header = () => {
                   e.preventDefault();
                   handleNavClick('faq');
                 }}
-                className={`${navTextColor} hover:text-nipay-green transition-colors`}
+                className={`${navTextColor} hover:text-nipay-green transition-colors text-sm py-1`}
               >
                 FAQ
               </a>
               <Link 
                 to="/contact"
-                className={`${navTextColor} hover:text-nipay-green transition-colors`}
+                className={`${navTextColor} hover:text-nipay-green transition-colors text-sm py-1`}
               >
                 Contact
               </Link>
             </nav>
             
-            <div className="flex items-center gap-3">
-              {/* Removed ThemeToggle component reference */}
-              
-              {/* Desktop buttons - hidden on mobile */}
-              <div className="hidden md:flex items-center gap-3">
+            <div className="flex items-center gap-2">
+              {/* Desktop buttons - smaller */}
+              <div className="hidden md:flex items-center gap-2">
                 <Link to="/waitlist">
-                  <Button variant="green">Join Waitlist</Button>
+                  <Button variant="green" size="sm" className="h-8 text-sm px-3">Join Waitlist</Button>
                 </Link>
                 <Link to="/investors">
-                  <Button variant={isOverHero ? "outline-white" : "outline-dark"}>For Investors</Button>
+                  <Button variant={isOverHero ? "outline-white" : "outline-dark"} size="sm" className="h-8 text-sm px-3">Invest</Button>
                 </Link>
               </div>
               
               {/* Mobile menu button */}
               <button
-                className={`md:hidden flex items-center justify-center w-10 h-10 rounded-full ${
+                className={`md:hidden flex items-center justify-center w-8 h-8 rounded-full ${
                   isScrolled ? 'bg-muted' : 'bg-black/20'
                 } ${isOverHero ? 'text-white' : 'text-foreground'}`}
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label="Toggle menu"
               >
                 {mobileMenuOpen ? (
-                  <X className="h-5 w-5" />
+                  <X className="h-4 w-4" />
                 ) : (
-                  <Menu className="h-5 w-5" />
+                  <Menu className="h-4 w-4" />
                 )}
               </button>
             </div>
           </div>
         </div>
         
-        {/* Mobile menu - improved styling and transitions */}
+        {/* Mobile menu - smaller */}
         {mobileMenuOpen && (
           <div className="md:hidden bg-background/95 backdrop-blur-md animate-fade-in shadow-lg border-t border-border">
-            <div className="py-4 px-6 space-y-4">
+            <div className="py-3 px-4 space-y-2">
               <a
                 href="#solution"
                 onClick={(e) => {
                   e.preventDefault();
                   handleNavClick('solution');
                 }}
-                className="block py-3 text-foreground hover:text-nipay-green transition-colors border-b border-border"
+                className="block py-2 text-foreground hover:text-nipay-green transition-colors border-b border-border text-sm"
               >
-                Solution
+                Our Solution
               </a>
               <a
                 href="#benefits"
@@ -172,9 +171,9 @@ const Header = () => {
                   e.preventDefault();
                   handleNavClick('benefits');
                 }}
-                className="block py-3 text-foreground hover:text-nipay-green transition-colors border-b border-border"
+                className="block py-2 text-foreground hover:text-nipay-green transition-colors border-b border-border text-sm"
               >
-                Benefits
+                Why NiPay
               </a>
               <a
                 href="#how-it-works"
@@ -182,25 +181,25 @@ const Header = () => {
                   e.preventDefault();
                   handleNavClick('how-it-works');
                 }}
-                className="block py-3 text-foreground hover:text-nipay-green transition-colors border-b border-border"
+                className="block py-2 text-foreground hover:text-nipay-green transition-colors border-b border-border text-sm"
               >
                 How It Works
               </a>
               <a
-                href="#problem"
+                href="#validation"
                 onClick={(e) => {
                   e.preventDefault();
-                  handleNavClick('problem');
+                  handleNavClick('validation');
                 }}
-                className="block py-3 text-foreground hover:text-nipay-green transition-colors border-b border-border"
+                className="block py-2 text-foreground hover:text-nipay-green transition-colors border-b border-border text-sm"
               >
-                Why It Matters
+                Proven Results
               </a>
               <Link 
                 to="/investors"
-                className="block py-3 text-nipay-green font-medium hover:underline border-b border-border"
+                className="block py-2 text-nipay-green font-medium hover:underline border-b border-border text-sm"
               >
-                For Investors
+                Investors
               </Link>
               <a
                 href="#faq"
@@ -208,22 +207,22 @@ const Header = () => {
                   e.preventDefault();
                   handleNavClick('faq');
                 }}
-                className="block py-3 text-foreground hover:text-nipay-green transition-colors border-b border-border"
+                className="block py-2 text-foreground hover:text-nipay-green transition-colors border-b border-border text-sm"
               >
                 FAQ
               </a>
               <Link
                 to="/contact"
-                className="block py-3 text-foreground hover:text-nipay-green transition-colors"
+                className="block py-2 text-foreground hover:text-nipay-green transition-colors text-sm"
               >
                 Contact
               </Link>
               
-              <div className="flex flex-col gap-3 pt-4">
+              <div className="flex flex-col gap-2 pt-3">
                 <Link to="/waitlist" className="w-full">
                   <Button 
                     variant="green"
-                    className="w-full py-6 text-base"
+                    className="w-full py-4 text-sm"
                   >
                     Join Waitlist
                   </Button>
@@ -231,9 +230,9 @@ const Header = () => {
                 <Link to="/investors" className="w-full">
                   <Button 
                     variant="outline"
-                    className="w-full py-6 text-base"
+                    className="w-full py-4 text-sm"
                   >
-                    For Investors
+                    Invest
                   </Button>
                 </Link>
               </div>

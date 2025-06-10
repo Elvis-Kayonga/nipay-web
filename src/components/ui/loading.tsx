@@ -2,115 +2,87 @@
 import React, { useEffect, useState } from 'react';
 
 const NiPayLoading = () => {
-  const [progress, setProgress] = useState(0);
-  const [currentStep, setCurrentStep] = useState(0);
+  const [cashNotes, setCashNotes] = useState<Array<{ id: number; x: number; delay: number; value: string }>>([]);
   
-  const steps = [
-    "Connecting to mobile money...",
-    "Analyzing your transactions...",
-    "Calculating your limit...",
-    "Setting up your account..."
-  ];
-
   useEffect(() => {
-    const timer = setInterval(() => {
-      setProgress(prev => {
-        if (prev >= 100) return 100;
-        const newProgress = prev + Math.random() * 15;
-        
-        // Update step based on progress
-        if (newProgress > 25 && currentStep === 0) setCurrentStep(1);
-        if (newProgress > 50 && currentStep === 1) setCurrentStep(2);
-        if (newProgress > 75 && currentStep === 2) setCurrentStep(3);
-        
-        return Math.min(newProgress, 100);
-      });
-    }, 200);
-
-    return () => clearInterval(timer);
-  }, [currentStep]);
+    // Generate random cash notes
+    const notes = Array.from({ length: 30 }, (_, i) => ({
+      id: i,
+      x: Math.random() * 100,
+      delay: Math.random() * 3000,
+      value: ['100', '500', '1K', '2K', '5K'][Math.floor(Math.random() * 5)]
+    }));
+    setCashNotes(notes);
+  }, []);
 
   return (
     <div className="fixed inset-0 bg-gradient-to-br from-nipay-green via-nipay-dark-green to-emerald-900 z-50 flex items-center justify-center overflow-hidden">
-      {/* Animated background elements */}
+      {/* Shop building silhouette */}
+      <div className="absolute bottom-0 w-full h-1/3 bg-black/20 clip-path-shop"></div>
+      
+      {/* Cash notes animation */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-white/5 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-yellow-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/3 rounded-full blur-3xl"></div>
+        {cashNotes.map((note) => (
+          <div
+            key={note.id}
+            className="absolute animate-cash-fall"
+            style={{
+              left: `${note.x}%`,
+              animationDelay: `${note.delay}ms`,
+              animationDuration: '4s'
+            }}
+          >
+            <div className="w-16 h-8 bg-green-200 border border-green-400 rounded-sm shadow-lg flex items-center justify-center text-xs font-bold text-green-800 transform rotate-12">
+              {note.value} RWF
+            </div>
+          </div>
+        ))}
       </div>
 
-      <div className="text-center relative z-10 max-w-md mx-auto px-6">
-        {/* NiPay Logo with Advanced Animation */}
-        <div className="relative mb-12">
-          <div className="relative">
-            {/* Rotating ring */}
-            <div className="absolute inset-0 w-32 h-32 mx-auto">
-              <div className="w-full h-full border-4 border-white/20 rounded-full"></div>
-              <div className="absolute inset-0 w-full h-full border-4 border-transparent border-t-yellow-400 rounded-full animate-spin"></div>
-            </div>
-            
-            {/* Logo container */}
-            <div className="relative w-32 h-32 mx-auto flex items-center justify-center">
-              <div className="text-center transform hover:scale-110 transition-transform duration-300">
-                <div className="inline-flex items-center">
-                  <span className="text-3xl lg:text-4xl font-bold text-white">Ni</span>
-                  <span className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-500 text-white px-3 py-1 rounded-lg ml-1 shadow-lg">Pay</span>
-                </div>
-              </div>
-            </div>
+      {/* Shop container that fills with cash */}
+      <div className="relative w-96 h-96 mx-auto">
+        {/* Shop outline */}
+        <div className="absolute inset-x-8 bottom-0 h-64 border-4 border-white/30 rounded-t-lg bg-black/10">
+          {/* Shop roof */}
+          <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-20 border-r-20 border-b-8 border-l-transparent border-r-transparent border-b-white/30"></div>
+          
+          {/* Cash accumulation inside shop */}
+          <div className="absolute bottom-0 left-0 right-0 h-full overflow-hidden rounded-t-lg">
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-yellow-300 via-green-200 to-transparent animate-cash-fill"></div>
           </div>
           
-          {/* Floating particles */}
-          <div className="absolute inset-0 pointer-events-none">
-            {[...Array(6)].map((_, i) => (
-              <div
-                key={i}
-                className="absolute w-2 h-2 bg-yellow-400/60 rounded-full animate-pulse"
-                style={{
-                  left: `${20 + i * 15}%`,
-                  top: `${30 + (i % 2) * 40}%`,
-                  animationDelay: `${i * 200}ms`,
-                  animationDuration: '2s'
-                }}
-              />
-            ))}
+          {/* Shop door */}
+          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 h-16 bg-brown-600 border-2 border-brown-700 rounded-t-lg">
+            <div className="absolute right-1 top-6 w-1 h-1 bg-yellow-400 rounded-full"></div>
           </div>
         </div>
-        
-        {/* Progress Bar */}
-        <div className="mb-8">
-          <div className="w-full bg-white/20 rounded-full h-3 overflow-hidden backdrop-blur-sm">
-            <div 
-              className="h-full bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-full transition-all duration-300 ease-out relative"
-              style={{ width: `${progress}%` }}
-            >
-              <div className="absolute inset-0 bg-white/30 animate-pulse rounded-full"></div>
-            </div>
+
+        {/* NiPay Logo */}
+        <div className="absolute top-8 left-1/2 transform -translate-x-1/2 text-center">
+          <div className="inline-flex items-center">
+            <span className="text-3xl font-bold text-white">Ni</span>
+            <span className="text-3xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-500 text-white px-3 py-1 rounded-lg ml-1 shadow-lg">Pay</span>
           </div>
-          <div className="text-right mt-2">
-            <span className="text-white/80 text-sm font-medium">{Math.round(progress)}%</span>
-          </div>
+          <p className="text-white/80 text-sm mt-2 font-medium">Filling your business with cash...</p>
         </div>
-        
-        {/* Loading text with typewriter effect */}
-        <div className="h-12 flex items-center justify-center">
-          <p className="text-lg lg:text-xl text-white/90 animate-pulse font-medium">
-            {steps[currentStep]}
-          </p>
-        </div>
-        
-        {/* Mobile money icons */}
-        <div className="flex justify-center items-center space-x-6 mt-8 opacity-60">
-          <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
-            <span className="text-xs font-bold text-white">MTN</span>
+      </div>
+
+      {/* Floating cash symbols */}
+      <div className="absolute inset-0 pointer-events-none">
+        {[...Array(8)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute text-yellow-400 text-2xl animate-float"
+            style={{
+              left: `${10 + i * 12}%`,
+              top: `${20 + (i % 3) * 20}%`,
+              animationDelay: `${i * 500}ms`,
+              animationDuration: '3s'
+            }}
+          >
+            💰
           </div>
-          <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
-            <span className="text-xs font-bold text-white">AIR</span>
-          </div>
-          <div className="w-2 h-2 bg-yellow-400 rounded-full animate-bounce"></div>
-          <div className="w-2 h-2 bg-yellow-400 rounded-full animate-bounce delay-150"></div>
-          <div className="w-2 h-2 bg-yellow-400 rounded-full animate-bounce delay-300"></div>
-        </div>
+        ))}
       </div>
     </div>
   );
