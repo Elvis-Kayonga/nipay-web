@@ -94,7 +94,6 @@ export const api = {
     }
     
     try {
-      // Log the submission for debugging purposes
       console.log('Submitting to waitlist:', data);
       
       // Insert into Supabase waitlist_submissions table
@@ -115,15 +114,24 @@ export const api = {
 
       if (error) {
         console.error('Supabase error:', error);
-        // Fallback to simulated response for now
-        return new Promise((resolve) => {
-          setTimeout(() => {
-            resolve({
-              success: true,
-              message: 'Thank you for joining our waitlist!'
-            });
-          }, 800);
+        throw error;
+      }
+      
+      // Send admin notification email
+      try {
+        await fetch('https://alkjgogriwshdpkuwqhp.functions.supabase.co/send-notification-email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            type: 'waitlist',
+            data: data,
+          }),
         });
+      } catch (emailError) {
+        console.error("Failed to send notification email:", emailError);
+        // Don't block the form submission if email fails
       }
       
       return {
@@ -132,33 +140,59 @@ export const api = {
       };
     } catch (error) {
       console.error('Waitlist submission error:', error);
-      // Fallback to simulated response
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve({
-            success: true,
-            message: 'Thank you for joining our waitlist!'
-          });
-        }, 800);
-      });
+      throw error;
     }
   },
   
   contactInvestor: async (data: InvestorFormData): Promise<ApiResponse> => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        // Simulate server validation
-        if (!data.email || !data.name) {
-          reject(new Error('Please provide all required fields'));
-          return;
-        }
-        
-        console.log('Investor contact:', data);
-        resolve({
-          success: true,
-          message: 'Thank you for your interest! Our team will contact you at kayongaelvis@nipay.rw shortly.'
+    // Validate required fields
+    if (!data.email || !data.name || !data.message) {
+      throw new Error('Please provide all required fields');
+    }
+    
+    try {
+      console.log('Submitting investor contact:', data);
+      
+      // Insert into Supabase investor_submissions table
+      const { error } = await supabase
+        .from('investor_submissions')
+        .insert({
+          name: data.name,
+          email: data.email,
+          organization_name: data.organizationName || null,
+          investor_type: data.investorType,
+          message: data.message
         });
-      }, 800);
-    });
+
+      if (error) {
+        console.error('Supabase error:', error);
+        throw error;
+      }
+      
+      // Send admin notification email
+      try {
+        await fetch('https://alkjgogriwshdpkuwqhp.functions.supabase.co/send-notification-email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            type: 'investor',
+            data: data,
+          }),
+        });
+      } catch (emailError) {
+        console.error("Failed to send notification email:", emailError);
+        // Don't block the form submission if email fails
+      }
+      
+      return {
+        success: true,
+        message: 'Thank you for your interest! Our team will contact you shortly.'
+      };
+    } catch (error) {
+      console.error('Investor submission error:', error);
+      throw error;
+    }
   }
 };
