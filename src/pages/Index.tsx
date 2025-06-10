@@ -3,6 +3,7 @@ import SEO from "@/components/SEO";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import HeroSection from "@/components/sections/HeroSection";
+import NiPaySolutionsSection from "@/components/sections/NiPaySolutionsSection";
 import SolutionSection from "@/components/sections/SolutionSection";
 import SmeBenefitsSection from "@/components/sections/SmeBenefitsSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
@@ -40,6 +41,7 @@ const Index = () => {
       
       <main className="min-h-screen">
         <HeroSection />
+        <NiPaySolutionsSection />
         <SolutionSection />
         <SmeBenefitsSection />
         <TestimonialsSection />
