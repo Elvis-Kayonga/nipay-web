@@ -93,16 +93,18 @@ const EmailTemplateEditor = () => {
 
   const testEmail = async (type: 'investor' | 'waitlist') => {
     try {
+      const requestBody = {
+        to: 'test@example.com',
+        type: type,
+        name: 'Test User',
+      };
+
       await fetch('https://alkjgogriwshdpkuwqhp.functions.supabase.co/send-confirmation-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          to: 'test@example.com',
-          type: type,
-          name: 'Test User',
-        }),
+        body: JSON.stringify(requestBody),
       });
       toast.success(`Test ${type} email sent!`);
     } catch (error) {
