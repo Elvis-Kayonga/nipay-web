@@ -118,7 +118,7 @@ const EmailTemplateEditor = () => {
       <CardHeader>
         <CardTitle>Email Template Editor</CardTitle>
         <CardDescription>
-          Customize the email templates sent to users after form submission. Use {{name}} as a placeholder for the user's name.
+          Customize the email templates sent to users after form submission. Use {`{{name}}`} as a placeholder for the user's name.
         </CardDescription>
       </CardHeader>
       <CardContent>
