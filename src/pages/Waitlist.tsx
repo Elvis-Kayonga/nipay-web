@@ -4,20 +4,18 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import WaitlistForm from "@/components/forms/WaitlistForm";
-import { CheckCircle, Phone, Mail, Users, Share, Shield } from "lucide-react";
+import { CheckCircle, Clock, CreditCard, TrendingUp, DollarSign, Handshake, AlarmClock, Bell, Share, Users, Rocket } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
-import { useState } from "react";
 
 const Waitlist = () => {
   const isMobile = useIsMobile();
-  const [isSubmitted, setIsSubmitted] = useState(false);
   
   const handleShareClick = () => {
+    // Create the absolute URL to ensure valid links when sharing
     const shareUrl = new URL("/waitlist", window.location.origin).toString();
-    const message = "Join NiPay for business loans without collateral! Get credit from your own mobile money sales. " + shareUrl;
     
     if (navigator.share) {
       navigator.share({
@@ -30,179 +28,232 @@ const Waitlist = () => {
         console.error("Error sharing:", error);
       });
     } else {
-      // WhatsApp share fallback
-      const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
-      window.open(whatsappUrl, '_blank');
-      toast.success("Opening WhatsApp to share!");
+      // Fallback for browsers that don't support Web Share API
+      navigator.clipboard.writeText(shareUrl).then(() => {
+        toast.success("Link copied! Share with friends.");
+      }).catch(error => {
+        console.error("Error copying link:", error);
+      });
     }
   };
 
-  const handleFormSuccess = () => {
-    setIsSubmitted(true);
-  };
-
-  return (
-    <>
+  return <>
       <Helmet>
-        <title>Join the Waitlist | NiPay - Get Credit from Your Mobile Money Sales</title>
-        <meta name="description" content="Be the first to access NiPay's SME overdraft wallet powered by mobile money. No paperwork, no collateral. Join Rwandan businesses already on the waitlist." />
-        <meta name="keywords" content="NiPay waitlist, Rwanda SME loans, mobile money credit, business overdraft, MTN money loans, Airtel money loans" />
+        <title>Join the Waitlist | NiPay</title>
+        <meta name="description" content="Limited offer: Be among the first businesses in Rwanda to access instant loans with NiPay." />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
       </Helmet>
 
       <Header />
       
-      <main className="min-h-screen pt-20 pb-12 bg-gradient-to-b from-background to-muted/20">
+      <main className="min-h-screen pt-20 pb-12 md:pb-16 bg-gradient-to-b from-background to-muted/20">
         <div className="container mx-auto px-4">
-          <div className="max-w-2xl mx-auto">
+          <div className="max-w-lg md:max-w-4xl mx-auto">
+            <div className="text-center mb-6 md:mb-8">
+              <Badge variant="destructive" className="px-3 py-1 mb-2 md:mb-3">
+                <AlarmClock className="mr-1 h-3 w-3 inline" /> 
+                Limited spots
+              </Badge>
+              <h1 className="text-2xl md:text-4xl font-bold mb-2 md:mb-3">Join NiPay Today</h1>
+              <p className="text-sm md:text-lg text-muted-foreground max-w-xs md:max-w-2xl mx-auto">Get quick access to loans based on your phone history - no collateral needed.</p>
+            </div>
             
-            {/* Hero Section */}
-            <div className="text-center mb-8 md:mb-12">
-              <h1 className="text-3xl md:text-5xl font-bold mb-4 text-foreground leading-tight">
-                Get credit from your own sales — join the NiPay waitlist today
-              </h1>
-              <p className="text-lg md:text-xl text-muted-foreground mb-6 leading-relaxed">
-                Be the first to access our SME overdraft wallet powered by mobile money. No paperwork. No collateral.
-              </p>
-              
-              {/* Trust indicators */}
-              <div className="flex flex-wrap justify-center gap-4 mb-8">
-                <Badge variant="outline" className="bg-nipay-green/10 text-nipay-dark-green border-nipay-green/20">
-                  <CheckCircle className="mr-2 h-4 w-4" />
-                  No Collateral Required
-                </Badge>
-                <Badge variant="outline" className="bg-nipay-green/10 text-nipay-dark-green border-nipay-green/20">
-                  <CheckCircle className="mr-2 h-4 w-4" />
-                  No Paperwork
-                </Badge>
-                <Badge variant="outline" className="bg-nipay-green/10 text-nipay-dark-green border-nipay-green/20">
-                  <CheckCircle className="mr-2 h-4 w-4" />
-                  Instant Access
-                </Badge>
+            {/* Urgency Banner */}
+            <div className="bg-amber-50 border border-amber-200 rounded-lg p-2 md:p-3 flex items-center justify-center mb-6 md:mb-10 shadow-sm">
+              <Rocket className="text-amber-500 mr-1 md:mr-2 h-4 w-4 md:h-5 md:w-5" />
+              <p className="text-amber-800 text-xs md:text-sm font-medium">Launch coming soon! Apply now for early access!</p>
+            </div>
+            
+            {/* Priority for mobile: show form first, benefits second */}
+            {isMobile ? <>
+                {/* Form - first on mobile */}
+                <div className="md:col-span-3">
+                  <Card className="border-green-100 shadow-sm">
+                    <CardHeader className="pb-3 md:pb-4">
+                      <div className="flex justify-between items-center">
+                        <div>
+                          <CardTitle className="text-lg md:text-xl">Apply Now</CardTitle>
+                          <CardDescription className="text-xs md:text-sm">
+                            Limited spots
+                          </CardDescription>
+                        </div>
+                        <Badge variant="outline" className="bg-nipay-green/10 text-nipay-dark-green">
+                          <Clock className="mr-1 h-3 w-3" /> Urgent
+                        </Badge>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <WaitlistForm onSuccess={() => {
+                    // Success is handled within the form component
+                  }} />
+                    </CardContent>
+                  </Card>
+                </div>
+                
+                {/* Benefits - second on mobile */}
+                <div className="mt-6 md:col-span-2">
+                  <Card className="border-green-100 h-full shadow-sm">
+                    <CardHeader className="bg-nipay-green/5 border-b border-nipay-green/10 pb-3 md:pb-4">
+                      <CardTitle className="text-lg md:text-xl text-nipay-dark-green flex items-center">
+                        <Clock className="mr-2 h-4 w-4 md:h-5 md:w-5" />
+                        Early Access Benefits
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="pt-4 md:pt-6">
+                      <ul className="space-y-2 md:space-y-3">
+                        <li className="flex items-start gap-2 md:gap-3">
+                          <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-nipay-green mt-0.5 flex-shrink-0" />
+                          <div>
+                            <span className="font-bold block text-foreground text-sm md:text-base">Priority Access</span>
+                          </div>
+                        </li>
+                        <li className="flex items-start gap-2 md:gap-3">
+                          <TrendingUp className="h-4 w-4 md:h-5 md:w-5 text-nipay-green mt-0.5 flex-shrink-0" />
+                          <div>
+                            <span className="font-bold block text-foreground text-sm md:text-base">Higher Limits</span>
+                          </div>
+                        </li>
+                        <li className="flex items-start gap-2 md:gap-3">
+                          <DollarSign className="h-4 w-4 md:h-5 md:w-5 text-nipay-green mt-0.5 flex-shrink-0" />
+                          <div>
+                            <span className="font-bold block text-foreground text-sm md:text-base">Lower Fees</span>
+                          </div>
+                        </li>
+                        <li className="flex items-start gap-2 md:gap-3">
+                          <Handshake className="h-4 w-4 md:h-5 md:w-5 text-nipay-green mt-0.5 flex-shrink-0" />
+                          <div>
+                            <span className="font-bold block text-foreground text-sm md:text-base">VIP Support</span>
+                          </div>
+                        </li>
+                      </ul>
+                    </CardContent>
+                  </Card>
+                </div>
+              </> : <>
+                {/* Desktop layout - benefits first, form second */}
+                <div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-8">
+                  <div className="md:col-span-2">
+                    <Card className="border-green-100 h-full shadow-sm">
+                      <CardHeader className="bg-nipay-green/5 border-b border-nipay-green/10">
+                        <CardTitle className="text-xl text-nipay-dark-green flex items-center">
+                          <Clock className="mr-2 h-5 w-5" />
+                          Early Benefits
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent className="pt-6">
+                        <ul className="space-y-3">
+                          <li className="flex items-start gap-3">
+                            <CheckCircle className="h-5 w-5 text-nipay-green mt-0.5 flex-shrink-0" />
+                            <div>
+                              <span className="font-bold block">Priority Access</span>
+                            </div>
+                          </li>
+                          <li className="flex items-start gap-3">
+                            <TrendingUp className="h-5 w-5 text-nipay-green mt-0.5 flex-shrink-0" />
+                            <div>
+                              <span className="font-bold block">Higher Limits</span>
+                            </div>
+                          </li>
+                          <li className="flex items-start gap-3">
+                            <DollarSign className="h-5 w-5 text-nipay-green mt-0.5 flex-shrink-0" />
+                            <div>
+                              <span className="font-bold block">Lower Fees</span>
+                            </div>
+                          </li>
+                          <li className="flex items-start gap-3">
+                            <CreditCard className="h-5 w-5 text-nipay-green mt-0.5 flex-shrink-0" />
+                            <div>
+                              <span className="font-bold block">No Hidden Charges</span>
+                            </div>
+                          </li>
+                          <li className="flex items-start gap-3">
+                            <Handshake className="h-5 w-5 text-nipay-green mt-0.5 flex-shrink-0" />
+                            <div>
+                              <span className="font-bold block">VIP Support</span>
+                            </div>
+                          </li>
+                        </ul>
+                      </CardContent>
+                    </Card>
+                  </div>
+                
+                  <div className="md:col-span-3">
+                    <Card className="border-green-100 shadow-sm">
+                      <CardHeader className="pb-4">
+                        <div className="flex justify-between items-center">
+                          <div>
+                            <CardTitle>Apply Now</CardTitle>
+                            <CardDescription>
+                              Limited spots available
+                            </CardDescription>
+                          </div>
+                          <Badge variant="outline" className="bg-nipay-green/10 text-nipay-dark-green">
+                            <Clock className="mr-1 h-3 w-3" /> Urgent
+                          </Badge>
+                        </div>
+                      </CardHeader>
+                      <CardContent>
+                        <WaitlistForm onSuccess={() => {
+                          // Success is handled within the form component
+                        }} />
+                      </CardContent>
+                    </Card>
+                  </div>
+                </div>
+              </>}
+            
+            {/* Quick Application Process */}
+            <div className="mt-8 md:mt-12">
+              <h2 className="text-lg md:text-xl font-bold mb-4 md:mb-6 text-center">Easy Application</h2>
+              <div className="grid grid-cols-3 gap-2 md:gap-5">
+                <div className="p-3 md:p-5 rounded-lg bg-card border border-green-100 hover:border-nipay-green/30 hover:shadow-md transition-all">
+                  <div className="h-8 w-8 md:h-10 md:w-10 rounded-full bg-nipay-green/10 flex items-center justify-center text-nipay-green mx-auto mb-2 md:mb-3">1</div>
+                  <h3 className="font-bold mb-1 text-center text-sm md:text-base">Quick Review</h3>
+                  <p className="text-xxs md:text-xs text-muted-foreground text-center">24h approval</p>
+                </div>
+                
+                <div className="p-3 md:p-5 rounded-lg bg-card border border-green-100 hover:border-nipay-green/30 hover:shadow-md transition-all">
+                  <div className="h-8 w-8 md:h-10 md:w-10 rounded-full bg-nipay-green/10 flex items-center justify-center text-nipay-green mx-auto mb-2 md:mb-3">2</div>
+                  <h3 className="font-bold mb-1 text-center text-sm md:text-base">Activation</h3>
+                  <p className="text-xxs md:text-xs text-muted-foreground text-center">At launch</p>
+                </div>
+                
+                <div className="p-3 md:p-5 rounded-lg bg-card border border-green-100 hover:border-nipay-green/30 hover:shadow-md transition-all">
+                  <div className="h-8 w-8 md:h-10 md:w-10 rounded-full bg-nipay-green/10 flex items-center justify-center text-nipay-green mx-auto mb-2 md:mb-3">3</div>
+                  <h3 className="font-bold mb-1 text-center text-sm md:text-base">Get Funds</h3>
+                  <p className="text-xxs md:text-xs text-muted-foreground text-center">Instant access</p>
+                </div>
               </div>
             </div>
-
-            {!isSubmitted ? (
-              <>
-                {/* Waitlist Form */}
-                <Card className="border-green-100 shadow-lg">
-                  <CardHeader className="text-center pb-6">
-                    <CardTitle className="text-2xl md:text-3xl text-nipay-dark-green">
-                      Join the Waitlist
-                    </CardTitle>
-                    <CardDescription className="text-base">
-                      Limited spots available for early access
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <WaitlistForm onSuccess={handleFormSuccess} />
-                  </CardContent>
-                </Card>
-
-                {/* Privacy Notice */}
-                <div className="flex items-center justify-center gap-2 mt-6 text-sm text-muted-foreground">
-                  <Shield className="h-4 w-4 text-nipay-green" />
-                  <span>We'll never share your contact or business info without permission.</span>
-                </div>
-              </>
-            ) : (
-              /* Post-Submission Confirmation */
-              <Card className="border-green-200 bg-green-50/50 shadow-lg">
-                <CardContent className="pt-8 pb-8 text-center">
-                  <div className="text-6xl mb-4">🎉</div>
-                  <h2 className="text-2xl md:text-3xl font-bold text-nipay-dark-green mb-4">
-                    You're on the waitlist!
-                  </h2>
-                  <p className="text-lg text-muted-foreground mb-8">
-                    Our team will contact you soon to bring NiPay to your business.
-                  </p>
-                  
-                  {/* Contact Information */}
-                  <div className="space-y-4 mb-8">
-                    <div className="flex items-center justify-center gap-3 text-base">
-                      <Phone className="h-5 w-5 text-nipay-green" />
-                      <span>Questions? Contact us on WhatsApp:</span>
-                      <a 
-                        href="https://wa.me/250788321008" 
-                        className="font-semibold text-nipay-dark-green hover:underline"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        +250 788 321 008
-                      </a>
+            
+            {/* Refer Friends Section */}
+            <div className="mt-8 md:mt-12">
+              <Card className="border-amber-100 bg-amber-50/50">
+                <CardContent className="pt-6 pb-6">
+                  <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+                    <div className="flex items-center gap-3">
+                      <Users className="h-10 w-10 text-nipay-green p-2 bg-white rounded-full shadow-sm" />
+                      <div>
+                        <h3 className="font-bold text-base md:text-lg">Know Other Businesses?</h3>
+                        <p className="text-xs md:text-sm text-muted-foreground">
+                          Help friends get access.
+                        </p>
+                      </div>
                     </div>
-                    <div className="flex items-center justify-center gap-3 text-base">
-                      <Mail className="h-5 w-5 text-nipay-green" />
-                      <span>Or email:</span>
-                      <a 
-                        href="mailto:contact@nipay.rw" 
-                        className="font-semibold text-nipay-dark-green hover:underline"
-                      >
-                        contact@nipay.rw
-                      </a>
-                    </div>
+                    <Button variant="green" className="w-full md:w-auto" onClick={handleShareClick}>
+                      <Share className="h-4 w-4 mr-2" />
+                      Refer Friends
+                    </Button>
                   </div>
-
-                  {/* Share Button */}
-                  <Button 
-                    onClick={handleShareClick}
-                    variant="green" 
-                    size="lg"
-                    className="w-full md:w-auto"
-                  >
-                    <Share className="h-5 w-5 mr-2" />
-                    Invite a friend on WhatsApp
-                  </Button>
                 </CardContent>
               </Card>
-            )}
-
-            {/* Benefits Section */}
-            {!isSubmitted && (
-              <div className="mt-12">
-                <h2 className="text-xl md:text-2xl font-bold mb-6 text-center">
-                  Why Join the Waitlist?
-                </h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  <div className="text-center p-6 rounded-lg bg-card border border-green-100">
-                    <div className="h-12 w-12 rounded-full bg-nipay-green/10 flex items-center justify-center text-nipay-green mx-auto mb-4">
-                      <CheckCircle className="h-6 w-6" />
-                    </div>
-                    <h3 className="font-bold mb-2">Priority Access</h3>
-                    <p className="text-sm text-muted-foreground">
-                      Be among the first SMEs to access NiPay when we launch
-                    </p>
-                  </div>
-                  
-                  <div className="text-center p-6 rounded-lg bg-card border border-green-100">
-                    <div className="h-12 w-12 rounded-full bg-nipay-green/10 flex items-center justify-center text-nipay-green mx-auto mb-4">
-                      <Users className="h-6 w-6" />
-                    </div>
-                    <h3 className="font-bold mb-2">Personal Onboarding</h3>
-                    <p className="text-sm text-muted-foreground">
-                      Our team will visit your business for setup and training
-                    </p>
-                  </div>
-                  
-                  <div className="text-center p-6 rounded-lg bg-card border border-green-100">
-                    <div className="h-12 w-12 rounded-full bg-nipay-green/10 flex items-center justify-center text-nipay-green mx-auto mb-4">
-                      <Phone className="h-6 w-6" />
-                    </div>
-                    <h3 className="font-bold mb-2">Direct Support</h3>
-                    <p className="text-sm text-muted-foreground">
-                      WhatsApp support and dedicated customer care
-                    </p>
-                  </div>
-                </div>
-              </div>
-            )}
+            </div>
           </div>
         </div>
       </main>
       
       <Footer />
-    </>
-  );
+    </>;
 };
 
 export default Waitlist;
