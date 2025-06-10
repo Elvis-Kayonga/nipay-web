@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -20,6 +19,7 @@ const formSchema = z.object({
   businessLocation: z.string().min(1, { message: 'Please select your location' }),
   preferredLanguage: z.string().min(1, { message: 'Please select your preferred language' }),
   fieldVisit: z.string().min(1, { message: 'Please select if you want a field visit' }),
+  email: z.string().email().optional(),
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -73,6 +73,7 @@ const WaitlistForm = ({ onSuccess, onClose }: WaitlistFormProps) => {
       businessLocation: '',
       preferredLanguage: '',
       fieldVisit: '',
+      email: '',
     }
   });
 
@@ -85,7 +86,7 @@ const WaitlistForm = ({ onSuccess, onClose }: WaitlistFormProps) => {
       const result: ApiResponse = await api.submitToWaitlist({
         name: data.name,
         businessName: data.businessName || '',
-        email: '', // Optional field
+        email: data.email || '',
         phoneNumber: data.phoneNumber,
         monthlyVolume: data.loanNeeded,
         businessEarnings: data.businessLocation,
@@ -94,23 +95,23 @@ const WaitlistForm = ({ onSuccess, onClose }: WaitlistFormProps) => {
         businessType: 'SME'
       });
       
-      // Send confirmation email if possible
-      try {
-        await fetch('https://alkjgogriwshdpkuwqhp.functions.supabase.co/send-confirmation-email', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            to: 'support@nipay.rw',
-            type: 'waitlist',
-            name: data.name,
-            phone: data.phoneNumber,
-            business: data.businessName,
-          }),
-        });
-      } catch (emailError) {
-        console.error("Failed to send notification email:", emailError);
+      // Send confirmation email if email is provided
+      if (data.email) {
+        try {
+          await fetch('https://alkjgogriwshdpkuwqhp.functions.supabase.co/send-confirmation-email', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              to: data.email,
+              type: 'waitlist',
+              name: data.name,
+            }),
+          });
+        } catch (emailError) {
+          console.error("Failed to send confirmation email:", emailError);
+        }
       }
       
       setIsSubmitted(true);
@@ -191,6 +192,23 @@ const WaitlistForm = ({ onSuccess, onClose }: WaitlistFormProps) => {
         />
         {errors.businessName && (
           <p className="text-destructive text-sm">{errors.businessName.message}</p>
+        )}
+      </div>
+
+      {/* Email - Optional */}
+      <div className="space-y-2">
+        <Label htmlFor="email" className="text-base font-medium">
+          Email <span className="text-muted-foreground">(Optional - for confirmation email)</span>
+        </Label>
+        <Input 
+          id="email" 
+          type="email"
+          placeholder="jean@example.com" 
+          {...register('email')}
+          className="h-12"
+        />
+        {errors.email && (
+          <p className="text-destructive text-sm">{errors.email.message}</p>
         )}
       </div>
       

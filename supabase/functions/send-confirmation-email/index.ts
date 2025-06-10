@@ -27,7 +27,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Admin notification email
     await resend.emails.send({
-      from: "NiPay <onboarding@resend.dev>", // Update this when domain is verified
+      from: "NiPay <support@nipay.rw>",
       to: ["kayongaelvis@nipay.rw", "elvis.kayonga@jasirifellow.org"],
       subject: `New ${type === "investor" ? "Investor Contact" : "Waitlist Signup"} - NiPay`,
       html: `
@@ -40,7 +40,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     // User confirmation email
     const emailResponse = await resend.emails.send({
-      from: "NiPay <onboarding@resend.dev>", // Update this when domain is verified
+      from: "NiPay <support@nipay.rw>",
       to: [to],
       subject: type === "investor" 
         ? "Thank you for your interest in NiPay" 
@@ -63,7 +63,7 @@ const handler = async (req: Request): Promise<Response> => {
             <p>Best regards,<br>The NiPay Team</p>
           </div>
           <div style="text-align: center; margin-top: 20px; font-size: 12px; color: #777;">
-            <p>NiPay Ltd. | Kigali, Rwanda | <a href="mailto:kayongaelvis@nipay.rw">kayongaelvis@nipay.rw</a></p>
+            <p>NiPay Ltd. | Kigali, Rwanda | <a href="mailto:support@nipay.rw">support@nipay.rw</a></p>
           </div>
         </div>
       `,
