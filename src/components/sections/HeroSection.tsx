@@ -55,37 +55,36 @@ const HeroSection = () => {
           </p>
 
           {/* Pain Point Callout - Moved below headline */}
-          <div className="inline-block bg-white/15 backdrop-blur-md rounded-lg px-4 py-3 mb-8 lg:mb-10 border border-white/20 shadow-xl transform hover:scale-105 transition-all duration-300">
+          <div className="inline-block bg-white/15 backdrop-blur-md rounded-lg px-3 py-2 mb-6 lg:mb-8 border border-white/20 shadow-xl transform hover:scale-105 transition-all duration-300">
             <p className="text-sm lg:text-base italic text-white/95 leading-relaxed font-medium">
               "You run your business with mobile money — but no one will lend you even 20K when you need it most."
             </p>
           </div>
           
-          {/* Join Waitlist Button - Moved above traction, removed Ask Question button */}
-          <div className="flex justify-center mb-12 lg:mb-16">
+          {/* Join Waitlist Button - Smaller and animated */}
+          <div className="flex justify-center mb-8 lg:mb-12">
             <Button 
               onClick={() => setShowWaitlistModal(true)}
-              size="lg" 
-              className="group bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-black font-bold text-base lg:text-lg py-4 lg:py-5 px-6 lg:px-8 shadow-2xl hover:shadow-yellow-400/25 transition-all duration-300 transform hover:-translate-y-1 rounded-xl"
+              className="group bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-black font-bold text-sm lg:text-base py-2.5 lg:py-3 px-4 lg:px-6 shadow-2xl hover:shadow-yellow-400/25 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 rounded-lg animate-pulse"
             >
               Join the Waitlist
-              <ArrowRight className="ml-2 h-4 w-4 lg:h-5 lg:w-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>
           
-          {/* Early Traction - Moved to bottom (south side) */}
-          <div className="bg-white/10 backdrop-blur-lg rounded-lg p-2 lg:p-3 border border-white/20 shadow-xl max-w-lg mx-auto">
-            <div className="flex items-center justify-center space-x-6 lg:space-x-8">
+          {/* Early Traction - Smaller */}
+          <div className="bg-white/10 backdrop-blur-lg rounded-lg p-2 border border-white/20 shadow-xl max-w-md mx-auto hover:scale-105 transition-all duration-300">
+            <div className="flex items-center justify-center space-x-4 lg:space-x-6">
               <div className="text-center">
-                <div className="text-lg lg:text-xl font-bold text-yellow-300">400+</div>
+                <div className="text-base lg:text-lg font-bold text-yellow-300">400+</div>
                 <div className="text-xs text-white/80 font-medium">SMEs</div>
               </div>
               <div className="text-center">
-                <div className="text-lg lg:text-xl font-bold text-yellow-300">258M</div>
+                <div className="text-base lg:text-lg font-bold text-yellow-300">258M</div>
                 <div className="text-xs text-white/80 font-medium">RWF</div>
               </div>
               <div className="text-center">
-                <div className="text-lg lg:text-xl font-bold text-yellow-300">100%</div>
+                <div className="text-base lg:text-lg font-bold text-yellow-300">100%</div>
                 <div className="text-xs text-white/80 font-medium">Rwanda</div>
               </div>
             </div>

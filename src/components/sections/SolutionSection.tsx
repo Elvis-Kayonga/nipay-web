@@ -1,11 +1,15 @@
+
 import SectionWrapper from '../shared/SectionWrapper';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 import WaitlistModal from '../modals/WaitlistModal';
 import { ArrowRight, Smartphone, DollarSign, RefreshCw, CheckCircle } from 'lucide-react';
+
 const SolutionSection = () => {
   const [showWaitlistModal, setShowWaitlistModal] = useState(false);
-  return <SectionWrapper id="how-it-works" className="py-24 lg:py-32 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+  
+  return (
+    <SectionWrapper id="how-it-works" className="py-24 lg:py-32 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-nipay-green/5 rounded-full blur-3xl"></div>
       
@@ -90,19 +94,24 @@ const SolutionSection = () => {
           </div>
         </div>
 
-        {/* CTA Section */}
+        {/* CTA Section - Smaller */}
         <div className="text-center">
-          <div className="inline-block bg-white rounded-3xl p-8 lg:p-12 shadow-2xl border border-gray-100">
-            <h3 className="text-2xl lg:text-3xl font-bold mb-6 text-gray-900">Ready to get started?</h3>
-            <Button onClick={() => setShowWaitlistModal(true)} className="bg-gradient-to-r from-nipay-green to-nipay-dark-green hover:from-nipay-dark-green hover:to-nipay-green text-xl lg:text-2xl px-10 lg:px-14 py-6 lg:py-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 rounded-2xl">
+          <div className="inline-block bg-white rounded-2xl p-6 lg:p-8 shadow-xl border border-gray-100 max-w-lg mx-auto hover:scale-105 transition-all duration-300">
+            <h3 className="text-xl lg:text-2xl font-bold mb-4 text-gray-900">Ready to get started?</h3>
+            <Button 
+              onClick={() => setShowWaitlistModal(true)} 
+              className="bg-gradient-to-r from-nipay-green to-nipay-dark-green hover:from-nipay-dark-green hover:to-nipay-green text-base lg:text-lg px-6 lg:px-8 py-2.5 lg:py-3 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 rounded-lg group"
+            >
               Start with NiPay Today
-              <ArrowRight className="ml-3 h-6 w-6 lg:h-7 lg:w-7" />
+              <ArrowRight className="ml-2 h-4 w-4 lg:h-5 lg:w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>
         </div>
       </div>
       
       <WaitlistModal isOpen={showWaitlistModal} onClose={() => setShowWaitlistModal(false)} />
-    </SectionWrapper>;
+    </SectionWrapper>
+  );
 };
+
 export default SolutionSection;
