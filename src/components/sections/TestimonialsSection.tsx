@@ -1,4 +1,3 @@
-
 import SectionWrapper from '../shared/SectionWrapper';
 import { Star, Quote, TrendingUp, Users, Award } from 'lucide-react';
 
@@ -23,36 +22,36 @@ const TestimonialsSection = () => {
         
         {/* Main Testimonial - Smaller */}
         <div className="relative mb-16 lg:mb-20">
-          <div className="bg-gradient-to-br from-nipay-green to-nipay-dark-green rounded-2xl p-6 lg:p-8 text-white shadow-xl transform hover:scale-105 transition-all duration-300 max-w-4xl mx-auto">
+          <div className="bg-gradient-to-br from-nipay-green to-nipay-dark-green rounded-xl p-4 lg:p-6 text-white shadow-xl transform hover:scale-105 transition-all duration-300 max-w-3xl mx-auto">
             {/* Quote icon */}
-            <div className="flex justify-center mb-6">
-              <div className="w-12 h-12 lg:w-16 lg:h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
-                <Quote className="w-6 h-6 lg:w-8 lg:h-8 text-white" />
+            <div className="flex justify-center mb-4">
+              <div className="w-10 h-10 lg:w-12 lg:h-12 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                <Quote className="w-5 h-5 lg:w-6 lg:h-6 text-white" />
               </div>
             </div>
             
-            <blockquote className="text-xl lg:text-2xl xl:text-3xl mb-6 lg:mb-8 leading-relaxed italic text-center font-medium">
+            <blockquote className="text-lg lg:text-xl xl:text-2xl mb-4 lg:mb-6 leading-relaxed italic text-center font-medium">
               "Before NiPay, I had to ask my supplier for credit. Now I just borrow from my own sales!"
             </blockquote>
             
-            <div className="flex items-center justify-center space-x-4">
+            <div className="flex items-center justify-center space-x-3">
               <div className="relative">
-                <div className="w-12 h-12 lg:w-16 lg:h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
-                  <span className="text-lg lg:text-xl font-bold">MA</span>
+                <div className="w-10 h-10 lg:w-12 lg:h-12 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                  <span className="text-base lg:text-lg font-bold">MA</span>
                 </div>
-                <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-yellow-400 rounded-full flex items-center justify-center">
-                  <Star className="w-2.5 h-2.5 text-gray-900" />
+                <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-yellow-400 rounded-full flex items-center justify-center">
+                  <Star className="w-2 h-2 text-gray-900" />
                 </div>
               </div>
               <div className="text-left">
-                <div className="font-bold text-lg lg:text-xl">Mukamisha Annet</div>
-                <div className="text-white/80 text-base">Boutique Owner, Kimironko</div>
+                <div className="font-bold text-base lg:text-lg">Mukamisha Annet</div>
+                <div className="text-white/80 text-sm">Boutique Owner, Kimironko</div>
               </div>
             </div>
             
-            <div className="flex justify-center mt-6 lg:mt-8 space-x-1">
+            <div className="flex justify-center mt-4 lg:mt-6 space-x-1">
               {[1, 2, 3, 4, 5].map(star => (
-                <Star key={star} className="w-5 h-5 lg:w-6 lg:h-6 fill-yellow-300 text-yellow-300" />
+                <Star key={star} className="w-4 h-4 lg:w-5 lg:h-5 fill-yellow-300 text-yellow-300" />
               ))}
             </div>
           </div>
