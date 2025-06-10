@@ -107,14 +107,14 @@ const SmeBenefitsSection = () => {
           })}
         </div>
         
-        {/* CTA Section - Smaller, vibrant and bouncy */}
+        {/* CTA Section - Smaller, vibrant and bouncy with green/brown theme */}
         <div className="text-center">
-          <div className="inline-block bg-gradient-to-br from-purple-500 via-pink-500 to-red-500 rounded-xl p-4 lg:p-5 shadow-2xl border-2 border-white/20 max-w-md mx-auto hover:scale-110 transition-all duration-500 transform hover:rotate-1 animate-pulse-slow relative overflow-hidden">
+          <div className="inline-block bg-gradient-to-br from-nipay-green via-green-600 to-amber-800 rounded-xl p-4 lg:p-5 shadow-2xl border-2 border-white/20 max-w-md mx-auto hover:scale-110 transition-all duration-500 transform hover:rotate-1 animate-pulse-slow relative overflow-hidden">
             {/* Floating icons background */}
             <div className="absolute inset-0 overflow-hidden">
               <Sparkles className="absolute top-2 left-3 w-3 h-3 text-yellow-300 animate-pulse" />
-              <Zap className="absolute top-3 right-4 w-4 h-4 text-blue-300 animate-bounce" />
-              <TrendingUp className="absolute bottom-2 left-2 w-3 h-3 text-green-300 animate-pulse" />
+              <Zap className="absolute top-3 right-4 w-4 h-4 text-green-300 animate-bounce" />
+              <TrendingUp className="absolute bottom-2 left-2 w-3 h-3 text-amber-300 animate-pulse" />
               <Star className="absolute bottom-3 right-3 w-3 h-3 text-yellow-200 animate-bounce" />
             </div>
             
@@ -136,7 +136,7 @@ const SmeBenefitsSection = () => {
               
               <Button 
                 onClick={() => navigate('/waitlist')} 
-                className="bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-orange-500 hover:to-red-500 text-gray-900 text-sm lg:text-base px-4 lg:px-6 py-2 lg:py-2.5 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-110 rounded-lg group font-bold animate-bounce hover:animate-none border-2 border-white/30"
+                className="bg-gradient-to-r from-yellow-400 to-amber-600 hover:from-amber-600 hover:to-amber-800 text-gray-900 text-sm lg:text-base px-4 lg:px-6 py-2 lg:py-2.5 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-110 rounded-lg group font-bold animate-bounce hover:animate-none border-2 border-white/30"
               >
                 <Sparkles className="mr-1 h-3 w-3 lg:h-4 lg:w-4 group-hover:rotate-180 transition-transform duration-500" />
                 Join the Waitlist
