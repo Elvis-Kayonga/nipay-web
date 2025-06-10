@@ -1,4 +1,3 @@
-
 import SEO from "@/components/SEO";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -9,32 +8,42 @@ import SmeBenefitsSection from "@/components/sections/SmeBenefitsSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import FaqSection from "@/components/sections/FaqSection";
 import ContactSection from "@/components/sections/ContactSection";
-import { generateOrganizationSchema, generateServiceSchema, generateBreadcrumbSchema } from "@/utils/seo";
+import { generateOrganizationSchema, generateServiceSchema, generateStartupSchema, generateLocalBusinessSchema, generateBreadcrumbSchema } from "@/utils/seo";
 
 const Index = () => {
   // Schema.org structured data for organization
   const organizationSchema = generateOrganizationSchema();
   const serviceSchema = generateServiceSchema();
+  const startupSchema = generateStartupSchema();
+  const localBusinessSchema = generateLocalBusinessSchema();
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: "Home", url: "https://nipay.rw/" },
+    { name: "Fintech Rwanda", url: "https://nipay.rw/#solution" },
     { name: "Mobile Money Loans", url: "https://nipay.rw/#solution" },
-    { name: "Benefits", url: "https://nipay.rw/#benefits" }
+    { name: "SME Finance Rwanda", url: "https://nipay.rw/#benefits" },
+    { name: "Investment Opportunities", url: "https://nipay.rw/investors" }
   ]);
   
   return (
     <>
       <SEO 
-        title="NiPay | #1 Mobile Money Loans Rwanda - No Collateral Needed"
-        description="NiPay is Rwanda's leading mobile money loan platform. Get instant business loans from your MTN/Airtel money sales. No paperwork, no collateral. Join 400+ SMEs already growing with NiPay."
-        keywords="NiPay Rwanda, mobile money loans Rwanda, MTN money loans, Airtel money credit, SME loans Rwanda, business loans no collateral, instant loans Rwanda, mobile money lending, Rwanda fintech, small business credit, best business loans Rwanda, quick loans Rwanda"
+        title="NiPay | #1 Fintech Startup Rwanda - Best Investment Opportunity | Mobile Money Loans SME Finance"
+        description="NiPay is Rwanda's leading fintech startup revolutionizing SME finance through mobile money lending. Top investment opportunity in Rwanda's fastest-growing startup ecosystem. Instant business loans from MTN/Airtel money sales - no collateral needed. Join 400+ SMEs already growing with Rwanda's best fintech innovation."
+        keywords="NiPay Rwanda, fintech startup Rwanda, best startups Rwanda, startups to invest in Rwanda, places to invest Rwanda, mobile money Rwanda, SME finance Rwanda, fintech investment Rwanda, Rwanda startup ecosystem, best fintech Rwanda, mobile money loans Rwanda, MTN money loans, Airtel money credit, digital banking Rwanda, financial technology Rwanda, startup funding Rwanda, venture capital Rwanda, angel investment Rwanda, business loans Rwanda, microfinance Rwanda, financial inclusion Rwanda, innovation Rwanda, tech startups Rwanda, emerging markets fintech, East Africa fintech, Kigali startups, Rwanda investment opportunities, best ROI startups Rwanda, high growth startups Rwanda, Series A startups Rwanda, seed funding Rwanda, unicorn potential Rwanda"
         canonicalUrl="/"
         ogImage="/placeholder.svg"
         structuredData={{
-          "@graph": [organizationSchema, serviceSchema, breadcrumbSchema]
+          "@graph": [
+            organizationSchema, 
+            serviceSchema, 
+            startupSchema,
+            localBusinessSchema,
+            breadcrumbSchema
+          ]
         }}
         robots="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
-        revisitAfter="3 days"
-        author="NiPay Rwanda"
+        revisitAfter="1 day"
+        author="NiPay Rwanda - Leading Fintech Startup"
       />
       
       <Header />
