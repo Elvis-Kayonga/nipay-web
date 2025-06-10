@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import WaitlistModal from '../modals/WaitlistModal';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Menu, X } from 'lucide-react';
 
@@ -12,6 +12,7 @@ const Header = () => {
   const [showWaitlistModal, setShowWaitlistModal] = useState(false);
   const [isOverHero, setIsOverHero] = useState(true);
   const location = useLocation();
+  const navigate = useNavigate();
   const isMobile = useIsMobile();
   
   // Track scroll position to add background to header when scrolled
@@ -37,8 +38,24 @@ const Header = () => {
         element.scrollIntoView({ behavior: 'smooth' });
       }
     } else {
-      window.location.href = `/#${id}`;
+      navigate('/');
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
     }
+  };
+
+  const handleWaitlistClick = () => {
+    setMobileMenuOpen(false);
+    navigate('/waitlist');
+  };
+
+  const handleInvestorsClick = () => {
+    setMobileMenuOpen(false);
+    navigate('/investors');
   };
 
   const navTextColor = isOverHero ? 'text-white' : 'text-foreground';
@@ -58,62 +75,42 @@ const Header = () => {
             
             {/* Desktop Navigation - smaller and thinner */}
             <nav className="hidden md:flex items-center gap-4">
-              <a 
-                href="#solution"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick('solution');
-                }}
+              <button 
+                onClick={() => handleNavClick('solution')}
                 className={`${navTextColor} hover:text-nipay-green transition-colors text-sm py-1`}
               >
                 Our Solution
-              </a>
-              <a 
-                href="#benefits"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick('benefits');
-                }}
+              </button>
+              <button 
+                onClick={() => handleNavClick('benefits')}
                 className={`${navTextColor} hover:text-nipay-green transition-colors text-sm py-1`}
               >
                 Why NiPay
-              </a>
-              <a 
-                href="#how-it-works"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick('how-it-works');
-                }}
+              </button>
+              <button 
+                onClick={() => handleNavClick('how-it-works')}
                 className={`${navTextColor} hover:text-nipay-green transition-colors text-sm py-1`}
               >
                 How It Works
-              </a>
-              <a 
-                href="#validation"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick('validation');
-                }}
+              </button>
+              <button 
+                onClick={() => handleNavClick('testimonials')}
                 className={`${navTextColor} hover:text-nipay-green transition-colors text-sm py-1`}
               >
-                Proven Results
-              </a>
+                Testimonials
+              </button>
               <Link 
                 to="/investors"
                 className="text-nipay-green font-medium hover:underline transition-colors text-sm py-1"
               >
                 Investors
               </Link>
-              <a 
-                href="#faq"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick('faq');
-                }}
+              <button 
+                onClick={() => handleNavClick('faq')}
                 className={`${navTextColor} hover:text-nipay-green transition-colors text-sm py-1`}
               >
                 FAQ
-              </a>
+              </button>
               <Link 
                 to="/contact"
                 className={`${navTextColor} hover:text-nipay-green transition-colors text-sm py-1`}
@@ -125,12 +122,8 @@ const Header = () => {
             <div className="flex items-center gap-2">
               {/* Desktop buttons - smaller */}
               <div className="hidden md:flex items-center gap-2">
-                <Link to="/waitlist">
-                  <Button variant="green" size="sm" className="h-8 text-sm px-3">Join Waitlist</Button>
-                </Link>
-                <Link to="/investors">
-                  <Button variant={isOverHero ? "outline-white" : "outline-dark"} size="sm" className="h-8 text-sm px-3">Invest</Button>
-                </Link>
+                <Button onClick={handleWaitlistClick} variant="green" size="sm" className="h-8 text-sm px-3">Join Waitlist</Button>
+                <Button onClick={handleInvestorsClick} variant={isOverHero ? "outline-white" : "outline-dark"} size="sm" className="h-8 text-sm px-3">Invest</Button>
               </div>
               
               {/* Mobile menu button */}
@@ -155,86 +148,66 @@ const Header = () => {
         {mobileMenuOpen && (
           <div className="md:hidden bg-background/95 backdrop-blur-md animate-fade-in shadow-lg border-t border-border">
             <div className="py-3 px-4 space-y-2">
-              <a
-                href="#solution"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick('solution');
-                }}
-                className="block py-2 text-foreground hover:text-nipay-green transition-colors border-b border-border text-sm"
+              <button
+                onClick={() => handleNavClick('solution')}
+                className="block w-full text-left py-2 text-foreground hover:text-nipay-green transition-colors border-b border-border text-sm"
               >
                 Our Solution
-              </a>
-              <a
-                href="#benefits"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick('benefits');
-                }}
-                className="block py-2 text-foreground hover:text-nipay-green transition-colors border-b border-border text-sm"
+              </button>
+              <button
+                onClick={() => handleNavClick('benefits')}
+                className="block w-full text-left py-2 text-foreground hover:text-nipay-green transition-colors border-b border-border text-sm"
               >
                 Why NiPay
-              </a>
-              <a
-                href="#how-it-works"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick('how-it-works');
-                }}
-                className="block py-2 text-foreground hover:text-nipay-green transition-colors border-b border-border text-sm"
+              </button>
+              <button
+                onClick={() => handleNavClick('how-it-works')}
+                className="block w-full text-left py-2 text-foreground hover:text-nipay-green transition-colors border-b border-border text-sm"
               >
                 How It Works
-              </a>
-              <a
-                href="#validation"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick('validation');
-                }}
-                className="block py-2 text-foreground hover:text-nipay-green transition-colors border-b border-border text-sm"
+              </button>
+              <button
+                onClick={() => handleNavClick('testimonials')}
+                className="block w-full text-left py-2 text-foreground hover:text-nipay-green transition-colors border-b border-border text-sm"
               >
-                Proven Results
-              </a>
+                Testimonials
+              </button>
               <Link 
                 to="/investors"
+                onClick={() => setMobileMenuOpen(false)}
                 className="block py-2 text-nipay-green font-medium hover:underline border-b border-border text-sm"
               >
                 Investors
               </Link>
-              <a
-                href="#faq"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick('faq');
-                }}
-                className="block py-2 text-foreground hover:text-nipay-green transition-colors border-b border-border text-sm"
+              <button
+                onClick={() => handleNavClick('faq')}
+                className="block w-full text-left py-2 text-foreground hover:text-nipay-green transition-colors border-b border-border text-sm"
               >
                 FAQ
-              </a>
+              </button>
               <Link
                 to="/contact"
+                onClick={() => setMobileMenuOpen(false)}
                 className="block py-2 text-foreground hover:text-nipay-green transition-colors text-sm"
               >
                 Contact
               </Link>
               
               <div className="flex flex-col gap-2 pt-3">
-                <Link to="/waitlist" className="w-full">
-                  <Button 
-                    variant="green"
-                    className="w-full py-4 text-sm"
-                  >
-                    Join Waitlist
-                  </Button>
-                </Link>
-                <Link to="/investors" className="w-full">
-                  <Button 
-                    variant="outline"
-                    className="w-full py-4 text-sm"
-                  >
-                    Invest
-                  </Button>
-                </Link>
+                <Button 
+                  onClick={handleWaitlistClick}
+                  variant="green"
+                  className="w-full py-4 text-sm"
+                >
+                  Join Waitlist
+                </Button>
+                <Button 
+                  onClick={handleInvestorsClick}
+                  variant="outline"
+                  className="w-full py-4 text-sm"
+                >
+                  Invest
+                </Button>
               </div>
             </div>
           </div>

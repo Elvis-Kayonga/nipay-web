@@ -41,11 +41,23 @@ const Index = () => {
       
       <main className="min-h-screen">
         <HeroSection />
-        <NiPaySolutionsSection />
-        <SolutionSection />
-        <SmeBenefitsSection />
-        <TestimonialsSection />
-        <FaqSection />
+        <div id="solution">
+          <NiPaySolutionsSection />
+          <SolutionSection />
+        </div>
+        <div id="benefits">
+          <SmeBenefitsSection />
+        </div>
+        <div id="how-it-works">
+          {/* This will be handled by HowItWorksSection when user navigates */}
+          <SolutionSection />
+        </div>
+        <div id="testimonials">
+          <TestimonialsSection />
+        </div>
+        <div id="faq">
+          <FaqSection />
+        </div>
         <ContactSection />
       </main>
       
