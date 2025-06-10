@@ -1,99 +1,97 @@
 
-import { Button } from '@/components/ui/button';
-import { useState } from 'react';
-import WaitlistModal from '../modals/WaitlistModal';
-import { ArrowRight, TrendingUp, Users, DollarSign } from "lucide-react";
-import { useIsMobile } from '@/hooks/use-mobile';
+import { Button } from "@/components/ui/button";
+import { ArrowRight, CheckCircle, Star } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
-  const [showWaitlistModal, setShowWaitlistModal] = useState(false);
-  const isMobile = useIsMobile();
-  
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Advanced background with multiple layers */}
-      <div className="absolute inset-0 bg-gradient-to-br from-nipay-green via-nipay-dark-green to-emerald-900"></div>
+    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-background via-background to-muted/20 overflow-hidden">
+      {/* Background pattern */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       
-      {/* Animated background elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-48 h-48 bg-white/5 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-64 h-64 bg-yellow-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white/3 rounded-full blur-3xl"></div>
-      </div>
-      
-      {/* Floating money icons */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <DollarSign className="absolute top-1/4 left-1/4 w-4 h-4 text-white/20 animate-bounce delay-300" />
-        <TrendingUp className="absolute top-1/3 right-1/4 w-5 h-5 text-yellow-300/30 animate-bounce delay-700" />
-        <Users className="absolute bottom-1/3 left-1/3 w-3 h-3 text-white/15 animate-bounce delay-1000" />
-      </div>
-      
-      {/* Content */}
-      <div className="container mx-auto px-4 lg:px-6 relative z-10">
+      {/* Main content */}
+      <div className="container mx-auto px-4 py-20 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Main Headline - Increased Size */}
-          <div className="mb-4 lg:mb-6">
-            <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 leading-tight text-white">
-              Cash tight? <span className="relative">
-                <span className="bg-gradient-to-r from-yellow-300 to-yellow-400 bg-clip-text text-transparent">
-                  NiPay
-                </span>
-                <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-yellow-300 to-yellow-400 rounded-full"></div>
-              </span> helps you borrow small amounts — 
-              <span className="relative inline-block">
-                <span className="text-yellow-300">automatically</span>
-                <svg className="absolute -bottom-2 left-0 w-full h-2" viewBox="0 0 200 12" fill="none">
-                  <path d="M2 10C50 2 150 2 198 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="text-yellow-300/60"/>
-                </svg>
-              </span> — from your mobile money sales.
-            </h1>
+          {/* Trust badge */}
+          <div className="inline-flex items-center gap-2 bg-nipay-green/10 text-nipay-dark-green px-4 py-2 rounded-full mb-6 border border-nipay-green/20">
+            <Star className="h-4 w-4 fill-current" />
+            <span className="text-sm font-medium">Trusted by 400+ Rwandan SMEs</span>
           </div>
+          
+          {/* Main headline */}
+          <h1 className="text-4xl md:text-6xl xl:text-7xl font-bold mb-6 text-foreground leading-tight">
+            Get instant loans from your{" "}
+            <span className="text-gradient">mobile money sales</span>
+          </h1>
           
           {/* Subheadline */}
-          <p className="text-base lg:text-lg mb-6 lg:mb-8 max-w-3xl mx-auto leading-relaxed font-medium text-white/90">
-            No paperwork. No stress. No collateral.
+          <p className="text-lg md:text-xl xl:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
+            NiPay provides instant business credit based on your MTN/Airtel money transaction history. 
+            No paperwork, no collateral, no stress.
           </p>
-
-          {/* Pain Point Callout - Moved below headline */}
-          <div className="inline-block bg-white/15 backdrop-blur-md rounded-lg px-4 py-3 mb-8 lg:mb-10 border border-white/20 shadow-xl transform hover:scale-105 transition-all duration-300">
-            <p className="text-sm lg:text-base italic text-white/95 leading-relaxed font-medium">
-              "You run your business with mobile money — but no one will lend you even 20K when you need it most."
-            </p>
+          
+          {/* Key benefits */}
+          <div className="flex flex-wrap justify-center gap-4 mb-10">
+            <div className="flex items-center gap-2 bg-card border border-green-100 px-4 py-2 rounded-full">
+              <CheckCircle className="h-4 w-4 text-nipay-green" />
+              <span className="text-sm font-medium">No Collateral</span>
+            </div>
+            <div className="flex items-center gap-2 bg-card border border-green-100 px-4 py-2 rounded-full">
+              <CheckCircle className="h-4 w-4 text-nipay-green" />
+              <span className="text-sm font-medium">Instant Approval</span>
+            </div>
+            <div className="flex items-center gap-2 bg-card border border-green-100 px-4 py-2 rounded-full">
+              <CheckCircle className="h-4 w-4 text-nipay-green" />
+              <span className="text-sm font-medium">Mobile Money Based</span>
+            </div>
           </div>
           
-          {/* Join Waitlist Button - Moved above traction, removed Ask Question button */}
-          <div className="flex justify-center mb-12 lg:mb-16">
-            <Button 
-              onClick={() => setShowWaitlistModal(true)}
-              size="lg" 
-              className="group bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-black font-bold text-base lg:text-lg py-4 lg:py-5 px-6 lg:px-8 shadow-2xl hover:shadow-yellow-400/25 transition-all duration-300 transform hover:-translate-y-1 rounded-xl"
-            >
-              Join the Waitlist
-              <ArrowRight className="ml-2 h-4 w-4 lg:h-5 lg:w-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
+          {/* CTA buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Link to="/waitlist">
+              <Button 
+                size="lg" 
+                className="btn-gradient px-8 py-4 text-lg font-semibold rounded-xl h-auto min-w-[200px]"
+              >
+                Join Waitlist
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+            
+            <Link to="/investors">
+              <Button 
+                variant="outline" 
+                size="lg"
+                className="px-8 py-4 text-lg font-semibold rounded-xl h-auto min-w-[200px] border-2"
+              >
+                For Investors
+              </Button>
+            </Link>
           </div>
           
-          {/* Early Traction - Moved to bottom (south side) */}
-          <div className="bg-white/10 backdrop-blur-lg rounded-lg p-2 lg:p-3 border border-white/20 shadow-xl max-w-lg mx-auto">
-            <div className="flex items-center justify-center space-x-6 lg:space-x-8">
-              <div className="text-center">
-                <div className="text-lg lg:text-xl font-bold text-yellow-300">400+</div>
-                <div className="text-xs text-white/80 font-medium">SMEs</div>
-              </div>
-              <div className="text-center">
-                <div className="text-lg lg:text-xl font-bold text-yellow-300">258M</div>
-                <div className="text-xs text-white/80 font-medium">RWF</div>
-              </div>
-              <div className="text-center">
-                <div className="text-lg lg:text-xl font-bold text-yellow-300">100%</div>
-                <div className="text-xs text-white/80 font-medium">Rwanda</div>
-              </div>
+          {/* Social proof */}
+          <div className="mt-12 flex flex-col items-center gap-4">
+            <p className="text-sm text-muted-foreground">Join thousands of SMEs already growing with mobile credit</p>
+            <div className="flex items-center gap-6 opacity-60">
+              <img 
+                src="/lovable-uploads/51946dc5-f2c8-440c-9c1b-7671876e207e.png" 
+                alt="MTN Logo" 
+                className="h-8 object-contain grayscale hover:grayscale-0 transition-all"
+              />
+              <img 
+                src="/lovable-uploads/6934a696-0341-4ece-9e56-325938e60d5f.png" 
+                alt="Airtel Logo" 
+                className="h-8 object-contain grayscale hover:grayscale-0 transition-all"
+              />
             </div>
           </div>
         </div>
       </div>
       
-      <WaitlistModal isOpen={showWaitlistModal} onClose={() => setShowWaitlistModal(false)} />
+      {/* Floating animation elements */}
+      <div className="absolute top-20 left-10 w-20 h-20 bg-nipay-green/10 rounded-full animate-float"></div>
+      <div className="absolute bottom-20 right-10 w-16 h-16 bg-nipay-green/20 rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
+      <div className="absolute top-1/2 left-5 w-12 h-12 bg-nipay-green/15 rounded-full animate-float" style={{ animationDelay: '2s' }}></div>
     </section>
   );
 };

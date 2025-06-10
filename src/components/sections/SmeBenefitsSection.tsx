@@ -1,136 +1,113 @@
 
-import SectionWrapper from '../shared/SectionWrapper';
-import { Button } from '@/components/ui/button';
-import { ArrowRight, Smartphone, FileText, Shield, Target, MapPin, Star } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { CheckCircle, CreditCard, TrendingUp, Clock, Shield, Users, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const SmeBenefitsSection = () => {
-  const navigate = useNavigate();
-  
   const benefits = [
     {
-      icon: Smartphone,
-      title: "Works with Basic Phones",
-      description: "Use USSD codes or our simple app — no smartphone needed",
-      color: "from-green-500 to-green-600",
-      bgColor: "from-green-50 to-green-100"
+      icon: <CheckCircle className="h-6 w-6" />,
+      title: "No Collateral Required",
+      description: "Get credit based on your mobile money transaction history, not your assets."
     },
     {
-      icon: FileText,
-      title: "No Bank Account Needed",
-      description: "No paperwork, no collateral, no bank visits required",
-      color: "from-blue-500 to-blue-600",
-      bgColor: "from-blue-50 to-blue-100"
+      icon: <CreditCard className="h-6 w-6" />,
+      title: "Instant Approval",
+      description: "Get approved in minutes, not weeks. Your sales history speaks for itself."
     },
     {
-      icon: ArrowRight,
-      title: "Borrow from Your Sales",
-      description: "Get small amounts when you need them, repay from daily transactions",
-      color: "from-yellow-500 to-yellow-600",
-      bgColor: "from-yellow-50 to-yellow-100"
+      icon: <TrendingUp className="h-6 w-6" />,
+      title: "Grow Your Business",
+      description: "Access working capital to stock inventory, expand operations, or seize opportunities."
     },
     {
-      icon: Shield,
-      title: "Free Business Tools",
-      description: "Track sales, stock, and invoices for free (6-month ERP access)",
-      color: "from-purple-500 to-purple-600",
-      bgColor: "from-purple-50 to-purple-100"
+      icon: <Clock className="h-6 w-6" />,
+      title: "24/7 Access",
+      description: "Apply anytime from your phone. Credit when you need it, where you need it."
     },
     {
-      icon: MapPin,
-      title: "100% Built for Rwanda",
-      description: "Designed for how Rwandan SMEs actually do business",
-      color: "from-red-500 to-red-600",
-      bgColor: "from-red-50 to-red-100"
+      icon: <Shield className="h-6 w-6" />,
+      title: "Secure & Trusted",
+      description: "Bank-level security with transparent terms. No hidden fees or surprises."
     },
     {
-      icon: Target,
-      title: "Your Limit Grows",
-      description: "The more you sell, the more you can borrow for your business",
-      color: "from-emerald-500 to-emerald-600",
-      bgColor: "from-emerald-50 to-emerald-100"
+      icon: <Users className="h-6 w-6" />,
+      title: "Local Support",
+      description: "Dedicated support team in Kinyarwanda and English. We're here to help you succeed."
     }
   ];
-  
+
   return (
-    <SectionWrapper id="benefits" className="py-24 lg:py-32 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
-      {/* Background decorations */}
-      <div className="absolute top-1/4 right-0 w-96 h-96 bg-nipay-green/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-yellow-400/5 rounded-full blur-3xl"></div>
-      
-      <div className="relative z-10 max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div className="text-center mb-20 lg:mb-24">
-          <div className="inline-flex items-center bg-nipay-green/10 text-nipay-green px-6 py-3 rounded-full text-sm font-semibold mb-6">
-            <Star className="w-4 h-4 mr-2" />
-            Why Choose NiPay
-          </div>
-          
-          {/* Logo and Title Integration */}
-          <div className="flex items-center justify-center mb-8">
-            <div className="bg-white rounded-2xl p-4 shadow-lg mr-4">
-              <span className="text-3xl font-bold text-nipay-green">NP</span>
+    <section id="benefits" className="py-16 md:py-20 bg-muted/30">
+      <div className="container mx-auto px-4">
+        <div className="max-w-6xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-12 md:mb-16">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <img 
+                src="/lovable-uploads/51946dc5-f2c8-440c-9c1b-7671876e207e.png" 
+                alt="NiPay Logo" 
+                className="h-10 w-10 object-contain"
+              />
+              <Badge variant="outline" className="bg-nipay-green/10 text-nipay-dark-green border-nipay-green/20">
+                <TrendingUp className="mr-1 h-3 w-3" />
+                SME Benefits
+              </Badge>
             </div>
-            <h2 className="text-4xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-tight">
-              Built specifically for 
-              <br />
-              <span className="bg-gradient-to-r from-nipay-green to-nipay-dark-green bg-clip-text text-transparent">
-                Rwandan SMEs
-              </span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+              Why SMEs Choose <span className="text-gradient">NiPay</span>
             </h2>
-          </div>
-          
-          <p className="text-xl lg:text-2xl max-w-3xl mx-auto leading-relaxed text-gray-600 font-medium">
-            Who hustle every day and deserve financial tools that work for them
-          </p>
-        </div>
-        
-        {/* Benefits Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6 mb-20 lg:mb-24">
-          {benefits.map((benefit, index) => {
-            const Icon = benefit.icon;
-            return (
-              <div key={index} className="group relative">
-                {/* Background gradient */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${benefit.bgColor} rounded-3xl transform group-hover:scale-105 transition-all duration-300 opacity-0 group-hover:opacity-100`}></div>
-                
-                {/* Card content */}
-                <div className="relative bg-white p-5 lg:p-6 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 group-hover:border-gray-200 h-full">
-                  <div className={`w-12 h-12 lg:w-14 lg:h-14 rounded-2xl bg-gradient-to-br ${benefit.color} flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                    <Icon className="w-6 h-6 lg:w-7 lg:h-7 text-white" />
-                  </div>
-                  <h3 className="text-lg lg:text-xl font-bold mb-3 text-gray-900 group-hover:text-nipay-green transition-colors">
-                    {benefit.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed text-base">
-                    {benefit.description}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-        
-        {/* CTA Section */}
-        <div className="text-center">
-          <div className="inline-block bg-white rounded-3xl p-10 lg:p-14 shadow-2xl border border-gray-100 max-w-2xl mx-auto">
-            <h3 className="text-3xl lg:text-4xl font-bold mb-6 text-gray-900">
-              Ready to transform your business?
-            </h3>
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              Join hundreds of SMEs already using NiPay to grow their businesses
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Join hundreds of Rwandan businesses already using mobile money credit to grow faster
             </p>
-            <Button 
-              onClick={() => navigate('/waitlist')}
-              className="bg-gradient-to-r from-nipay-green to-nipay-dark-green hover:from-nipay-dark-green hover:to-nipay-green text-xl lg:text-2xl px-12 lg:px-16 py-6 lg:py-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 rounded-2xl group"
-            >
-              Join the Waitlist
-              <ArrowRight className="ml-3 h-6 w-6 lg:h-7 lg:w-7 group-hover:translate-x-1 transition-transform" />
-            </Button>
+          </div>
+
+          {/* Benefits Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-12">
+            {benefits.map((benefit, index) => (
+              <Card key={index} className="card-hover border-green-100 bg-card/50 backdrop-blur-sm">
+                <CardHeader className="pb-3">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="h-10 w-10 rounded-lg bg-nipay-green/10 flex items-center justify-center text-nipay-green">
+                      {benefit.icon}
+                    </div>
+                    <CardTitle className="text-lg">{benefit.title}</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent className="pt-0">
+                  <CardDescription className="text-sm leading-relaxed">
+                    {benefit.description}
+                  </CardDescription>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* CTA Section */}
+          <div className="text-center">
+            <div className="bg-gradient-to-r from-nipay-green/10 to-nipay-dark-green/10 rounded-2xl p-6 md:p-8 border border-nipay-green/20">
+              <h3 className="text-xl md:text-2xl font-bold mb-3 text-foreground">
+                Ready to grow your business with mobile money credit?
+              </h3>
+              <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
+                Join the waitlist today and be among the first SMEs to access NiPay when we launch.
+              </p>
+              <Link to="/waitlist">
+                <Button 
+                  size="lg" 
+                  className="btn-gradient px-8 py-3 text-lg font-semibold rounded-xl"
+                >
+                  Join Waitlist Now
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
-    </SectionWrapper>
+    </section>
   );
 };
 
