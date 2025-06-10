@@ -1,59 +1,47 @@
-
 import SectionWrapper from '../shared/SectionWrapper';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Smartphone, FileText, Shield, Target, MapPin, Star } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-
 const SmeBenefitsSection = () => {
   const navigate = useNavigate();
-  
-  const benefits = [
-    {
-      icon: Smartphone,
-      title: "Works with Basic Phones",
-      description: "Use USSD codes or our simple app — no smartphone needed",
-      color: "from-green-500 to-green-600",
-      bgColor: "from-green-50 to-green-100"
-    },
-    {
-      icon: FileText,
-      title: "No Bank Account Needed",
-      description: "No paperwork, no collateral, no bank visits required",
-      color: "from-blue-500 to-blue-600",
-      bgColor: "from-blue-50 to-blue-100"
-    },
-    {
-      icon: ArrowRight,
-      title: "Borrow from Your Sales",
-      description: "Get small amounts when you need them, repay from daily transactions",
-      color: "from-yellow-500 to-yellow-600",
-      bgColor: "from-yellow-50 to-yellow-100"
-    },
-    {
-      icon: Shield,
-      title: "Free Business Tools",
-      description: "Track sales, stock, and invoices for free (6-month ERP access)",
-      color: "from-purple-500 to-purple-600",
-      bgColor: "from-purple-50 to-purple-100"
-    },
-    {
-      icon: MapPin,
-      title: "100% Built for Rwanda",
-      description: "Designed for how Rwandan SMEs actually do business",
-      color: "from-red-500 to-red-600",
-      bgColor: "from-red-50 to-red-100"
-    },
-    {
-      icon: Target,
-      title: "Your Limit Grows",
-      description: "The more you sell, the more you can borrow for your business",
-      color: "from-emerald-500 to-emerald-600",
-      bgColor: "from-emerald-50 to-emerald-100"
-    }
-  ];
-  
-  return (
-    <SectionWrapper id="benefits" className="py-24 lg:py-32 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+  const benefits = [{
+    icon: Smartphone,
+    title: "Works with Basic Phones",
+    description: "Use USSD codes or our simple app — no smartphone needed",
+    color: "from-green-500 to-green-600",
+    bgColor: "from-green-50 to-green-100"
+  }, {
+    icon: FileText,
+    title: "No Bank Account Needed",
+    description: "No paperwork, no collateral, no bank visits required",
+    color: "from-blue-500 to-blue-600",
+    bgColor: "from-blue-50 to-blue-100"
+  }, {
+    icon: ArrowRight,
+    title: "Borrow from Your Sales",
+    description: "Get small amounts when you need them, repay from daily transactions",
+    color: "from-yellow-500 to-yellow-600",
+    bgColor: "from-yellow-50 to-yellow-100"
+  }, {
+    icon: Shield,
+    title: "Free Business Tools",
+    description: "Track sales, stock, and invoices for free (6-month ERP access)",
+    color: "from-purple-500 to-purple-600",
+    bgColor: "from-purple-50 to-purple-100"
+  }, {
+    icon: MapPin,
+    title: "100% Built for Rwanda",
+    description: "Designed for how Rwandan SMEs actually do business",
+    color: "from-red-500 to-red-600",
+    bgColor: "from-red-50 to-red-100"
+  }, {
+    icon: Target,
+    title: "Your Limit Grows",
+    description: "The more you sell, the more you can borrow for your business",
+    color: "from-emerald-500 to-emerald-600",
+    bgColor: "from-emerald-50 to-emerald-100"
+  }];
+  return <SectionWrapper id="benefits" className="py-24 lg:py-32 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute top-1/4 right-0 w-96 h-96 bg-nipay-green/5 rounded-full blur-3xl"></div>
       <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-yellow-400/5 rounded-full blur-3xl"></div>
@@ -68,9 +56,7 @@ const SmeBenefitsSection = () => {
           
           {/* Logo and Title Integration */}
           <div className="flex items-center justify-center mb-8">
-            <div className="bg-white rounded-2xl p-4 shadow-lg mr-4">
-              <span className="text-3xl font-bold text-nipay-green">NP</span>
-            </div>
+            
             <h2 className="text-4xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-tight">
               Built specifically for 
               <br />
@@ -88,9 +74,8 @@ const SmeBenefitsSection = () => {
         {/* Benefits Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6 mb-20 lg:mb-24">
           {benefits.map((benefit, index) => {
-            const Icon = benefit.icon;
-            return (
-              <div key={index} className="group relative">
+          const Icon = benefit.icon;
+          return <div key={index} className="group relative">
                 {/* Background gradient */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${benefit.bgColor} rounded-3xl transform group-hover:scale-105 transition-all duration-300 opacity-0 group-hover:opacity-100`}></div>
                 
@@ -106,9 +91,8 @@ const SmeBenefitsSection = () => {
                     {benefit.description}
                   </p>
                 </div>
-              </div>
-            );
-          })}
+              </div>;
+        })}
         </div>
         
         {/* CTA Section */}
@@ -120,18 +104,13 @@ const SmeBenefitsSection = () => {
             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
               Join hundreds of SMEs already using NiPay to grow their businesses
             </p>
-            <Button 
-              onClick={() => navigate('/waitlist')}
-              className="bg-gradient-to-r from-nipay-green to-nipay-dark-green hover:from-nipay-dark-green hover:to-nipay-green text-xl lg:text-2xl px-12 lg:px-16 py-6 lg:py-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 rounded-2xl group"
-            >
+            <Button onClick={() => navigate('/waitlist')} className="bg-gradient-to-r from-nipay-green to-nipay-dark-green hover:from-nipay-dark-green hover:to-nipay-green text-xl lg:text-2xl px-12 lg:px-16 py-6 lg:py-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 rounded-2xl group">
               Join the Waitlist
               <ArrowRight className="ml-3 h-6 w-6 lg:h-7 lg:w-7 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>
         </div>
       </div>
-    </SectionWrapper>
-  );
+    </SectionWrapper>;
 };
-
 export default SmeBenefitsSection;
