@@ -1,7 +1,6 @@
-
 import SectionWrapper from '../shared/SectionWrapper';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Smartphone, FileText, Shield, Target, MapPin, Star } from 'lucide-react';
+import { ArrowRight, Smartphone, FileText, Shield, Target, MapPin, Star, Sparkles, Zap, TrendingUp } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const SmeBenefitsSection = () => {
@@ -108,22 +107,42 @@ const SmeBenefitsSection = () => {
           })}
         </div>
         
-        {/* CTA Section - Smaller and animated */}
+        {/* CTA Section - Smaller, vibrant and bouncy */}
         <div className="text-center">
-          <div className="inline-block bg-white rounded-2xl p-6 lg:p-8 shadow-xl border border-gray-100 max-w-lg mx-auto hover:scale-105 transition-all duration-300">
-            <h3 className="text-2xl lg:text-3xl font-bold mb-4 text-gray-900">
-              Ready to transform your business?
-            </h3>
-            <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-              Join hundreds of SMEs already using NiPay to grow their businesses
-            </p>
-            <Button 
-              onClick={() => navigate('/waitlist')} 
-              className="bg-gradient-to-r from-nipay-green to-nipay-dark-green hover:from-nipay-dark-green hover:to-nipay-green text-base lg:text-lg px-6 lg:px-8 py-2.5 lg:py-3 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 rounded-lg group"
-            >
-              Join the Waitlist
-              <ArrowRight className="ml-2 h-4 w-4 lg:h-5 lg:w-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
+          <div className="inline-block bg-gradient-to-br from-purple-500 via-pink-500 to-red-500 rounded-xl p-4 lg:p-5 shadow-2xl border-2 border-white/20 max-w-md mx-auto hover:scale-110 transition-all duration-500 transform hover:rotate-1 animate-pulse-slow relative overflow-hidden">
+            {/* Floating icons background */}
+            <div className="absolute inset-0 overflow-hidden">
+              <Sparkles className="absolute top-2 left-3 w-3 h-3 text-yellow-300 animate-pulse" />
+              <Zap className="absolute top-3 right-4 w-4 h-4 text-blue-300 animate-bounce" />
+              <TrendingUp className="absolute bottom-2 left-2 w-3 h-3 text-green-300 animate-pulse" />
+              <Star className="absolute bottom-3 right-3 w-3 h-3 text-yellow-200 animate-bounce" />
+            </div>
+            
+            <div className="relative z-10">
+              <div className="flex items-center justify-center mb-3">
+                <div className="flex space-x-1">
+                  <Star className="w-4 h-4 text-yellow-300 animate-bounce" style={{ animationDelay: '0ms' }} />
+                  <Star className="w-4 h-4 text-yellow-300 animate-bounce" style={{ animationDelay: '100ms' }} />
+                  <Star className="w-4 h-4 text-yellow-300 animate-bounce" style={{ animationDelay: '200ms' }} />
+                </div>
+              </div>
+              
+              <h3 className="text-lg lg:text-xl font-bold mb-2 text-white text-shadow">
+                Ready to transform your business?
+              </h3>
+              <p className="text-sm text-white/90 mb-4 leading-relaxed">
+                Join hundreds of SMEs already using NiPay
+              </p>
+              
+              <Button 
+                onClick={() => navigate('/waitlist')} 
+                className="bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-orange-500 hover:to-red-500 text-gray-900 text-sm lg:text-base px-4 lg:px-6 py-2 lg:py-2.5 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-110 rounded-lg group font-bold animate-bounce hover:animate-none border-2 border-white/30"
+              >
+                <Sparkles className="mr-1 h-3 w-3 lg:h-4 lg:w-4 group-hover:rotate-180 transition-transform duration-500" />
+                Join the Waitlist
+                <ArrowRight className="ml-1 h-3 w-3 lg:h-4 lg:w-4 group-hover:translate-x-2 transition-transform duration-300" />
+              </Button>
+            </div>
           </div>
         </div>
       </div>
