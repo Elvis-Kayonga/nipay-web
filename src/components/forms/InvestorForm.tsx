@@ -9,7 +9,6 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { toast } from 'sonner';
 import { Textarea } from '@/components/ui/textarea';
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 
 const formSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters' }),
@@ -93,13 +92,14 @@ const InvestorForm = ({ onSuccess }: InvestorFormProps) => {
   };
   
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
       <div className="space-y-2">
-        <Label htmlFor="name">Your Name</Label>
+        <Label htmlFor="name" className="text-sm font-medium text-gray-700">Your Name</Label>
         <Input 
           id="name" 
           placeholder="John Doe" 
           {...register('name')}
+          className="h-11 border-gray-200 focus:border-nipay-green focus:ring-nipay-green"
         />
         {errors.name && (
           <p className="text-destructive text-sm">{errors.name.message}</p>
@@ -107,46 +107,51 @@ const InvestorForm = ({ onSuccess }: InvestorFormProps) => {
       </div>
       
       <div className="space-y-3">
-        <Label>I am an</Label>
-        <RadioGroup
-          defaultValue="organization"
-          value={investorType}
-          onValueChange={(value) => {
-            if (value === 'individual' || value === 'organization') {
-              setValue('investorType', value as 'individual' | 'organization');
-            }
-          }}
-          className="flex flex-col space-y-1"
-        >
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem value="individual" id="individual" />
-            <Label htmlFor="individual" className="cursor-pointer">Individual Investor</Label>
-          </div>
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem value="organization" id="organization" />
-            <Label htmlFor="organization" className="cursor-pointer">Organization/Institution</Label>
-          </div>
-        </RadioGroup>
+        <Label className="text-sm font-medium text-gray-700">I am an</Label>
+        <div className="space-y-2">
+          <label className="flex items-center space-x-3 cursor-pointer group">
+            <input
+              type="radio"
+              value="individual"
+              checked={investorType === 'individual'}
+              onChange={(e) => setValue('investorType', e.target.value as 'individual' | 'organization')}
+              className="w-4 h-4 text-nipay-green border-gray-300 focus:ring-nipay-green focus:ring-2"
+            />
+            <span className="text-sm text-gray-700 group-hover:text-nipay-dark-green">Individual Investor</span>
+          </label>
+          <label className="flex items-center space-x-3 cursor-pointer group">
+            <input
+              type="radio"
+              value="organization"
+              checked={investorType === 'organization'}
+              onChange={(e) => setValue('investorType', e.target.value as 'individual' | 'organization')}
+              className="w-4 h-4 text-nipay-green border-gray-300 focus:ring-nipay-green focus:ring-2"
+            />
+            <span className="text-sm text-gray-700 group-hover:text-nipay-dark-green">Organization/Institution</span>
+          </label>
+        </div>
       </div>
       
       {investorType === 'organization' && (
         <div className="space-y-2">
-          <Label htmlFor="organizationName">Organization Name</Label>
+          <Label htmlFor="organizationName" className="text-sm font-medium text-gray-700">Organization Name</Label>
           <Input 
             id="organizationName" 
             placeholder="Acme Capital" 
             {...register('organizationName')}
+            className="h-11 border-gray-200 focus:border-nipay-green focus:ring-nipay-green"
           />
         </div>
       )}
       
       <div className="space-y-2">
-        <Label htmlFor="email">Email</Label>
+        <Label htmlFor="email" className="text-sm font-medium text-gray-700">Email</Label>
         <Input 
           id="email" 
           type="email" 
           placeholder="you@example.com" 
           {...register('email')}
+          className="h-11 border-gray-200 focus:border-nipay-green focus:ring-nipay-green"
         />
         {errors.email && (
           <p className="text-destructive text-sm">{errors.email.message}</p>
@@ -154,11 +159,11 @@ const InvestorForm = ({ onSuccess }: InvestorFormProps) => {
       </div>
       
       <div className="space-y-2">
-        <Label htmlFor="message">Interest</Label>
+        <Label htmlFor="message" className="text-sm font-medium text-gray-700">Interest</Label>
         <Textarea 
           id="message" 
           placeholder="Tell us about your interest in NiPay..." 
-          className="min-h-[100px]"
+          className="min-h-[100px] border-gray-200 focus:border-nipay-green focus:ring-nipay-green resize-none"
           {...register('message')}
         />
         {errors.message && (
@@ -168,7 +173,7 @@ const InvestorForm = ({ onSuccess }: InvestorFormProps) => {
       
       <Button 
         type="submit" 
-        className="w-full bg-nipay-green hover:bg-nipay-dark-green"
+        className="w-full h-12 bg-nipay-green hover:bg-nipay-dark-green text-white font-semibold text-base shadow-sm"
         disabled={isSubmitting}
       >
         {isSubmitting ? "Submitting..." : "Send Request"}
