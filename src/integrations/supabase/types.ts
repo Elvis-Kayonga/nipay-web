@@ -87,6 +87,36 @@ export type Database = {
         }
         Relationships: []
       }
+      submission_rate_limits: {
+        Row: {
+          created_at: string
+          email: string | null
+          id: string
+          ip_address: unknown
+          submission_count: number
+          submission_type: string
+          window_start: string
+        }
+        Insert: {
+          created_at?: string
+          email?: string | null
+          id?: string
+          ip_address: unknown
+          submission_count?: number
+          submission_type: string
+          window_start?: string
+        }
+        Update: {
+          created_at?: string
+          email?: string | null
+          id?: string
+          ip_address?: unknown
+          submission_count?: number
+          submission_type?: string
+          window_start?: string
+        }
+        Relationships: []
+      }
       waitlist_submissions: {
         Row: {
           business_earnings: string | null
@@ -137,7 +167,24 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      check_rate_limit: {
+        Args: {
+          check_ip: unknown
+          check_email?: string
+          check_type?: string
+          max_submissions?: number
+          window_minutes?: number
+        }
+        Returns: boolean
+      }
+      log_submission_attempt: {
+        Args: {
+          attempt_ip: unknown
+          attempt_email?: string
+          attempt_type?: string
+        }
+        Returns: undefined
+      }
     }
     Enums: {
       [_ in never]: never
