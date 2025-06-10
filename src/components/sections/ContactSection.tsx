@@ -1,7 +1,7 @@
 
 import SectionWrapper from '../shared/SectionWrapper';
 import { Button } from '@/components/ui/button';
-import { MessageCircle, Mail, Phone, MapPin } from 'lucide-react';
+import { MessageCircle, Mail, MapPin } from 'lucide-react';
 
 const ContactSection = () => {
   return (
@@ -55,14 +55,6 @@ const ContactSection = () => {
                   <div className="text-white/80">contact@nipay.rw</div>
                 </div>
               </a>
-              
-              <div className="flex items-center w-full bg-white/10 text-white p-4 lg:p-6 rounded-lg">
-                <Phone className="mr-4 h-6 w-6 lg:h-7 lg:w-7" />
-                <div className="text-left">
-                  <div className="font-semibold text-lg lg:text-xl">Call Us</div>
-                  <div className="text-white/80">+250 788 321 008</div>
-                </div>
-              </div>
               
               <div className="flex items-center w-full bg-white/10 text-white p-4 lg:p-6 rounded-lg">
                 <MapPin className="mr-4 h-6 w-6 lg:h-7 lg:w-7" />

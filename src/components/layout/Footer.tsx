@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
 const Footer = () => {
@@ -68,11 +69,6 @@ const Footer = () => {
                     sales@nipay.rw
                   </a>
                 </p>
-                <p>
-                  <a href="tel:+250788321008" className="hover:text-nipay-green transition-colors">
-                    +250 788 321 008
-                  </a>
-                </p>
               </address>
             </div>
           </div>
@@ -90,11 +86,6 @@ const Footer = () => {
                 <p className="mb-2">
                   <a href="mailto:sales@nipay.rw" className="hover:text-nipay-green transition-colors">
                     sales@nipay.rw
-                  </a>
-                </p>
-                <p>
-                  <a href="tel:+250788321008" className="hover:text-nipay-green transition-colors">
-                    +250 788 321 008
                   </a>
                 </p>
               </address>

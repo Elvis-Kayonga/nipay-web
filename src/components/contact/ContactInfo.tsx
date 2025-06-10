@@ -1,6 +1,6 @@
 
 import { Card, CardContent } from "@/components/ui/card";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 
 const ContactInfo = () => {
   return (
@@ -42,22 +42,6 @@ const ContactInfo = () => {
               <p className="text-muted-foreground text-sm">
                 <a href="mailto:sales@nipay.rw" className="hover:text-nipay-green transition-colors">
                   sales@nipay.rw
-                </a>
-              </p>
-            </div>
-          </CardContent>
-        </Card>
-        
-        <Card>
-          <CardContent className="p-5 flex items-start gap-4">
-            <div className="bg-accent p-3 rounded-full">
-              <Phone className="h-5 w-5 text-nipay-green" />
-            </div>
-            <div>
-              <h3 className="font-bold text-base mb-1">Call Us</h3>
-              <p className="text-muted-foreground text-sm">
-                <a href="tel:+250788321008" className="hover:text-nipay-green transition-colors">
-                  +250 788 321 008
                 </a>
               </p>
             </div>

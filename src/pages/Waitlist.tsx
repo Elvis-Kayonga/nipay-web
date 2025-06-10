@@ -171,7 +171,7 @@ const Waitlist = () => {
                 className="flex items-center gap-2"
               >
                 <MessageCircle className="h-4 w-4" />
-                WhatsApp: +250 788 321 008
+                WhatsApp Us
               </Button>
               <Button 
                 variant="outline" 
