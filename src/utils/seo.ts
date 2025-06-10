@@ -8,8 +8,8 @@ export const generateOrganizationSchema = () => {
     "@context": "https://schema.org",
     "@type": ["FinancialService", "TechStartup", "Organization"],
     "name": "NiPay",
-    "alternateName": ["NiPay Rwanda", "NiPay Fintech"],
-    "description": "Rwanda's #1 fintech startup providing instant mobile money loans to SMEs. Leading the digital financial revolution in Rwanda with innovative mobile money lending solutions.",
+    "alternateName": ["NiPay Rwanda", "NiPay Africa", "NiPay Fintech", "NiPay East Africa"],
+    "description": "Africa's #1 fintech startup providing instant mobile money loans to SMEs across Rwanda and East Africa. Leading the digital financial revolution in Africa with innovative mobile money lending solutions, SME grants, and business funding.",
     "url": "https://nipay.rw",
     "logo": "https://nipay.rw/logo.png",
     "foundingDate": "2023",
@@ -19,37 +19,64 @@ export const generateOrganizationSchema = () => {
         "name": "NiPay Founders"
       }
     ],
-    "industry": "Financial Technology",
+    "industry": "Financial Technology Africa",
     "numberOfEmployees": "1-10",
     "knowsAbout": [
-      "Mobile Money Lending",
-      "SME Finance",
+      "Mobile Money Lending Africa",
+      "SME Finance Africa",
       "Fintech Rwanda",
-      "Digital Banking",
-      "Financial Inclusion",
-      "Startup Innovation"
+      "Fintech Africa",
+      "Digital Banking Africa",
+      "Financial Inclusion Africa",
+      "Startup Innovation Africa",
+      "East Africa Startups",
+      "SME Grants Rwanda",
+      "Business Funding Africa",
+      "Funds for SMEs Africa",
+      "Grants for Small Companies"
     ],
-    "areaServed": {
-      "@type": "Country",
-      "name": "Rwanda",
-      "alternateName": "Republic of Rwanda"
-    },
-    "serviceType": ["Mobile Money Loans", "SME Finance", "Digital Lending"],
+    "areaServed": [
+      {
+        "@type": "Country",
+        "name": "Rwanda",
+        "alternateName": "Republic of Rwanda"
+      },
+      {
+        "@type": "Place",
+        "name": "East Africa",
+        "containsPlace": ["Rwanda", "Kenya", "Uganda", "Tanzania"]
+      },
+      {
+        "@type": "Continent",
+        "name": "Africa"
+      }
+    ],
+    "serviceType": ["Mobile Money Loans Africa", "SME Finance Africa", "Digital Lending Africa", "SME Grants", "Business Funding"],
     "award": [
-      "Leading Fintech Startup Rwanda 2024",
-      "Best Mobile Money Innovation Rwanda",
-      "Top SME Finance Solution Rwanda"
+      "Leading Fintech Startup Africa 2024",
+      "Best Mobile Money Innovation Africa",
+      "Top SME Finance Solution Africa",
+      "Best Startup Rwanda 2024",
+      "Top East Africa Fintech 2024"
     ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "SME Credit Services",
+      "name": "SME Credit and Grant Services Africa",
       "itemListElement": [
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "LoanOrCredit",
-            "name": "Mobile Money Business Loans",
-            "description": "Instant business loans based on mobile money transaction history"
+            "name": "Mobile Money Business Loans Africa",
+            "description": "Instant business loans based on mobile money transaction history across Africa"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Grant",
+            "name": "SME Grants Rwanda",
+            "description": "Business grants and funding for small and medium enterprises in Rwanda"
           }
         }
       ]
@@ -67,14 +94,14 @@ export const generateOrganizationSchema = () => {
         "telephone": "+250788321008",
         "email": "contact@nipay.rw",
         "contactType": "customer service",
-        "areaServed": "Rwanda",
-        "availableLanguage": ["English", "Kinyarwanda", "French"]
+        "areaServed": ["Rwanda", "East Africa", "Africa"],
+        "availableLanguage": ["English", "Kinyarwanda", "French", "Swahili"]
       },
       {
         "@type": "ContactPoint",
         "email": "investors@nipay.rw",
         "contactType": "investor relations",
-        "areaServed": "Rwanda"
+        "areaServed": ["Rwanda", "East Africa", "Africa"]
       }
     ],
     "sameAs": [
@@ -84,7 +111,7 @@ export const generateOrganizationSchema = () => {
     ],
     "parentOrganization": {
       "@type": "Organization",
-      "name": "Rwanda Fintech Ecosystem"
+      "name": "Africa Fintech Ecosystem"
     },
     "memberOf": [
       {
@@ -94,6 +121,10 @@ export const generateOrganizationSchema = () => {
       {
         "@type": "Organization", 
         "name": "East Africa Startup Network"
+      },
+      {
+        "@type": "Organization",
+        "name": "Africa Fintech Network"
       }
     ]
   };
@@ -103,23 +134,31 @@ export const generateServiceSchema = () => {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
-    "serviceType": "Mobile Money Credit Service",
+    "serviceType": "Mobile Money Credit Service Africa",
     "provider": {
       "@type": "Organization",
       "name": "NiPay",
-      "description": "Rwanda's leading fintech startup"
+      "description": "Africa's leading fintech startup"
     },
-    "name": "NiPay Mobile Money Loans",
-    "description": "Rwanda's most innovative mobile money lending platform. Instant access to working capital for small businesses based on MTN and Airtel money transaction history. No collateral required.",
-    "category": "Financial Technology",
+    "name": "NiPay Mobile Money Loans Africa",
+    "description": "Africa's most innovative mobile money lending platform. Instant access to working capital for small businesses across Rwanda and East Africa based on MTN and Airtel money transaction history. SME grants and funding solutions. No collateral required.",
+    "category": "Financial Technology Africa",
     "audience": {
       "@type": "BusinessAudience",
-      "audienceType": "Small and Medium Enterprises"
+      "audienceType": "Small and Medium Enterprises Africa"
     },
     "areaServed": [
       {
         "@type": "Country",
         "name": "Rwanda"
+      },
+      {
+        "@type": "Place",
+        "name": "East Africa"
+      },
+      {
+        "@type": "Continent",
+        "name": "Africa"
       },
       {
         "@type": "City",
@@ -131,28 +170,36 @@ export const generateServiceSchema = () => {
       "availability": "https://schema.org/InStock",
       "price": "0",
       "priceCurrency": "RWF",
-      "areaServed": "Rwanda",
+      "areaServed": ["Rwanda", "East Africa", "Africa"],
       "validFrom": "2023-01-01",
-      "eligibleRegion": "Rwanda"
+      "eligibleRegion": ["Rwanda", "East Africa"]
     },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "Business Loan Options",
+      "name": "Business Loan and Grant Options Africa",
       "itemListElement": [
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "LoanOrCredit",
-            "name": "MTN Mobile Money Business Loans",
-            "description": "Instant loans based on MTN Mobile Money transaction history"
+            "name": "MTN Mobile Money Business Loans Africa",
+            "description": "Instant loans based on MTN Mobile Money transaction history across Africa"
           }
         },
         {
           "@type": "Offer", 
           "itemOffered": {
             "@type": "LoanOrCredit",
-            "name": "Airtel Money Business Loans",
-            "description": "Quick loans based on Airtel Money transaction history"
+            "name": "Airtel Money Business Loans Africa",
+            "description": "Quick loans based on Airtel Money transaction history across Africa"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Grant",
+            "name": "SME Grants Rwanda",
+            "description": "Business grants and funding for small companies in Rwanda"
           }
         }
       ]
@@ -167,9 +214,9 @@ export const generateServiceSchema = () => {
         },
         "author": {
           "@type": "Organization",
-          "name": "Rwanda SME Association"
+          "name": "Africa SME Association"
         },
-        "reviewBody": "NiPay is revolutionizing SME finance in Rwanda with their innovative mobile money lending platform."
+        "reviewBody": "NiPay is revolutionizing SME finance across Africa with their innovative mobile money lending platform and grant solutions."
       }
     ]
   };
@@ -180,36 +227,44 @@ export const generateStartupSchema = () => {
     "@context": "https://schema.org",
     "@type": "TechStartup",
     "name": "NiPay",
-    "description": "Rwanda's top fintech startup transforming SME finance through mobile money lending. The best investment opportunity in Rwanda's growing fintech sector.",
+    "description": "Africa's top fintech startup transforming SME finance through mobile money lending across Rwanda and East Africa. The best investment opportunity in Africa's growing fintech sector with SME grants and funding solutions.",
     "foundingDate": "2023",
-    "industry": "Financial Technology",
+    "industry": "Financial Technology Africa",
     "location": {
       "@type": "Place",
-      "name": "Kigali, Rwanda",
+      "name": "Kigali, Rwanda, East Africa",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Kigali",
+        "addressRegion": "East Africa",
         "addressCountry": "Rwanda"
       }
     },
-    "stage": "Early Stage",
-    "sector": "Fintech",
+    "stage": "Early Stage Africa",
+    "sector": "Fintech Africa",
     "funding": {
       "@type": "MonetaryAmount",
       "currency": "USD",
-      "value": "Seed Stage"
+      "value": "Seed Stage Africa"
     },
     "investmentOpportunity": {
       "@type": "InvestmentOrDeposit",
-      "name": "NiPay Investment Opportunity",
-      "description": "Invest in Rwanda's leading mobile money lending platform. High growth potential in underserved SME finance market."
+      "name": "NiPay Investment Opportunity Africa",
+      "description": "Invest in Africa's leading mobile money lending platform. High growth potential in underserved SME finance market across East Africa."
     },
     "keywords": [
       "fintech startup Rwanda",
+      "fintech startup Africa",
       "best startups Rwanda",
-      "investment opportunities Rwanda",
-      "mobile money Rwanda",
-      "SME finance Rwanda"
+      "best startups Africa",
+      "startups Africa",
+      "East Africa startups",
+      "investment opportunities Africa",
+      "mobile money Africa",
+      "SME finance Africa",
+      "funds for SME Rwanda",
+      "grants for SMEs Africa",
+      "small business grants Africa"
     ]
   };
 };
@@ -246,14 +301,14 @@ export const generateLocalBusinessSchema = () => {
   return {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "NiPay Rwanda",
+    "name": "NiPay Rwanda Africa",
     "image": "https://nipay.rw/logo.png",
-    "description": "Rwanda's premier fintech startup providing mobile money loans to SMEs. The best place to invest in Rwanda's growing financial technology sector.",
+    "description": "Africa's premier fintech startup providing mobile money loans to SMEs across Rwanda and East Africa. The best place to invest in Africa's growing financial technology sector with SME grants and funding solutions.",
     "address": {
       "@type": "PostalAddress", 
       "streetAddress": "Norrsken Rwanda",
       "addressLocality": "Kigali",
-      "addressRegion": "Kigali Province",
+      "addressRegion": "East Africa",
       "postalCode": "00000",
       "addressCountry": "Rwanda"
     },
@@ -268,6 +323,20 @@ export const generateLocalBusinessSchema = () => {
     "priceRange": "$$",
     "openingHours": "Mo-Fr 08:00-18:00",
     "paymentAccepted": "Cash, Mobile Money, Bank Transfer",
-    "currenciesAccepted": "RWF, USD"
+    "currenciesAccepted": "RWF, USD, KES, UGX, TZS",
+    "areaServed": [
+      {
+        "@type": "Country",
+        "name": "Rwanda"
+      },
+      {
+        "@type": "Place", 
+        "name": "East Africa"
+      },
+      {
+        "@type": "Continent",
+        "name": "Africa"
+      }
+    ]
   };
 };

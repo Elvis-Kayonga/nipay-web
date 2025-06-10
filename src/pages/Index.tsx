@@ -1,3 +1,4 @@
+
 import SEO from "@/components/SEO";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -19,17 +20,22 @@ const Index = () => {
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: "Home", url: "https://nipay.rw/" },
     { name: "Fintech Rwanda", url: "https://nipay.rw/#solution" },
-    { name: "Mobile Money Loans", url: "https://nipay.rw/#solution" },
+    { name: "Fintech Africa", url: "https://nipay.rw/#solution" },
+    { name: "Startups Africa", url: "https://nipay.rw/#solution" },
+    { name: "East Africa Startups", url: "https://nipay.rw/#solution" },
+    { name: "Mobile Money Africa", url: "https://nipay.rw/#solution" },
     { name: "SME Finance Rwanda", url: "https://nipay.rw/#benefits" },
-    { name: "Investment Opportunities", url: "https://nipay.rw/investors" }
+    { name: "SME Finance Africa", url: "https://nipay.rw/#benefits" },
+    { name: "Grants for SMEs Rwanda", url: "https://nipay.rw/#benefits" },
+    { name: "Investment Opportunities Africa", url: "https://nipay.rw/investors" }
   ]);
   
   return (
     <>
       <SEO 
-        title="NiPay | #1 Fintech Startup Rwanda - Best Investment Opportunity | Mobile Money Loans SME Finance"
-        description="NiPay is Rwanda's leading fintech startup revolutionizing SME finance through mobile money lending. Top investment opportunity in Rwanda's fastest-growing startup ecosystem. Instant business loans from MTN/Airtel money sales - no collateral needed. Join 400+ SMEs already growing with Rwanda's best fintech innovation."
-        keywords="NiPay Rwanda, fintech startup Rwanda, best startups Rwanda, startups to invest in Rwanda, places to invest Rwanda, mobile money Rwanda, SME finance Rwanda, fintech investment Rwanda, Rwanda startup ecosystem, best fintech Rwanda, mobile money loans Rwanda, MTN money loans, Airtel money credit, digital banking Rwanda, financial technology Rwanda, startup funding Rwanda, venture capital Rwanda, angel investment Rwanda, business loans Rwanda, microfinance Rwanda, financial inclusion Rwanda, innovation Rwanda, tech startups Rwanda, emerging markets fintech, East Africa fintech, Kigali startups, Rwanda investment opportunities, best ROI startups Rwanda, high growth startups Rwanda, Series A startups Rwanda, seed funding Rwanda, unicorn potential Rwanda"
+        title="NiPay | #1 Fintech Startup Africa Rwanda - Best Investment Startups Africa | SME Finance Grants"
+        description="NiPay is Africa's leading fintech startup revolutionizing SME finance across Rwanda and East Africa. Top investment opportunity among African startups. Instant mobile money loans, SME grants, and business funding for small companies in Rwanda. Join 400+ SMEs already growing with Africa's best fintech innovation and startup ecosystem."
+        keywords="NiPay Rwanda, NiPay Africa, fintech startup Rwanda, fintech startup Africa, best startups Rwanda, best startups Africa, startups Africa, startups East Africa, East Africa startups, Kenya startups, Uganda startups, Tanzania startups, startups to invest in Rwanda, startups to invest in Africa, places to invest Rwanda, places to invest Africa, mobile money Rwanda, mobile money Africa, SME finance Rwanda, SME finance Africa, fintech investment Africa, Rwanda startup ecosystem, Africa startup ecosystem, best fintech Africa, mobile money loans Africa, MTN money loans, Airtel money credit, digital banking Africa, financial technology Africa, startup funding Africa, venture capital Africa, angel investment Africa, business loans Africa, microfinance Africa, financial inclusion Africa, innovation Africa, tech startups Africa, emerging markets fintech, East Africa fintech, Kigali startups, Rwanda investment opportunities, Africa investment opportunities, best ROI startups Africa, high growth startups Africa, Series A startups Africa, seed funding Africa, unicorn potential Africa, funds for SME Rwanda, funds for SME Africa, grants for SMEs Rwanda, grants for SMEs Africa, grants for small companies Rwanda, grants for small companies Africa, small business grants Africa, SME funding Africa, SME loans Africa, business grants Rwanda, startup grants Africa, government grants SME Rwanda, donor funding SME Africa, development finance Africa"
         canonicalUrl="/"
         ogImage="/placeholder.svg"
         structuredData={{
@@ -43,7 +49,7 @@ const Index = () => {
         }}
         robots="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
         revisitAfter="1 day"
-        author="NiPay Rwanda - Leading Fintech Startup"
+        author="NiPay Rwanda - Leading Fintech Startup Africa"
       />
       
       <Header />
@@ -58,7 +64,6 @@ const Index = () => {
           <SmeBenefitsSection />
         </div>
         <div id="how-it-works">
-          {/* This will be handled by HowItWorksSection when user navigates */}
           <SolutionSection />
         </div>
         <div id="testimonials">
