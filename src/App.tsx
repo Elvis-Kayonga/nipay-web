@@ -1,4 +1,27 @@
 
+/**
+ * NiPay Application Root Component
+ * 
+ * This is the main application entry point for NiPay, Rwanda's #1 mobile money loan platform.
+ * The app provides instant business loans to SMEs based on their mobile money sales data.
+ * 
+ * Architecture Overview:
+ * - React Router for client-side routing (/, /investors, /waitlist, /contact)
+ * - React Query for server state management and data fetching
+ * - Supabase for backend services (database, auth, edge functions)
+ * - Lazy loading for performance optimization
+ * - Google Analytics for user behavior tracking
+ * - Error boundaries for graceful error handling
+ * - Toast notifications for user feedback
+ * - Offline detection for mobile-first users
+ * 
+ * Business Context:
+ * - Target users: Small and Medium Enterprises (SMEs) in Rwanda
+ * - Core value proposition: Instant loans from mobile money sales
+ * - Secondary users: Investors interested in fintech opportunities
+ * - Market: African mobile-first economy (85% of transactions via USSD)
+ */
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -9,13 +32,18 @@ import { useEffect, useState, lazy, Suspense } from "react";
 import NotFound from "./pages/NotFound";
 import NiPayLoading from "@/components/ui/loading";
 
-// Lazy load pages to improve initial load time
+// Lazy load pages to improve initial load time for mobile users in Rwanda
+// This is crucial for users on slower internet connections
 const Index = lazy(() => import("./pages/Index"));
 const Investors = lazy(() => import("./pages/Investors"));
 const Waitlist = lazy(() => import("./pages/Waitlist"));
 const Contact = lazy(() => import("./pages/Contact"));
 
-// Google Analytics tracking function with actual GA ID
+/**
+ * Google Analytics tracking function
+ * Tracks user journeys through the NiPay funnel for conversion optimization
+ * Essential for understanding SME user behavior and improving loan application flow
+ */
 const trackPageView = (path: string) => {
   try {
     if (typeof window.gtag !== 'undefined') {
@@ -28,7 +56,11 @@ const trackPageView = (path: string) => {
   }
 };
 
-// Network status monitoring component
+/**
+ * Network Status Monitor Component
+ * Critical for mobile money users who may have intermittent connectivity
+ * Provides user feedback when offline to prevent form submission errors
+ */
 const ConnectionStatus = () => {
   const [isOnline, setIsOnline] = useState(navigator.onLine);
   
@@ -54,7 +86,11 @@ const ConnectionStatus = () => {
   );
 };
 
-// Analytics tracker
+/**
+ * Route Analytics Tracker
+ * Automatically tracks page views for funnel analysis
+ * Helps understand user journey from landing page to loan application
+ */
 const RouteTracker = () => {
   const location = useLocation();
   
@@ -65,17 +101,26 @@ const RouteTracker = () => {
   return null;
 };
 
-// Create a query client with retry logic
+/**
+ * React Query Client Configuration
+ * Optimized for mobile connections with intelligent retry logic
+ * Handles API failures gracefully for better UX in Rwanda's network conditions
+ */
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      retry: 3,
+      retry: 3, // Retry failed requests (important for mobile networks)
       retryDelay: attemptIndex => Math.min(1000 * 2 ** attemptIndex, 30000),
-      staleTime: 5 * 60 * 1000, // 5 minutes
+      staleTime: 5 * 60 * 1000, // Cache data for 5 minutes to reduce API calls
     },
   },
 });
 
+/**
+ * Main App Component
+ * Wraps the entire application with necessary providers and error boundaries
+ * Sets up the foundation for NiPay's fintech services
+ */
 const App = () => (
   <HelmetProvider>
     <QueryClientProvider client={queryClient}>
@@ -87,11 +132,15 @@ const App = () => (
           <RouteTracker />
           <Suspense fallback={<NiPayLoading />}>
             <Routes>
+              {/* Main landing page - showcases NiPay's value proposition */}
               <Route path="/" element={<Index />} />
+              {/* Investor relations page - for fundraising and partnerships */}
               <Route path="/investors" element={<Investors />} />
+              {/* SME onboarding page - core business conversion funnel */}
               <Route path="/waitlist" element={<Waitlist />} />
+              {/* Contact page - support and sales inquiries */}
               <Route path="/contact" element={<Contact />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              {/* 404 handler - maintains professional appearance */}
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
